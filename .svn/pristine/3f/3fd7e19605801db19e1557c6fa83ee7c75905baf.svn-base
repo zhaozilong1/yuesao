@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="viewport" content="width=720">
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/zhishi-yuefu.css"/>
+
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <!--<a href="index.html" class="back fl"></a>-->
+        战略合作伙伴
+    </header>
+    <div class="banner">
+
+    </div>
+
+    <div class="tab_box">
+        <div class="tab_top">
+            <ul id="listType">
+              <li>上医悦嫂战略合作伙伴</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="list" id="knowLists">
+        <div class="combo">
+
+            <div class="combo_bottom clearfix">
+                <div class="pic_01 fl">
+                    <a id="photo"></a>
+                </div>
+                <div class="right">
+                    <p class="top clearfix">
+                       沈氏女科介绍
+                    </p>
+                    <p class="jieshao">沈氏女科全称“上海大场枸橘篱沈氏女科”，始于明太祖朱元璋洪武年间（约公元1368年）</p>
+                </div>
+            </div>
+        </div>
+        <div class="combo">
+
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a id=""></a>
+                </div>
+                <div class="right zhuanjia">
+                    <p class="top clearfix">
+                        沈氏女科专家信息
+                    </p>
+                    <p class="jieshao">沈氏女科学术流派第二十代传人沈宁最新出诊信息,专家介绍：沈氏女科二十代传人——韩学杰</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" value="zhishi" id="page"/>
+
+    <!-- 底部-->
+
+    <footer id="footer">
+
+    </footer>
+
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/mobile-util.js"></script>
+<script src="./js/base.js"></script>
+<script>
+
+    $(".right").click(function(){
+        window.location.href = "https://mp.weixin.qq.com/s?__biz=MzUyNjU1OTU4MA==&mid=2247484388&idx=1&sn=68562101c1a1d66ef6f4b6a9c7841a28&chksm=fa0db3d7cd7a3ac1dda75053e19ad4a40546c8ee200d3252b1caafb06c4a29f20b34155f9fb9&scene=18#rd"
+    })
+    $(".zhuanjia").click(function(){
+        window.location.href = "https://mp.weixin.qq.com/mp/homepage?__biz=MzUyNjU1OTU4MA==&hid=1&sn=f678321f1455e9e51f4a2597708ce763&scene=18#wechat_redirect"
+    })
+</script>
+</html>

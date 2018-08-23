@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/three_save.css">
+    <link rel="stylesheet" href="css/threeSave.css"/>
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="css/zoomify.min.css"/>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/icon.png" onclick="warps()"/>
+        <h2 id="mingcheng">体重腹围记录</h2>
+        <span></span>
+    </div>
+</div>
+<div class="data">
+    <p id="timeour"></p>
+</div>
+
+<div class="tab">
+
+</div>
+
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script src="js/mobile-util.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/zoomify.min.js"></script>
+<script>
+    function warps() {
+        window.location.href="three.html"
+    }
+
+    var imgtotal="";
+   $(function () {
+       var url=location.search;
+       var Request = new Object();
+       if(url.indexOf("?")!=-1) {
+           var str = url.substr(1)　//去掉?号
+           strs = str.split("&");
+           for(var i=0;i<strs.length;i++) {
+               Request[strs[i ].split("=")[0]]=unescape(strs[ i].split("=")[1]);
+               　　}
+            }
+       console.log(Request["id"]);
+       if(Request["id"]==1){
+           $("#mingcheng").text("体重腹围")
+       }else if(Request["id"]==2){
+           $("#mingcheng").text("药品营养剂")
+       }else if(Request["id"]==3){
+           $("#mingcheng").text("胎动计数")
+       }else if(Request["id"]==4){
+           $("#mingcheng").text("产检");
+       }
+       $("#timeour").text(Request["recordTime"]);
+       console.log(Request["recordTime"])
+       var sessionId=sessionStorage['sessionId'];
+       $.post(baseURL+"yuesao/record/appResult",{sessionid:sessionId,recordTime:Request["recordTime"],recordId:Request["id"]},function (r) {
+          console.log(r)
+           if(r.code=="USR103"){
+           }else if(r.code=="USR100"){
+           }else if(r.code=="USER001 "){
+           }else if(r.code=="USR000") {
+               if (Request["id"] == 4) {
+                   $('.tab').empty();
+                   var dataresultlist=r.data.testList;
+                   console.log(dataresultlist);
+                   for(var i=0;i<dataresultlist.length;i++){
+                       var desc = dataresultlist[i].describesImg;
+                       var html='';
+                 html+=  '<div class="tab-box"> ';
+                 html+= '<div class="tab_cen">';
+                 html+= ' <div class="tab_demo">' ;
+                 html+= ' <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime">'+dataresultlist[i].recordTime.substr(11,19)+'</span></h3>';
+                 html+= ' <ul class="tab_cen_ul"> <li class="tzfu_01">';
+                 html+= '<span style="display: none" id="sty">体重：</span>';
+                 html+= '<span id="tzfu_weight"></span></li> <li class="tzfu_01">' ;
+                 html+= '<span style="display: none" id="sty1">腰围：</span><span id="tzfu_bust">' ;
+                 html+= '</span></li> <li class="tzfu_01"><span id="miaoshustyle">描述：'+dataresultlist[i].describes+'  </span>' ;
+                 html+= '<span id="miaoshu"></span></li> </ul> ' ;
+                        if (dataresultlist[i].testResult == null) {
+                            html+= '<h4><img src="images/red.png" alt="">测评结果：医生还没有评测，请稍后查看<span id="tzfu_testResult"></span></h4> ';
+                        } else {
+                            html+= '<h4><img src="images/red.png" alt="">测评结果：'+dataresultlist[i].testResult+'<span id="tzfu_testResult"></span></h4>' ;
+                        }
+                       html+=  ' </div>' ;
+                       html+='<div class="button"><p id="'+dataresultlist[i].id+'"></p>  </div>'
+                       html+= ' </div>' ;
+                       html+=  ' </div>';
+                       $(".tab").append(html);
+                        if(desc!=null){
+                       var img=desc.split(";");
+                       for(var j=0;j<img.length-1;j++){
+                          imgtotal='<img src="' +baseURL2+ img[j]+  '">';
+                           $("#"+dataresultlist[i].id).append(imgtotal);
+                       }
+                            $("p img").zoomify();
+                        }
+
+                   }
+
+               };
+
+               if (Request["id"] == 3) {
+
+                   $('.tab').empty();
+                   var dataresultlist=r.data.testList;
+                   console.log(dataresultlist);
+                   for(var i=0;i<dataresultlist.length;i++){
+                       var desc = dataresultlist[i].describesImg;
+                       var html='';
+                       html+=  '<div class="tab-box"> ';
+                       html+= '<div class="tab_cen">';
+                       html+= ' <div class="tab_demo">' ;
+                       html+= ' <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime">'+dataresultlist[i].recordTime+'</span></h3>';
+                       html+= ' <ul class="tab_cen_ul"> <li class="tzfu_01">';
+                       html+= '<span  id="sty">胎动：在'+dataresultlist[i].chronograph+"秒内，宝宝动了"+dataresultlist[i].times+"次！！！"+'</span>';
+                       html+= '<span id="tzfu_weight"></span></li> <li class="tzfu_01">' ;
+                       html+= '<span id="miaoshu"></span></li> </ul> ' ;
+                       if (dataresultlist[i].testResult == null) {
+                           html+= '<h4><img src="images/red.png" alt="">测评结果：医生还没有评测，请稍后查看<span id="tzfu_testResult"></span></h4> ';
+                       } else {
+                           html+= '<h4><img src="images/red.png" alt="">测评结果：'+dataresultlist[i].testResult+'<span id="tzfu_testResult"></span></h4>' ;
+                       }
+                       html+=  ' </div>' ;
+                       html+='<div class="button"><p id="'+dataresultlist[i].id+'"></p>  </div>'
+                       html+= ' </div>' ;
+                       html+=  ' </div>';
+                       $(".tab").append(html);
+
+                   }
+
+               }
+
+
+
+               if (Request["id"] == 2) {
+                   $('.tab').empty();
+                   var dataresultlist=r.data.testList;
+                   console.log(dataresultlist);
+                   for(var i=0;i<dataresultlist.length;i++){
+                       var desc = dataresultlist[i].describesImg;
+                       var html='';
+                       html+=  '<div class="tab-box"> ';
+                       html+= '<div class="tab_cen">';
+                       html+= ' <div class="tab_demo">' ;
+                       html+= ' <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime">'+dataresultlist[i].recordTime.substr(11,19)+'</span></h3>';
+                       html+= ' <ul class="tab_cen_ul"> <li class="tzfu_01">';
+                       html+= '<span id="sty">药品：'+dataresultlist[i].drug+'</span>';
+                       html+= '<span id="tzfu_weight"></span></li> <li class="tzfu_01">' ;
+
+                       html+= '</span></li> <li class="tzfu_01"><span id="miaoshustyle">描述：'+dataresultlist[i].describes+'  </span>' ;
+                       html+= '<span id="miaoshu"></span></li> </ul> ' ;
+                       if (dataresultlist[i].testResult == null) {
+                           html+= '<h4><img src="images/red.png" alt="">测评结果：医生还没有评测，请稍后查看<span id="tzfu_testResult"></span></h4> ';
+                       } else {
+                           html+= '<h4><img src="images/red.png" alt="">测评结果：'+dataresultlist[i].testResult+'<span id="tzfu_testResult"></span></h4>' ;
+                       }
+                       html+=  ' </div>' ;
+                       html+='<div class="button"><p id="'+dataresultlist[i].id+'"></p>  </div>'
+                       html+= ' </div>' ;
+                       html+=  ' </div>';
+                       $(".tab").append(html);
+                       if(desc!=null){
+                           var img=desc.split(";");
+                           for(var j=0;j<img.length-1;j++){
+                               imgtotal='<img src="' +baseURL2+ img[j]+  '">';
+                               $("#"+dataresultlist[i].id).append(imgtotal);
+                           }
+                           $("p img").zoomify();
+                       }
+                   }
+
+               }
+
+
+               if (Request["id"] == 1) {
+                   $('.tab').empty();
+                   var dataresultlist=r.data.testList;
+                   console.log(dataresultlist);
+                   for(var i=0;i<dataresultlist.length;i++){
+                       var desc = dataresultlist[i].describesImg;
+                       var html='';
+                       html+=  '<div class="tab-box"> ';
+                       html+= '<div class="tab_cen">';
+                       html+= ' <div class="tab_demo">' ;
+                       html+= ' <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime">'+dataresultlist[i].recordTime.substr(11,19)+'</span></h3>';
+                       html+= ' <ul class="tab_cen_ul"> <li class="tzfu_01">';
+                       html+= '<span  id="sty">体重：'+dataresultlist[i].weight+'</span>';
+                       html+= '<span id="tzfu_weight"></span></li> <li class="tzfu_01">' ;
+                       html+= '<span  id="sty1">腰围：'+dataresultlist[i].bust+'</span><span id="tzfu_bust">' ;
+                       html+= '</span></li> <li class="tzfu_01"><span id="miaoshustyle">描述：'+dataresultlist[i].describes+'  </span>' ;
+                       html+= '<span id="miaoshu"></span></li> </ul> ' ;
+                       if (dataresultlist[i].testResult == null) {
+                           html+= '<h4><img src="images/red.png" alt="">测评结果：医生还没有评测，请稍后查看<span id="tzfu_testResult"></span></h4> ';
+                       } else {
+                           html+= '<h4><img src="images/red.png" alt="">测评结果：'+dataresultlist[i].testResult+'<span id="tzfu_testResult"></span></h4>' ;
+                       }
+                       html+=  ' </div>' ;
+                       html+='<div class="button"><p id="'+dataresultlist[i].id+'"></p>  </div>'
+                       html+= ' </div>' ;
+                       html+=  ' </div>';
+                       $(".tab").append(html);
+                       if(desc!=null){
+                           var img=desc.split(";");
+                           for(var j=0;j<img.length-1;j++){
+                               imgtotal='<img src="' +baseURL2+ img[j]+  '">';
+                               $("#"+dataresultlist[i].id).append(imgtotal);
+                           }
+                           $("p img").zoomify();
+                       }
+                   }
+
+               }
+
+           }
+       })
+   });
+
+
+</script>
+

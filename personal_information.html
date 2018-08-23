@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/personal_information.css"/>
+    <style>
+
+        .certificate_pic img{
+            width: 6rem;
+            height: 3.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix" id="header">
+        <a href="#" class="back fl" onclick="back()"></a>
+        上医·王朝阳
+    </header>
+    <div class="main"id="all">
+        <div class="combo">
+
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#" id="yitou"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <span class="user fl" id="us">王朝阳</span>
+                        <span class="zhuzhi fl" id="rolename">主治医生</span>
+                    </div>
+                    <p id="adept">擅长：月经病、痛经病等</p>
+                    <p>相关证书：职业证书、资格证书等</p>
+                    <p id="getjob">服务   220次     |     从业  14年</p>
+                </div>
+            </div>
+        </div>
+        <div class="externum">
+            <div class="intro_box">
+                <div class="intro">个人简介</div>
+                <div class="text">
+                    <p id="workExperience"></p>
+                </div>
+            </div>
+            <div class="intro_box">
+                <div class="intro">擅长疾病</div>
+                <div class="text">
+                    <p id="disease">术后，放化疗前期、中期及后期的宫颈癌、卵巢癌、乳腺癌辅助治疗。<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、妇科：月经病、痛经病（针灸加中药很快见效）不孕不育、卵巢囊肿、孕前男女双方调理、乳腺增生、产后催乳、回乳、更年期综合症等；<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、内科：胃肠病、糖尿病、胆囊炎、脂肪肝、心脑血管病、肾虚怕冷、手足心热、腹泻、便秘等；<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、皮肤科：荨麻疹、暗尘、各种色斑、痤疮、牛皮癣；亚健康：疲劳、失眠多梦、精神不集中、肥胖症；<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、肿瘤：宫颈癌、卵巢癌、乳腺癌，术后和放化疗前、后、期间的调理和治疗。</p>
+                </div>
+            </div>
+            <div class="intro_box">
+                <div class="intro">相关证书</div>
+                <div class="certificate_box">
+                    <div class="certificate">
+                        <div class="top">从业资格证</div>
+                        <div class="certificate_pic" id="certificate1">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script>
+    function back() {
+        window.history.back();
+    }
+    $(function () {
+
+        var id=GetQueryString();
+        //请求显示已经写好  id自己找
+        $.post(baseURL+"yuesao/sysuser/detail",{id:id},function (r) {
+            console.log(r);
+            if(r.code=="USR139"){
+                $("#all").empty();
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR100"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR201"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR000"){
+                console.log(r);
+                $('#header').html('<a class="back fl" onclick="back()"></a>'+r.data.roleName+'·'+r.data.name);
+                $("#us").text(r.data.name);
+                $("#yitou").css("background-image", "url("+baseURL2 + r.data.photo + ")");
+                $("#rolename").text(r.data.profession);
+                var serviceTimes=r.data.serviceTimes;
+                if(!serviceTimes){
+                    serviceTimes=0;
+                }
+                $("#getjob").text("服务"+serviceTimes +"次     |     从业"+r.data.workYear+"年");
+                var row=r.data.certificate;
+                var img=row.split(";");
+                console.log(img);
+                for( i=0;i<img.length;i++){
+                    var image='<img src="' +baseURL2+ img[i]+  '">';
+                    $("#certificate1").append(image);
+                }
+
+                $("#workExperience").html(r.data.introduce);
+                $("#adept").html("擅长："+r.data.workExperience);
+                $("#disease").html(r.data.speciality);
+
+            }
+        })
+
+
+    })
+
+</script>
+</body>
+</html>

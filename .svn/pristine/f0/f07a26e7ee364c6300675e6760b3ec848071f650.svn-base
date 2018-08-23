@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/taocan-zhifu.css"/>
+</head>
+<body>
+
+<div class="warp">
+    <header class="clearfix">
+        <a href="#" class="back fl" onclick="backall()"></a>
+        提交订单
+    </header>
+    <div class="main">
+        <div class="server_box">
+            <ul>
+                <li><strong class="server_p">商品名称</strong><span id="PackageName"></span></li>
+                <li><strong class="technical ">价格</strong><span id="price"></span></li>
+                <li><strong class="number ">数量</strong><span id="number"></span></li>
+                <!-- <li><button id="num1">+</button>&nbsp;<span>0</span><button id="num2">-</button></li> -->
+                <span id="proid" style="display: none;"></span>
+            </ul>
+        </div>
+        <div class="relation">
+            <ul>
+                <li><label for="user" class="user">联系姓名<input type="text" placeholder="请输入您的姓名" id="user"/></label></li>
+                <li><label for="photo" class="photo">联系电话<input type="text" placeholder="请输入您的联系电话" id="photo"/></label></li>
+                <li><label for="address" class="address">快递地址<input type="text" placeholder="请输入您的快递地址" id="address"/></label></li>
+                <li><label for="remark" class="remark">备注信息<input type="text" placeholder="用户的需要或疑问，包括其他情况备注
+便于服务前的准备" id="remark"/></label></li>
+            </ul>
+
+        </div>
+        <div class="pay">
+            <ul>
+                <li><strong class="server_p">支付金额</strong><span id="priceone">2380.3</span></li>
+
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="answers">
+            <button onclick=" topay()" id="btn">去支付</button>
+        </div>
+
+    </footer>
+</div>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/taocan-zhifu.js"></script>
+<script>
+initProductInfo();
+var serviceId;
+var number;
+	function initProductInfo(){
+		var valurl=getUrlValue();
+		serviceId=valurl.productId;
+        number=valurl.number;
+ 		$.ajax({
+			url: shopsyysURL+"product/api/detail/"+valurl.productId,
+			//url: "http://127.0.0.1:8080/shopxxb2b2c/product/api/detail/"+valurl.productId,
+			type: "GET",
+			dataType: "json",
+			success: function(r){
+				$("#PackageName").html(r.name);
+				$("#price").html(r.price);
+                $("#number").html(number);
+				$("#priceone").html(parseFloat(r.price) * parseInt(number));
+				$("#proid").html(r.id);
+			},
+			error:function(r){
+				
+			}
+ 		});
+	}
+	
+    function backall() {
+        window.history.back();
+    }
+    var Request = new Object();
+    var url=window.location.search;
+
+     function topay() {
+         var sessionid=sessionStorage['sessionId'];
+         var name=$("#user").val();
+         if(name==null||name.trim()==""){
+             layer.open({
+                 content: "请填写姓名",
+                 btn: ['确定',]
+             });
+             return;
+         }
+         var phone=$("#photo").val();
+         if(phone==null||phone.trim()==""){
+             layer.open({
+                 content: "请填写手机号",
+                 btn: ['确定',]
+             });
+             return;
+         }
+         var address=$("#address").val();
+         if(address==null||address.trim()==""){
+             layer.open({
+                 content: "请填写地址",
+                 btn: ['确定',]
+             });
+             return;
+         }
+         var price=$("#priceone").text();
+         var quntity=20;
+         var serviceid=$("#proid").html();
+         var memo=$("#remark").val();
+         var data={sessionid:sessionid,name:name,phone:phone,address:address,amount:price,quntity:quntity,serviceId:serviceid,memo:memo,type:1};
+         $.ajax({
+            type:"POST",
+            url:baseURL+"yuesao/order/saveOrder",
+            data:data,
+            dataType:"json",
+            success:function (r) {
+                console.log(r)
+                if(r.code=="USR124"){
+                    layer.open({
+                        content: r.msg
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                            window.location.href="login.html";
+                        }
+                    });
+                }else if(r.code=="USR100"){
+                    layer.open({
+                        content: r.msg,
+                        btn: ['确定',]
+                    });
+                }else if(r.code=="USR138 "){
+                    layer.open({
+                        content: r.msg,
+                        btn: ['确定',]
+                    });
+                }else if(r.code=="USR201"){
+                    layer.open({
+                        content: r.msg,
+                        btn: ['确定',]
+                    });
+                }else if(r.code=="USR000"){
+                	window.location.href=baseURL+"pay/create?orderId="+r.data+"&returnUrl=http://ys.stevengg.com/yuesao_h5/product_list.html";
+                    /* layer.open({
+                        content: r.msg,
+                        btn: ['确定',],
+                        yes: function (index) {
+                        layer.close(index);
+                        window.location.href="one.html";
+                    }
+                    }); */
+
+                }
+            }
+        })
+
+
+   }
+ $(function () {
+    if(url.indexOf("?")!=-1) {
+        var str = url.substr(1)　//去掉?号
+        var　strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            Request[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+        }
+    }
+    $("#PackageName").html(Request["PackageName"]);
+    $("#price").html(Request["price"]);
+    var price=$("#price").text();
+    serviceId=Request["id"];
+    $("#priceone").html(price);
+
+}) 
+
+ $(function () {
+    var num = 0
+    $("#num1").click(function(){
+    
+        console.log(num)
+        num++
+    })
+    $("#num2").click(function(){
+        console.log(num)
+        if (num<=1){
+            num=1;
+        }else{
+            num--
+        }
+    })
+    $("#price").click(function(){ 
+      var price  = price * num ;
+    })
+
+
+ })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/three_save.css">
+    <link rel="stylesheet" href="css/threeSave.css"/>
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="css/zoomify.min.css"/>
+
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/icon.png" onclick="warps()"/>
+        <h2>体重腹围记录</h2>
+        <span></span>
+    </div>
+</div>
+<div class="data">
+    <p>2018年5月4日</p>
+</div>
+
+<div class="tab">
+    <div class="tab-box">
+        <div class="tab_cen">
+            <div class="tab_demo">
+                <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime"></span></h3>
+                <ul class="tab_cen_ul">
+                    <li class="tzfu_01"><span>体重：</span><span id="tzfu_weight"></span></li>
+                    <li class="tzfu_01"><span>腰围：</span><span id="tzfu_bust"></span></li>
+                    <li class="tzfu_01"><span>描述：</span><span id=" "></span></li>
+                    <li class="tzfu_02" style="display: none;"><span>天呀！您还未作数据记录；赶紧跟上步伐，纪录你的健康数据，以便于我们更好的为您服务！</span></li>
+                </ul>
+                <h4><img src="images/red.png" alt="">测评结果：<span id="tzfu_testResult"></span></h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="button"></div>
+
+<div class="tab">
+    <div class="tab-box">
+        <div class="tab_cen">
+            <div class="tab_demo">
+                <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime_one"></span></h3>
+                <ul class="tab_cen_ul">
+                    <li class="tzfu_01"><span>体重：</span><span id="tzfu_weight_one"></span></li>
+                    <li class="tzfu_01"><span>腰围：</span><span id="tzfu_bust_one"></span></li>
+                    <li class="tzfu_01"><span>描述：</span><span id=""></span></li>
+                    <li class="tzfu_02" style="display: none;"><span>天呀！您还未作数据记录；赶紧跟上步伐，纪录你的健康数据，以便于我们更好的为您服务！</span></li>
+                </ul>
+                <div class="picture">
+                    <div class="container">
+                        <div class="examples">
+                            <div class="row">
+                                <div class="example col-xs-3 col-md-3">
+                                    <p><img src="images/4.jpg" class="img-rounded" alt=""></p>
+                                </div>
+                                <div class="example col-xs-3 col-md-3">
+                                    <p><img src="images/5.jpg" class="img-rounded" alt=""></p>
+                                </div>
+                                <div class="example col-xs-3 col-md-3">
+                                    <p><img src="images/6.jpg" class="img-rounded" alt=""></p>
+                                </div>
+                                <div class="example col-xs-3 col-md-3">
+                                    <p><img src="images/7.jpg" class="img-rounded" alt=""></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4><img src="images/red.png" alt="">测评结果：<span id="tzfu_testResult_one"></span></h4>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/mobile-util.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/zoomify.min.js"></script>
+<script>
+    function warps() {
+        window.location.href="three.html"
+    }
+    $('.example img').zoomify();
+</script>
+

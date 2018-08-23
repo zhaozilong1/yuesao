@@ -1,0 +1,62 @@
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f0f0f0;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .main .period {
+    height: 1.6rem;
+    padding: 0.25rem;
+    box-sizing: border-box;
+    line-height: 0.6rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding-left: 0.8rem; }
+    .warp .main .period h3 {
+      font-weight: 400;
+      font-size: 0.32rem; }
+    .warp .main .period p {
+      font-size: 0.24rem;
+      color: #999999; }
+  .warp .main .attention {
+    width: 90%;
+    margin: 0.2rem auto 0;
+    height: 6.78rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    box-sizing: border-box; }
+    .warp .main .attention h2 {
+      font-size: 0.32rem;
+      color: #333333;
+      line-height: 3;
+      position: relative; }
+      .warp .main .attention h2:before {
+        display: block;
+        content: "";
+        width: 0.33rem;
+        height: 0.35rem;
+        background: url(../images/wode/cont_icon.png) no-repeat;
+        background-size: 0.33rem 0.35rem;
+        position: absolute;
+        top: 0.26rem;
+        left: -0.4rem; }
+    .warp .main .attention p {
+      font-size: 0.24rem;
+      color: #333333; }
+
+/*# sourceMappingURL=chanjian-detail.css.map */

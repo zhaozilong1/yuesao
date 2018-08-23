@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+    <link rel="stylesheet" href="./lib/Swiper-4.0.7/dist/css/swiper.css"/>
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner .swiper-slide {
+			width: 7.2rem;
+			height: 2.87rem;
+			text-align: center;
+			font-size: 18px;
+			background: url("./images/img_bg.png") no-repeat;
+			background-size: 100% 2.87rem;
+
+		}
+body {
+	background: #eee;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+
+.banner {
+	width: 100%;
+	height: 100%;
+}
+
+.banner .swiper-slide {
+	width: 7.2rem;
+	height: 2.87rem;
+	text-align: center;
+	font-size: 18px;
+	background: url("./images/img_bg.png") no-repeat;
+	background-size: 7.2rem 2.87rem;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-pagination-bullet-active {
+	opacity: 1;
+	background: #faa9c0;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+	background-image: url("./images/icon_right.png");
+	width: 0.22rem;
+	height: 0.4rem;
+	background-size: 0.22rem 0.4rem;
+	top: 66%;
+	right: 0.4rem;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+	background-image: url("./images/icon_left.png");
+	width: 0.22rem;
+	height: 0.4rem;
+	background-size: 0.22rem 0.4rem;
+	top: 66%;
+	left:0.4rem;
+}
+</style>
+</head>
+
+<body>
+	<div class="warp">
+		<header>
+			<!-- 没登录状态图-->
+			<div class="swiper-container banner">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"></div>
+					<div class="swiper-slide"></div>
+					<div class="swiper-slide"></div>
+
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+			<!--登录后状态图-->
+			<div class="phase">
+				<div class="phase_in">
+					<div class="nickname_box clearfix">
+						<p class="fl">
+							昵称: <span id="nick">芳华</span>
+						</p>
+						<a href="my_news.html" class="news fr"></a>
+					</div>
+					<div class="period_box">
+						<span class="fetation">孕 <i>4</i> 周
+						</span>
+						<p id="time">
+							距离预产期还有 <span>246</span>天
+						</p>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="main">
+			<!-- 动态-->
+			<div class="dynamic_box">
+				<div class="dynamic_t clearfix">
+					<div class="dynamic_b fl">
+						<span>动态 | </span>
+					</div>
+					<!--<span class="new">最新优惠打8折!!!</span>-->
+
+				</div>
+				<div class="dynamic_n">
+					<div class="dynamic_in">
+						<div class="kind_box">
+							<div class="doctor" id="doctor">
+								<a href="#">
+									<div class="pic fl"></div>
+									<div class="right">
+										<h3>名医动态</h3>
+										<p>名医提醒，实时</p>
+										<p>关注您健康</p>
+									</div>
+								</a>
+							</div>
+							<div class="infant">
+								<a href="#">
+									<div class="pic fl"></div>
+									<div class="right" id="shop">
+										<h3>母婴商城</h3>
+										<p>专为孕妈提供的</p>
+										<p>购物平台</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="kind_bottom">
+							<div class="doctor" id="yuesao">
+								<a href="#">
+									<div class="pic fl"></div>
+									<div class="right">
+										<h3>月嫂风采</h3>
+										<p>月嫂实时关注您</p>
+										<p>健康</p>
+									</div>
+								</a>
+
+							</div>
+							<div class="infant">
+								<a href="registered.html">
+									<div class="pic fl"></div>
+									<div class="right">
+										<h3>在线问答</h3>
+										<p>专业、及时的在</p>
+										<p>线健康咨询服务</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- 推荐-->
+			<div class="recommend">
+				<div class="recommend_top">
+					<span>今日推荐</span>
+				</div>
+				<div class="recommend_bottom clearfix">
+					<div class="recommentd-swiper doctor_sex">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="pic">
+									<span >上医</span>
+								</div>
+								<div class="doctor_box">
+									<ul id="sy">
+										<!-- <li><a href="#"><span class="li"></span>
+											<p>李医生</p></a></li>
+										<li><a href="#"><span class="zhang"></span>
+											<p>张医生</p></a></li>
+										<li><a href="#"><span class="zhao"></span>
+											<p>赵医生</p></a></li> -->
+									</ul>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pic">
+									<span >月嫂</span>
+								</div>
+								<div class="doctor_box">
+									<ul id="ys">
+										<!-- <li><a href="#"><span class="li"></span>
+											<p>李医生</p></a></li>
+										<li><a href="#"><span class="zhang"></span>
+											<p>张医生</p></a></li>
+										<li><a href="#"><span class="zhao"></span>
+											<p>赵医生</p></a></li> -->
+									</ul>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="pic">
+									<span>管家</span>
+								</div>
+								<div class="doctor_box">
+									<ul id="gj">
+										<!-- <li><a href="#"><span class="li"></span>
+											<p>李医生</p></a></li>
+										<li><a href="#"><span class="zhang"></span>
+											<p>张医生</p></a></li>
+										<li><a href="#"><span class="zhao"></span>
+											<p>赵医生</p></a></li> -->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+			</div >
+
+			<!-- 精品套餐-->
+			<div class="combo">
+				<div class="combo_top">
+					<span>精品套餐</span>
+				</div>
+				<div class="combo_bottom clearfix">
+					<div class="pic fl">
+						<a href="#"></a>
+					</div>
+					<div class="right">
+						<div class="top clearfix">
+							<h3 class="fl">套餐名称</h3>
+							<span class="fr">¥25800</span>
+						</div>
+						<div class="text">套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍</div>
+						<div class="yuyue fr">
+							<a href="#" class="order">立即预约</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+<!--支付后显示-->
+			<div class="classify_box" style="display: none">
+				<div class="classify">
+					<a href="#" class="sijiao">私教</a>
+					<a href="#" class="guanjia">管家</a>
+					<a href="#" class="shangyi">上医</a>
+					<a href="#" class="ziji">自己</a>
+					<a href="#" class="yuesao">月嫂</a>
+					<a href="#" class="yizhu">医助</a>
+					<a href="#" class="yingyangshi">营养师</a>
+				</div>
+			</div>
+		</div>
+
+		<input type="hidden" value="index" id="page"/>
+
+		<!-- 底部-->
+		<footer id="footer">
+
+		</footer>
+
+
+	</div>
+
+
+
+
+
+</body>
+
+
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./lib/Swiper-4.0.7/dist/js/swiper.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/footer.js"></script>
+
+<script>
+todayRoleName();
+var html_today="";
+	function todayRoleName(){
+		html_today="";
+		$("#today").empty();
+		
+		$.post(baseURL+"yuesao/sysuser/recommendlist",{"roleName":"管家"},function(result){
+			html_today="";
+			$.each(result.data,function(n,t){
+				html_today+='<li><a href="#"><span onclick="checkRole(this)" id="'+t.userId+'" class="li"></span><p>'+t.name+'</p></a></li>'; 
+			});
+			$("#gj").empty().append(html_today);
+			$.each(result.data,function(n,t){
+				
+			$("#"+t.userId).css("background-image", "url(" + baseURL2+t.photo + ")");
+			});
+		});
+ 
+		$.post(baseURL+"yuesao/sysuser/recommendlist",{"roleName":"月嫂"},function(result){
+			html_today="";
+				$.each(result.data,function(n,t){
+					html_today+='<li><a href="#"><span onclick="checkRole(this)" id="'+t.userId+'" class="li"></span><p>'+t.name+'</p></a></li>'; 
+				});
+				$("#ys").empty().append(html_today);
+				$.each(result.data,function(n,t){
+					$("#"+t.userId).css("background-image", "url(" + baseURL2+t.photo + ")");
+				});
+		});
+		  
+		$.post(baseURL+"yuesao/sysuser/recommendlist",{"roleName":"上医"},function(result){
+			html_today="";
+			$.each(result.data,function(n,t){
+				html_today+='<li><a href="#"><span onclick="checkRole(this)" id="'+t.userId+'" class="li"></span><p>'+t.name+'</p></a></li>'; 
+			});
+			$("#sy").empty().append(html_today);
+			$.each(result.data,function(n,t){
+				
+				$("#"+t.userId).css("background-image", "url(" + baseURL2+t.photo + ")");
+			});
+		});
+		
+	}
+	function checkRole(val){
+		 window.location.href="doctor-intro.html?val="+val.id;
+	}
+    var swiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+        },
+    });
+
+    var swiper2 = new Swiper('.recommentd-swiper', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+<script type="text/javascript">
+    var serviceTemplate = '<div class="combo_bottom clearfix">'
+        + '<div class="pic fl"><a href="#"></a></div>'
+        + '<div class="right or" onclick="lijy(this)" id="">' + '<div class="top clearfix">'
+        + '<h3 class="fl">[name]</h3>' + '<span class="fr">[price]</span>'
+        + '</div>'
+        + '<div class="text">套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍套餐介绍</div>'
+        + '<div class="yuyue fr"><a  class="order">立即预约</a> </div>'
+        + '</div>'
+        + '</div>';
+    function lijy(val){
+        window.location.href="yuyuetaocan.html?"+val.id;
+    }
+    //加载服务列表
+    function loadYueSaoServiceList() {
+        $.post(baseURL+"yuesao/service/list", {
+            page: 1,
+            pageSize: 100
+        }, function (result) {
+            if (result.code == "USR000") {
+                $('.combo_bottom').remove();
+                var services = result.data.list;
+                for (var i = 0; i < services.length; i++) {
+                   var div = serviceTemplate.replace('[name]',
+                        services[i].serviceName).replace('[price]', parseInt(services[i].teamPrice)+"元");
+                    div = $(div);
+                    div.find('.or').attr("id",services[i].serviceId);
+                    if(services[i].introduce.length>75){
+						var introduce=services[i].introduce.substr(0,70)+'...';
+                        div.find('.text').empty().html(introduce);
+					}else{
+                    div.find('.text').empty().html(services[i].introduce);
+					}
+                    div.find('.pic').find('a').css('background-image','url('+baseURL2+services[i].appSpecialPic+')');
+                    div.data('serviceId', services[i].serviceId);
+                    $('.combo').append(div);
+                }
+            } else if (result.code == "USR108") {
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            } else if (result.code == "USR100") {
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            } else if (result.code == "USR201") {
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }
+        });
+    }
+    $('#shop').click(function(){
+    	//window.location.href="http://localhost:8080/shopxxb2b2c/member/login/ys?mobile="+sessionStorage["mobile"];
+    	window.location.href=shopsyysURL+"member/login/ys?mobile="+sessionStorage["mobile"];
+    	//window.location.href="product_list.html";
+    });
+
+    $('#doctor').click(getDoctordt);
+    $('#yuesao').click(getYuesaoFC);
+    //判断用户是否购买服务
+	function check(){
+	    var sessionId=sessionStorage['sessionId'];
+	    var datt=new Object();
+	    if(sessionId){
+	    $.ajax({
+			url:baseURL+'yuesao/tuser/orderrole',
+			data:{sessionid:sessionId},
+            async: false,
+			success:function (result) {
+                if(result.code=="USR000"){
+                        if(result.data){
+                    console.log(result.data.role);
+                    datt['role']=result.data.role;
+                    datt['moonWomanId']=result.data.moonWomanId;
+                    datt['chinexeMedicineId']=result.data.chinexeMedicineId;
+                    datt['agentId']=result.data.agentId;
+                    datt['status']=result.data.status;
+						}
+
+                }else if(result.code=="USR124"){
+                    layer.open({
+                        content: result.msg
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                            window.location.href="login.html";
+                        }
+                    });
+
+                }else if(result.code=="USR201"){
+                    layer.open({
+                        content: result.msg
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                        }
+                    });
+                }else if(result.code=="USR103"){
+                    datt;
+                }
+            }
+		});
+		}
+        return datt;
+	}
+	//医生动态跳转
+    function getDoctordt() {
+        var data = check();
+        console.log(data);
+            if (data['role']) {
+                window.location.href = "doctor-02.html";
+                return;
+            }
+            window.location.href = "doctor-01.html";
+    }
+    //月嫂动态跳转
+    function getYuesaoFC(){
+        console.log("yuesao");
+        var data=check();
+
+            if(data['role']){
+                window.location.href="maternity-02.html";
+                return;
+            }
+            window.location.href="maternity-01.html";
+
+    }
+    loadYueSaoServiceList();
+
+    function showUserInformation(){
+        //判断用户是否登录
+		var sessionid=sessionStorage['sessionId'];
+		console.log(sessionid);
+		if(sessionid){
+            $('.banner').hide();
+            $('.phase').show();
+		}
+        $.post(baseURL+"yuesao/userInfo",{sessionid:sessionStorage['sessionId']},function (result) {
+			if(result.code=="USR000"){
+			    var user=result.data;
+
+				if(result.data.status==0){
+                    $('#nick').text(user.userName);
+                    if(user.mark==0){
+                        $('.fetation').text('月经期');
+					}else if(user.mark==1){
+                        $('.fetation').text('卵泡期');
+					}else if(user.mark==2){
+                        $('.fetation').text('排卵期');
+                    }else if(user.mark==3){
+                        $('.fetation').text('黄体期');
+                    }
+					$('.fetation').text();
+					$('#time').html("第 <span>"+user.dTime+"</span>天");
+				}else if(result.data.status==1){
+                    $('#nick').text(user.userName);
+                    $('.fetation').html("孕 <i>"+user.week+"</i> 周");
+                    if(user.week>40){
+                        var days=Math.abs(user.days);
+                        $('#time').html("您已超过预产期 <span>"+days+"</span>天");
+					}else {
+                        $('#time').html("距离预产期还有 <span>" + user.days + "</span>天");
+                    }
+				}else if(result.data.status==2){
+                    $('#nick').text(user.userName);
+                    $('.fetation').remove();
+                    $('#time').html("宝宝今天你已经<span id='y'>" + user.babyYear + "岁</span><span id='m'>"+user.babyMonth+"个月</span><span id='d'>"+user.babyDay+"天</span>了");
+                	if(!user.babyYear){
+						$('#y').hide();
+						if(!user.babyMonth){
+							$('#m').hide();
+							if(!user.babyDay){
+                                $('#time').text("宝宝今天出生啦");
+							}
+						}else if(user.babyDay==0){
+						    $('d').hide();
+						}
+					}else {
+                        if(user.babyMonth==0&&user.babyDay!=0){
+                            $('#m').text("零");
+						}else{
+                            if(user.babyMonth==0){
+                                $('#m').hide();
+                            }
+                            if(user.babyDay==0){
+                                $('#d').hide();
+                            }
+						}
+
+
+					}
+
+				}
+			}
+        });
+        var data=check();
+        console.log("data:"+ data['role']);
+        console.log("atatus:"+data['status']);
+        if(data['role']&&data['status']!=0){
+            $('.recommend').hide();
+            $('.combo').hide();
+            var div='<div class="classify">'+
+                '<a href="" class="sijiao">私教</a>'+
+                '<a  class="guanjia" onclick="skipGuanjia('+data["agentId"]+')">管家</a>'+
+                '<a  class="shangyi" onclick="skipDoctor('+data["chinexeMedicineId"]+')">上医</a>'+
+                '<a href="three.html" class="ziji">自己</a>'+
+                '<a  class="yuesao" onclick="skipYuesao('+data["moonWomanId"]+')">月嫂</a>'+
+                '<a href="#" class="yizhu">医助</a>'+
+                '<a href="#" class="yingyangshi">营养师</a>'+
+                '</div>';
+            $('.classify_box').empty().append(div);
+            $('.classify_box').show();
+		}
+    }
+showUserInformation();
+    function skipDoctor(obj) {
+		console.log(!obj);
+        if(!obj){
+            layer.open({
+                content:"您还未选定该角色！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                }
+            });
+            return;
+		}
+        window.location.href="my_doctor.html?id="+obj;
+    }
+    function skipYuesao(obj) {
+		console.log(!obj);
+        if(!obj){
+            layer.open({
+                content:"您还未选定该角色！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                }
+            });
+            return;
+		}
+        window.location.href="my_doctor.html?id="+obj;
+    }
+    function skipGuanjia(obj) {
+		console.log(!obj);
+        if(!obj){
+            layer.open({
+                content:"您还未选定该角色！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                }
+            });
+            return;
+		}
+		window.location.href="my_doctor.html?id="+obj;
+    }
+	function checkAssignSteward(){
+        $.post(baseURL+'yuesao/tuser/orderrole',{sessionid:sessionStorage['sessionId']},function (result) {
+            if(result.code=="USR000"){
+                if(result.data.role==""){
+                    if(result.data.status=="1"){
+                        layer.open({
+                            content: "您已经支付，请选择管家！"
+                            , btn: ['确定',],
+                            skin: 'my-skin'
+                            , yes: function (index) {
+                                layer.close(index);
+                                window.location.href="one.html";
+                            }
+                        });
+                    }
+                }
+			}
+        })
+	}
+    checkAssignSteward();
+</script>
+</html>

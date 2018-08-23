@@ -1,0 +1,87 @@
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f0f0f0;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .main .material {
+    height: 2.15rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0.25rem;
+    background-color: #fafafa; }
+    .warp .main .material .touxiang_box {
+      float: left;
+      width: 50%;
+      margin-top: 0.3rem; }
+      .warp .main .material .touxiang_box .touxiang {
+        display: block;
+        width: 1.58rem;
+        height: 1.58rem;
+        background: url("../images/wode.png") no-repeat;
+        background-size: 1.58rem 1.58rem;
+        float: left;
+        border: 1px solid transparent;
+        border-radius: 50%;
+      }
+      .warp .main .material .touxiang_box p {
+        padding-top: 0.5rem;
+        padding-left: 0.3rem;
+        float: left;
+        font-size: 0.3rem; }
+      .warp .main .material .touxiang_box .sex {
+        display: block;
+        width: 0.21rem;
+        height: 0.36rem;
+        background: url(../images/wode/icon_women.png) no-repeat;
+        background-size: 0.21rem 0.36rem;
+        float: left;
+        margin-top: 1rem;
+        margin-left: -0.7rem; }
+    .warp .main .material .next .next_icon {
+      display: block;
+      width: 0.16rem;
+      height: 0.34rem;
+      background: url(../images/wode/cont_icon_right.png) no-repeat;
+      background-size: 0.16rem 0.34rem;
+      float: right;
+      margin-top: 1rem;
+      margin-left: -0.7rem; }
+  .warp .main .tab_box .tab_top {
+    height: 0.82rem;
+    line-height: 0.82rem;
+    border-bottom: 1px solid #e5e5e5; }
+    .warp .main .tab_box .tab_top ul {
+      display: flex; }
+      .warp .main .tab_box .tab_top ul li {
+        flex: 1;
+        border-right: 1px solid #e5e5e5;
+        text-align: center;
+        cursor: pointer; }
+  .warp .main .tab_box .tab_bottom ul li {
+    line-height: 3;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 0.25rem; }
+    .warp .main .tab_box .tab_bottom ul li:nth-child(even) {
+      background-color: #fafafa; }
+    .warp .main .tab_box .tab_bottom ul li a {
+      display: block;
+      width: 100%; }
+  .warp .main .tab_box .hide {
+    display: none; }
+
+/*# sourceMappingURL=my.css.map */

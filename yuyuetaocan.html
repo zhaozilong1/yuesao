@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/yuyuetaocan.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix" id="heard">
+        <a href="index.html" class="back fl"></a>
+        套餐详情
+    </header>
+    <div class="main">
+
+
+        <div class="combo">
+
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#" id="touxiang"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <span class="user fl" id="PackageName">套餐名称套餐名称</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- tab栏-->
+        <div class="tab_box">
+            <div class="tab_top">
+                <ul>
+                    <li><a href="#" class="active">项目介绍</a></li>
+                    <li><a href="#" onclick="zhuyishi()">注意事项</a></li>
+                    <li><a href="#">套餐选择</a></li>
+                </ul>
+
+            </div>
+            <div class="contain_box">
+                <div class="introduce selected " id="service">
+                    <span>产妇护理内容</span>
+                    <ol>
+                        <li>1.生活照料</li>
+                        <li>2.专业护理</li>
+                        <li>3.产后恢复</li>
+                        <li>4.预防疾病</li>
+                    </ol>
+                    <span>新生儿护理内容</span>
+                    <ol>
+                        <li>1.新生儿的生长特点</li>
+                        <li>2.新生儿护理的基本知识</li>
+                        <li>3.新生儿护理的要点</li>
+                        <li>4.护理新生儿有哪些禁忌</li>
+                        <li>5.理新生儿的误区是什么</li>
+                        <li>6.新生儿的护理技巧禁忌</li>
+                    </ol>
+                </div>
+                <div class="introduce" id="introduce">
+                    <span>产妇护理</span>
+                    <ol>
+                        <li>1.生活照料</li>
+                        <li>2.专业护理</li>
+                        <li>3.产后恢复</li>
+                        <li>4.预防疾病</li>
+                    </ol>
+                    <span>新生儿护理内容</span>
+                    <ol>
+                        <li>1.新生儿的生长特点</li>
+                        <li>2.新生儿护理的基本知识</li>
+                        <li>3.新生儿护理的要点</li>
+                        <li>4.护理新生儿有哪些禁忌</li>
+                        <li>5.理新生儿的误区是什么</li>
+                        <li>6.新生儿的护理技巧禁忌</li>
+                    </ol>
+                </div>
+                <div class="introduce">
+                    <div class="combo_box clearfix">
+                        <div class="basics fl">
+                            <span>基础服务套餐：</span>
+                            <p>服务<em id="day"></em>天</p>
+                        </div>
+                        <i id="jichu">25800元</i>
+                        <input type="radio" name="taocan" class="fr" id="check1" style="display:none;" checked/>
+                        <label for="check1" onclick="judge1()"></label>
+
+                    </div>
+                    <div class="combo_box clearfix">
+                        <div class="basics fl">
+                            <span>月嫂定制:</span>
+                            <p>定制服务天数</p>
+                        </div>
+                        <input type="number" value="50" class="tianshu"/> <em>天</em>
+                        <input type="radio" name="taocan" class="fr" id="check2" style="display: none"/>
+                        <label for="check2" onclick="judge2()"></label>
+                        <br/><br/>
+                        <div id="serviceTime" hidden="hidden" style="margin: auto;font-size: 14px;color: red;text-align: center">服务定制时间为26-100天</div>
+                    </div>
+                    <div class="price clearfix">
+                        <div class="price-r fr">
+                            <strong >价格：</strong>
+                            <i id="price">25800</i> 元
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <div class="answers">
+            <button onclick="Tomake()">立即预约</button>
+        </div>
+
+    </footer>
+</div>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/yuyuetaocan.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+    var jichu;
+    var tianshu;
+    var price;
+    //    立即预约
+    function Tomake() {
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+        price=$("#price").text();
+        jichu=$("#jichu").text();
+        if($('#check1').is(':checked')){
+            price=$('#jichu').text().substr(0,$('#jichu').text().indexOf('元'));
+            var PackageName=$("#PackageName").text();
+            var str = window.location.search;//解码
+            var id=str.split("?")[1];//取值
+            var serviceId=encodeURI(id)
+            var price=price;
+            var PackageName=PackageName;
+            var days = $("#day").html();
+            console.log("days",days)
+            url = "taocan-zhifu.html?id="+decodeURIComponent(serviceId);
+            url += "&price=" + decodeURIComponent(price);
+            url += "&PackageName=" + decodeURIComponent(PackageName);
+            url += "&days="+decodeURIComponent(days);
+            window.location.href=url;
+        }else if($('#check2').is(':checked') ){
+            tianshu=$(".tianshu").val();
+            if(tianshu>100||tianshu<26){
+                layer.open({
+                    content: "仅可预定26-100天",
+                    btn: ['确定',]
+                });
+                return;
+            }else{
+                var PackageName=$("#PackageName").text();
+                var str = window.location.search;//解码
+                var id=str.split("?")[1];//取值
+                var serviceId=encodeURI(id);
+                var price=price;
+                var PackageName=PackageName;
+                var days = $(".tianshu").val();
+                url = "taocan-zhifu.html?id="+decodeURIComponent(serviceId);
+                url += "&price=" + decodeURIComponent(price);
+                url += "&PackageName=" +decodeURIComponent(PackageName);
+                url += "&days="+days;
+                window.location.href=url;
+            }
+        }else {
+            layer.open({
+                content:"请选择套餐",
+                btn: ['确定',]
+            });
+            return;
+        }
+    }
+
+    price=$("#price").text();
+    $(".tianshu").bind("input propertychange",function () {
+        var day= parseInt($('#day').text());
+        console.log(day);
+        var tianshu=parseInt($(".tianshu").val());
+        //判断天数为空
+        if (!tianshu || tianshu < 26 || tianshu > 100) {
+            $("#serviceTime").removeAttr("hidden")
+            $("#price").text( 0);
+            return;
+        }
+
+        $("#serviceTime").attr("hidden","hidden")
+
+        tianshu=tianshu-day
+        console.log(tianshu);
+        var  jichu=$("#jichu").text();
+        jichu=parseInt(jichu.substr(0,jichu.indexOf('元')));
+        console.log("jichu:"+jichu )
+        $("#price").text( parseInt(492.3*tianshu)+jichu );
+    });
+
+
+
+
+    //获取注意事项
+    function zhuyishi() {
+        var str = decodeURI(window.location.search);//解码
+        var id=str.split("?")[1];//取值
+        $.ajax({
+            type:"POST",
+            url:baseURL+"yuesao/order/bespeakService",
+            data:{serviceId:id},
+            dataType:"json",
+            success:function(r){
+                console.log(r);
+                if(r.code=="USR145 "){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+                }else if(r.code=="USR100"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+                }else if(r.code=="USR201"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+                }else if(r.code=="USR000"){
+                    $("#introduce").html(r.data.service.hint);
+
+                }
+            }
+        })
+    }
+    //获取套餐详情
+    $(function () {
+        tcxz();
+        var str = decodeURI(window.location.search);//解码
+        var id=str.split("?")[1];//取值
+        $.ajax({
+            type:"POST",
+            url:baseURL+"yuesao/order/bespeakService",
+            data:{serviceId:id},
+            dataType:"json",
+            success:function(r){
+                console.log(r);
+                if(r.code=="USR145 "){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+                }else if(r.code=="USR100"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+                }else if(r.code=="USR201"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+                }else if(r.code=="USR000"){
+                    $("#PackageName").html(r.data.service.serviceName);
+                    console.log(r)
+                    var roleName = r.data.user.roleName;
+                    var name = r.data.user.name;
+                    console.log(roleName,name)
+                    if (roleName && roleName != '' && name && name != '') {
+                        $('#heard').html('<a href="index.html" class="back fl"></a>');
+                    }
+                    console.log("r.data.service.appSpecialPic",r.data.service.appSpecialPic);
+                    if(r.data.service.appSpecialPic!=""){
+                        if (r.data.service.appSpecialPic == "") {
+
+                        } else {
+                            $("#touxiang").css("background-image", "url("+baseURL2 + r.data.service.appSpecialPic + ")");
+                        }
+                    }
+                    $("#service").html(r.data.service.introduce);
+                    $('#day').text(r.data.service.teamQuntity);
+                }
+            }
+        })
+    })
+    //套餐选择
+    function tcxz() {
+        var str = decodeURI(window.location.search);//解码
+        var id=str.split("?")[1];//取值
+        console.log("======================"+id);
+        $.ajax({
+            type:"POST",
+            url:baseURL+"yuesao/order/bespeakService",
+            data:{serviceId:id},
+            dataType:"json",
+            success:function(r){
+                console.log(r);
+                if(r.code=="USR145 "){
+//                    layer.open({
+//                        content: r.msg,
+//                        btn: ['确定',]
+//                    });
+                }else if(r.code=="USR100"){
+//                    layer.open({
+//                        content: r.msg,
+//                        btn: ['确定',]
+//                    });
+                }else if(r.code=="USR201"){
+//                    layer.open({
+//                        content: r.msg,
+//                        btn: ['确定',]
+//                    });
+                }else if(r.code=="USR000"){
+                    console.log(r.data.service.teamQuntity);
+                    var service=r.data.service;
+                    $('#jichu').text(parseInt(service.teamPrice)+"元");
+                    $('#price').text(parseInt(service.teamPrice));
+                    var quntity = service.teamQuntity;
+                    console.log("310"+quntity)
+                    if(!quntity || quntity == ''){
+                        $('#day').text(26);
+                        return;
+                    }
+
+                    $('#day').text(quntity);
+
+                }
+            }
+        })
+    }
+    /*function judge1() {
+        if($('#check2').is(':checked')){
+            $('#check2').attr("checked",false);
+            $('.tianshu').attr("disabled","disabled");
+        }
+        var  jichu=$("#jichu").text();
+        jichu=jichu.substr(0,jichu.indexOf("元"));
+        $("#price").text(jichu );
+    }
+    function judge2() {
+        if($('#check1').is(':checked')){
+            $('#check1').attr("checked",false);
+        }
+        $('.tianshu').removeAttr("disabled");
+        var day= parseInt($('#day').text());
+        console.log(day);
+        var tianshu=parseInt($(".tianshu").val());
+        tianshu=tianshu-day
+        console.log(tianshu);
+        var  jichu=$("#jichu").text();
+        jichu=parseInt(jichu.substr(0,jichu.indexOf('元')));
+        console.log("jichu:"+jichu )
+        $("#price").text( parseInt(492.3*tianshu)+jichu );
+    }*/
+
+
+    function judge1() {
+        $('.tianshu').attr("disabled","disabled");
+        console.log("guding")
+        var  jichu=$("#jichu").text();
+        console.log(jichu+"      378");
+        jichu=parseInt(jichu.substr(0,jichu.indexOf('元')));
+        $("#price").text(jichu)
+    }
+    function judge2() {
+        $('.tianshu').removeAttr("disabled");
+        var day= parseInt($('#day').text());
+        console.log(day);
+        var tianshu=parseInt($(".tianshu").val());
+        tianshu=tianshu-day
+        console.log(tianshu);
+        var  jichu=$("#jichu").text();
+        jichu=parseInt(jichu.substr(0,jichu.indexOf('元')));
+        console.log("jichu:"+jichu )
+        $("#price").text( parseInt(492.3*tianshu)+jichu );
+    }
+
+    $('.tianshu').attr("disabled","disabled");
+</script>
+
+</body>
+</html>

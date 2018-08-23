@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/nutrient.css"/>
+
+    <link rel="stylesheet" href="./js/date/css/normalize3.0.2.min.css" />
+    <!--<link rel="stylesheet" href="./js/date/css/style.css?v=7" />-->
+    <link href="./js/date/css/mobiscroll.css" rel="stylesheet" />
+    <link href="./js/date/css/mobiscroll_date.css" rel="stylesheet" />
+        <style type="text/css">
+		    body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .container {
+            position: absolute;
+            top:9rem;
+            left:0.1rem;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            clear: both;
+        }
+
+        
+        .z_photo img {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        .z_addImg {
+            float: left;
+            margin-right: 0.2rem;
+        }
+        
+        .z_file {
+            width: 1rem;
+            height: 1rem;
+            background: url(images/pic_01.png) no-repeat;
+            background-size: 100% 100%;
+            float: left;
+            margin-right: 0.2rem;
+        }
+        
+        .z_file input::-webkit-file-upload-button {
+            width: 1rem;
+            height: 1rem;
+            border: none;
+            position: absolute;
+            outline: 0;
+            opacity: 0;
+        }
+        
+        .z_file input#file {
+            display: block;
+            width: auto;
+            border: 0;
+            vertical-align: middle;
+        }
+        /*遮罩层*/
+        
+        .z_mask {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+        }
+        
+        .z_alert {
+            width: 3rem;
+            height: 2rem;
+            border-radius: .2rem;
+            background: #fff;
+            font-size: .24rem;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -1.5rem;
+            margin-top: -2rem;
+        }
+        
+        .z_alert p:nth-child(1) {
+            line-height: 1.5rem;
+        }
+        
+        .z_alert p:nth-child(2) span {
+            display: inline-block;
+            width: 49%;
+            height: .5rem;
+            line-height: .5rem;
+            float: left;
+            border-top: 1px solid #ddd;
+        }
+        
+        .z_cancel {
+            border-right: 1px solid #ddd;
+        }
+</style>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="record.html" class="back fl"></a>
+        药品营养剂
+        <a href="#" class="save fr" id="saveyao">保存</a>
+    </header>
+    <div class="main">
+        <div class="record_box">
+            <ul>
+                <li>
+                    <span class="fl">记录</span>
+                    <span class="fr">药品营养剂</span>
+
+                </li>
+                <li>
+                    <span class="fl">时间</span>
+                    <input id="chanjain-data" type="text" class="fr" placeholder="请选择时间"/>
+
+
+                </li>
+                <li>
+                    <span class="fl">添加药品</span>
+                    <input type="text" placeholder="请填写您的药品" class="yappin fr" id="drug"/>
+                </li>
+
+            </ul>
+            <div class="describe">
+                <textarea name="" id="describes" cols="30" rows="10" placeholder="描述情况"></textarea>
+            </div>
+            
+                        <div class="container">
+                            <!--    照片添加    -->
+                            <div class="z_photo">
+                                <div class="z_file">
+                                    <input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo','z_file') ;" />
+                                    <input type="hidden" id="valuePath" />
+                                    
+                                </div>
+                    
+                            </div>
+                    
+                            <!--遮罩层-->
+                            <div class="z_mask">
+                                <!--弹出框-->
+                                <div class="z_alert">
+                                    <p>确定要删除这张图片吗？</p>
+                                    <p>
+                                        <span class="z_cancel">取消</span>
+                                        <span class="z_sure">确定</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/date/js/mobiscroll_date.js" charset="gb2312"></script>
+<script src="./js/date/js/mobiscroll.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var currYear = (new Date()).getFullYear();
+        var opt={};
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'modal', //显示方式
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yyyy-mm-dd',
+            lang: 'zh',
+            showNow: true,
+            nowText: "今天",
+            startYear: currYear - 50, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+
+        $("#chanjain-data").mobiscroll($.extend(opt['date'], opt['default']));
+
+    });
+    var valuePath="";
+
+$('#saveyao').click(function () {
+    var sessionId=sessionStorage['sessionId'];
+    var recordTime=$('#chanjain-data').val();
+    var drug=$('#drug').val();
+    var describes=$("#describes").val();
+    if(describes==null||describes.trim()=="" && valuePath==""){
+        layer.open({
+            content: "请填写内容/图片",
+            btn: ['确定',]
+        });
+        return;
+    };
+    //thisDosage未填写
+    $.post(baseURL+"yuesao/record/save",{thisDosage:20,sessionid:sessionId,recordId:2,recordTime:recordTime,drug:drug,describes:describes,valuePath:valuePath},function (r) {
+        console.log(r)
+        if(r.code=="USR103"){
+            layer.open({
+                content: r.msg,
+                btn: ['确定',]
+            });
+        }else if(r.code=="USR000"){
+            layer.open({
+                content: r.msg,
+                btn: ['确定',]
+            });
+        }
+    })
+
+})
+
+
+
+
+
+
+    function doUpload() {
+        var sessionId=sessionStorage['sessionId'];
+        var formData = new FormData();
+        console.log($( "#file" )[0]);
+        formData.append("myFile",$( "#file" )[0].files[0]);
+        formData.append("sessionid",sessionId);
+        $.ajax({
+            url: baseURL+'apiUploadFile/uplodeImg',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,//缓存关闭 true为开启
+            contentType: false,
+            processData: false,//序列化data
+            success: function (r) {
+                //console.log(r)
+                var tempPath="";
+                if(r.code=='USR000'){
+                    $('#valuePath').val(r.data.valuePath);
+                    valuePath += tempPath+r.data.valuePath+";";
+                    console.log("valuePath*****"+valuePath);
+                }else{
+                    alert(r.msg)
+                }
+            }
+
+        });
+    }
+
+        function imgChange(obj1, obj2) {
+            doUpload();
+            //获取点击的文本框
+            var file = document.getElementById("file");
+            //存放图片的父级元素
+            var imgContainer = document.getElementsByClassName(obj1)[0];
+            //获取的图片文件
+            var fileList = file.files;
+            //文本框的父级元素
+            var input = document.getElementsByClassName(obj2)[0];
+            var imgArr = [];
+            //遍历获取到得图片文件
+            for (var i = 0; i < fileList.length; i++) {
+                var imgUrl = window.URL.createObjectURL(file.files[i]);
+                imgArr.push(imgUrl);
+                var img = document.createElement("img");
+                img.setAttribute("src", imgArr[i]);
+                var imgAdd = document.createElement("div");
+                imgAdd.setAttribute("class", "z_addImg");
+                imgAdd.setAttribute("id", $("#valuePath").val()+";");
+                imgAdd.appendChild(img);
+                imgContainer.appendChild(imgAdd);
+            };
+            imgRemove();
+
+        };
+
+        function imgRemove() {
+            var imgList = document.getElementsByClassName("z_addImg");
+            var mask = document.getElementsByClassName("z_mask")[0];
+            var cancel = document.getElementsByClassName("z_cancel")[0];
+            var sure = document.getElementsByClassName("z_sure")[0];
+            for (var j = 0; j < imgList.length; j++) {
+                imgList[j].index = j;
+                imgList[j].onclick = function() {
+                    var t = this;
+                    mask.style.display = "block";
+                    cancel.onclick = function() {
+                        mask.style.display = "none";
+                    };
+                    sure.onclick = function() {
+                        mask.style.display = "none";
+                        t.style.display = "none";
+                        var temp = $(t).attr("id");
+                        console.log("删除图片"+temp);
+                        valuePath = valuePath.replace(temp,"")
+                        console.log("保存路径"+valuePath)
+                    };
+
+                }
+            };
+        };
+
+
+
+
+</script>
+</html>

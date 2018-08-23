@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/server.css"/>
+</head>
+<body>
+<header>
+    定制服务
+    <a class="back"></a>
+</header>
+<div class="main">
+    <div class="call">
+        希望我们如何称呼您?
+    </div>
+    <div class="nickname">
+        <input type="text" placeholder="请输入您的昵称" id="nick"/>
+    </div>
+    <div class="next">
+        <button id="reg">下一步</button>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+    $('#reg').click(register);
+    function getData() {
+        var nick=$('#nick').val();
+        var state=GetQueryString();
+        //var mobile=$.cookie("mobile");
+        //var code=$.cookie("code");
+        var mobile=sessionStorage["mobile"];
+        var code=sessionStorage["code"];
+        var data;
+        if(state==0){
+            var riqi=sessionStorage['riqi'];
+            var zhouqi=sessionStorage['zhouqi'];
+            var tianshu=sessionStorage['tianshu'];
+/*             var riqi=$.cookie('riqi');
+            var zhouqi=$.cookie('zhouqi');
+            var tianshu=$.cookie('tianshu'); */
+            data={mobile:mobile,code:code,userName:nick,status:state,startTime:riqi,period:zhouqi,day:tianshu};
+        }else if(state==2){
+            var date=sessionStorage['date'];
+            var babySex=sessionStorage['babySex'];
+/*             var date=$.cookie('date');
+            var babySex=$.cookie('babySex'); */
+            data={mobile:mobile,code:code,userName:nick,status:state,date:date,babySex:babySex};
+        }
+        return data;
+    }
+   //测试 register_shop("13693190731");
+   /*用于商城注册，在商城使用其手机号为用户名和密码*/
+	function register_shop(data){
+		console.log("register_shop");
+	 	 $.get(shopsyysURL+'member/register/guanjia/'+data,function (result) {
+	     	console.log(result);
+	     	if(result.CODE=="0000"||result.CODE=="0001"||result.CODE=="0002"){
+	     		//0000：  注册成功；0001：手机号存在；0002：用户名存在
+	     		 var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc61c7965e9de767e&redirect_uri='+baseURL+'wechat/userInfo?mobile='+data+'&response_type=code&scope=snsapi_base&state=http://ys.stevengg.com/yuesao_h5/index.html#wechat_redirect';
+                window.location.href=url;
+	     		return true;//注册成功
+	     	}else{
+	     		return false;
+	     	}
+	     });
+	 	 
+	}
+    function register(){
+        var data=getData();
+        $.post(baseURL+'yuesao/pregnantInfo',data,function (result) {
+            if(result.code=="USR000"){
+                sessionStorage["sessionId"]=result.data.sessionid;
+                var mobile=sessionStorage["mobile"];
+                register_shop(sessionStorage["mobile"]);
+            }else if(result.code=="USR100"){
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR107"){
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR116"){
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR104"){
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }
+        })
+    }
+    $('.back').click(function(){
+        window.history.back();
+    });
+</script>
+</html>

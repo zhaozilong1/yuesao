@@ -1,0 +1,246 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul li{
+    list-style: none;
+}
+body{
+    width:100%;
+    height:1130px;
+    background:#fafafa;
+}
+.warp{
+    width: 100%;
+    height: 82px;
+    display: flex;
+    background:#f0f0f0;
+}
+.warp_cen{
+    width:667px;
+    height:82px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.warp_cen h2{
+    font-size: 36px;
+    color: #333333;
+}
+.warp span{
+    font-size: 32px;
+    color:#333333;
+}
+.center{
+    width:100%;
+    height:299px;
+    margin-top: 5px;
+    display:flex;
+}
+.center_cen{
+    width:667px;
+    height:299px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    background:white;
+    border-radius: 10px;
+    border-bottom:white; box-shadow:0 15px 10px #f0efef;
+}
+.center_left{
+    width:182px;
+    height:299px;
+    display:flex;
+    position: relative;
+}
+.center_left img{   
+    margin-left: 47px;
+    width:45px;
+    height:86px;
+    
+}
+.center_left span{
+    position:absolute;
+    left:55px;
+    top:10px;
+    font-size: 24px;
+    color:white;
+}
+.center_right{
+    flex:1px;
+}
+
+
+.name_right{
+    height:40px;
+    margin-top: 28px;
+}
+.name_right input{
+    disabled:disabled;
+    background-color: #fff;
+}
+.name_right h2{
+    color:#333333;
+    float: left;
+    font-size: 30px;
+}
+.name_right input{
+    width:280px;
+    height:36px;
+    border: 0;   
+    float: left;
+    font-size: 30px;
+    color:#333333;   
+    outline: none;  
+    margin-left: 10px;
+}
+.name_right span{
+    width:1px;
+    height:30px;
+    background:#c0c0c0;
+}
+.name_1 input{
+    background:#f0f0f0;
+}
+
+.content{
+    width:100%;
+    height:299px;
+    margin-top: 5px;
+    display:flex;
+    margin-top: 25px;
+}
+.concent_cen{
+    width:667px;
+    height:299px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    background:#f0f0f0;
+    border-radius: 10px;
+    border-bottom:white; box-shadow:0 15px 10px #e5e4e4;
+}
+.concent_left{
+    width:182px;
+    height:299px;
+    display:flex;
+    position: relative;
+}
+.concent_left img{   
+    margin-left: 47px;
+    width:45px;
+    height:185px;   
+}
+.concent_left span{
+    position:absolute;
+    left:55px;
+    top:10px;
+    font-size: 24px;
+    color:white;
+}
+.concent_right{
+    flex:1;
+}
+.concent_right ul li{
+    margin-top: 30px;
+    font-size: 28px;
+    color:#333333;
+}
+
+.pay{
+    width:100%;
+    height:299px;
+    margin-top: 5px;
+    display:flex;
+    margin-top: 25px;
+}
+.pay_cen{
+    width:667px;
+    height:299px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    background:white;
+    border-radius: 10px;
+    border-bottom:white; box-shadow:0 15px 10px #f0efef;
+}
+.pay_left{
+    width:182px;
+    height:299px;
+    display:flex;
+    position: relative;
+}
+.pay_left img{   
+    margin-left: 47px;
+    width:45px;
+    height:150px;
+    
+}
+.pay_left span{
+    position:absolute;
+    left:55px;
+    top:10px;
+    font-size: 24px;
+    color:white;
+}
+.pay_right{
+    flex:1;
+}
+.pay_right ul li{
+    margin-top: 30px;
+    font-size: 28px;
+    color:#333333;
+}
+/*zhushi*/
+.dingdan_box{
+    float: right;
+    width: 100%;
+    padding: 0 100px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+.dingdan_box a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    background-color: #cc6c6c;
+    font-size: 25px;
+    border-radius: 10px;
+}
+.dingdan_box .ip{
+    background-color: red;
+    line-height: 188px;
+    padding: 0.1rem 0.2rem;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.26rem;
+    margin-top: 67px;
+}
+.dingdan_box .coo{
+    background-color: #65d465;
+    padding: 0.1rem 0.2rem;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.26rem;
+    float: right;
+    margin-top: 67px;
+}
+.dingdan_box a:last-child{
+    background-color: #65d465;
+}
+
+.tishi{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 200px;
+    display: none;
+}
+.tishi img{
+    width: 200px;
+    display: block;
+    margin: auto;
+}

@@ -1,0 +1,42 @@
+body{
+  background-image: linear-gradient(to bottom, #fff, #ffc6eb);
+}
+//头部字体展示区
+.head{
+  display: block;
+  width:3.32rem;
+  height:1.52rem;
+  background: url("../images/denglu/img_01.png") no-repeat;
+  background-size:3.32rem 1.52rem;
+  margin: auto;
+  margin-top: 1rem;
+}
+//状态区域
+.base{
+  width: 100%;
+  margin-top: 2rem;
+  .status{
+    width: 100%;
+    height: 0.9rem;
+    background-color: #fff;
+    line-height: 0.9rem;
+    font-size: 0.26rem;
+    text-indent: 1em;
+    margin-top: 0.36rem;
+  }
+  button{
+    width: 90%;
+    height: 0.9rem;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    margin-left: 0.34rem;
+    border: 1px #fff solid;
+    font-size: 0.28rem;
+  }
+  .Ready{
+    margin-top: 0.7rem;
+  }
+  .pregnancy,.Parentingperiod{
+    margin-top: 0.4rem;
+  }
+}

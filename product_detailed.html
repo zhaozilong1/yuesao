@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/product_detailed.css" />
+    <script src="js/mobile-util.js"></script>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_left">
+        <img id="image" src="" alt="" />
+    </div>
+    <div class="warp_right">
+        <h2 id="title"></h2>
+        <h2 id="caption"></h2>
+        <p id="price"></p>
+        <div class="bottom_num">
+			<button class="num1" onclick="numAdd(this)"><img src="images/red1.png" alt="" /></button></button>
+			<span>0</span>
+			<button class="num2" onclick="numdel(this)"><button class="num2" onclick="numdel(this)"><img src="images/minus.png" alt="" /></button>
+		</div>
+        <div class="footer">
+            <button id="tobuy" >立即购买</button>
+        </div>
+    </div>
+</div>
+<div class="center">
+    <div class="center_top" id="introduction">
+    </div>
+</div>
+</body>
+ <script src="./js/base.js"></script>
+ <script src="./js/jquery-1.12.4.js"></script>
+ <script type="text/javascript">
+ 	$(function(){
+ 		var valurl=getUrlValue();
+ 		$.ajax({
+			url: shopsyysURL+"product/api/detail/"+valurl.productId,
+			//url: "http://127.0.0.1:8080/shopxxb2b2c/product/api/detail/"+valurl.productId,
+			type: "GET",
+			dataType: "json",
+			success: function(r){
+				$("#image").attr("src",r.image);
+				$("#title").html("商品名称："+r.name);
+				$("#price").html("价格 ：￥"+r.price);
+				$("#caption").html(r.caption);
+				$("#introduction").html(r.introduction);
+				$("#tobuy").click(function(){
+					// var unit = $("#price").html().substring(5);
+					var number = $(this).parent().siblings().find("span").text();
+					// var price = parseFloat(unit) * parseInt(number);
+						window.location.href="product_order.html?productId="+r.id+"&number=" + number;
+				});
+			},
+			error:function(r){
+				
+			}
+ 		});
+			
+ 	});
+ 	function numAdd(val){
+ 		console.log(val);
+		var num = $(val).parent().children("span");
+		num.text(parseInt(num.text())+1);
+	}
+	function numdel(val){
+		var num = $(val).parent().children("span");
+		if (parseInt(num.text()) > 0) {
+			num.text(parseInt(num.text())-1);
+		} else {
+			num.text(0);
+		}
+		
+	}
+ </script>
+</html>

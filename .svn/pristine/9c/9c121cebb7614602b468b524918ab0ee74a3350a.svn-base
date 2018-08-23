@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/one.css" />
+    <script src="js/mobile-util.js"></script>
+    <style>
+
+        .layui-layer .layui-layer-content{
+            position: relative;
+            padding: 20px;
+            line-height: 24px;
+            word-break: break-all;
+            overflow: hidden;
+            font-size: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .layui-layer .layui-layer-btn{
+            text-align: center;
+            /* padding: 0 30px 12px; */
+            pointer-events: auto;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .layui-layer .layui-layer-btn .layui-layer-btn0{
+            border-color: #1E9FFF;
+            background-color: #1E9FFF;
+            color: #fff;
+            font-size:20px;
+            /* text-align: center; */
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/icon.png" id="back"/>
+        <h2>管家推荐</h2>
+        <span></span>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" />
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2>曹庆</h2>
+                <span></span>
+                <i>中医调理师</i>
+            </div>
+            <div class="center_bottom">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_img"><img src="images/icoe.png" /></div>
+        </div>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" />
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2>曹庆</h2>
+                <span></span>
+                <i>中医调理师</i>
+            </div>
+            <div class="center_bottom">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_img"><img src="images/icoe.png" /></div>
+        </div>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" />
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2>曹庆</h2>
+                <span></span>
+                <i>中医调理师</i>
+            </div>
+            <div class="center_bottom">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_img"><img src="images/icoe.png" /></div>
+        </div>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" />
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2>曹庆</h2>
+                <span></span>
+                <i>中医调理师</i>
+            </div>
+            <div class="center_bottom">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_img"><img src="images/icoe.png" /></div>
+        </div>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" />
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2>曹庆</h2>
+                <span></span>
+                <i>中医调理师</i>
+            </div>
+            <div class="center_bottom">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_img"><img src="images/icoe.png" /></div>
+        </div>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" />
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2>曹庆</h2>
+                <span></span>
+                <i>中医调理师</i>
+            </div>
+            <div class="center_bottom">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_img"><img src="images/icoe.png" /></div>
+        </div>
+    </div>
+</div>
+<div class="two"></div>
+<div class="footer">
+    <div class="footer_cen" id="btn">
+        换一批
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="js/base.js"></script>
+<script>
+var page=1;
+var size=6;
+var switc=true;
+function list() {
+    if(!switc){
+        return;
+    }
+    $('.one').remove();
+    $('.center').remove();
+    $('.footer').remove();
+    var data={roleName:'管家',page:page,pageSize:size};
+$.post(baseURL+"yuesao/sysuser/list",data,function (result) {
+    if(result.code=="USR000"){
+        if(result.data.currPage>=result.data.totalPage){
+            switc=false;
+        }
+        page++
+        var list=result.data.list;
+        for(var i in list){
+            var guanjia=list[i];
+            var div='<div class="one"></div>'+
+                '<div class="center" onclick="skip(this)">'+
+                '<div class="center_cen">'+
+                '<div class="center_left">'+
+                '<img src="'+baseURL2+guanjia.photo+'" />'+
+                '</div>'+
+                '<div class="center_right">'+
+                '<div class="center_top">'+
+                '<h2>'+guanjia.name+'</h2>'+
+                '<span></span>'+
+                '<i>'+guanjia.profession+'</i>'+
+                '</div>'+
+                '<div class="center_bottom">擅长：'+guanjia.workExperience+'</div>'+
+            '<div class="center_img"><img src="images/icoe.png" /></div>'+
+                '</div>'+
+                '</div>'+
+                '</div>';
+            div=$(div);
+            div.data('userId',guanjia.userId);
+            $('body').append(div);
+        }
+        var footer='<div class="footer">'+
+            '<div class="footer_cen" id="btn">换一批</div>'+
+            '</div>';
+        $('body').append(footer);
+    }else if(result.code=="USR108"){
+        layer.open({
+            content: result.msg
+            , btn: ['确定',],
+            skin: 'my-skin'
+            , yes: function (index) {
+                layer.close(index);
+            }
+        });
+    }else if(result.code=="USR100"){
+        layer.open({
+            content: result.msg
+            , btn: ['确定',],
+            skin: 'my-skin'
+            , yes: function (index) {
+                layer.close(index);
+            }
+        });
+    }else if(result.code=="USR201"){
+        layer.open({
+            content: result.msg
+            , btn: ['确定',],
+            skin: 'my-skin'
+            , yes: function (index) {
+                layer.close(index);
+            }
+        });
+    }
+});
+}
+list();
+$('#btn').click(list);
+function skip (obj) {
+    var id=$(obj).data('userId');
+    window.location.href="butler.html?id="+id;
+}
+$('#back').click(function(){
+    layer.open({
+        content:"您还没有选择管家请选择管家！"
+        , btn: ['确定',],
+        skin: 'my-skin'
+        , yes: function (index) {
+            layer.close(index);
+        }
+    });
+});
+</script>
+</html>

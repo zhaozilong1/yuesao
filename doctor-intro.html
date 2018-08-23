@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/doctor-intro.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix" id="header">
+        <a class="back fl"></a>
+        上医·王朝阳
+    </header>
+    <div class="main">
+
+
+        <div class="combo">
+
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a id="photo"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <span class="user fl" id="name">王朝阳</span>
+                        <span class="zhuzhi fl">主治医生</span>
+                        <a  class="detail fr">查看详情</a>
+                    </div>
+                    <p id="shanchang">擅长：月经病、痛经病等</p>
+                    <p id="zhengshu">相关证书：职业证书、资格证书等</p>
+                    <p id="fuwu">服务   220次     |     从业  14年</p>
+                </div>
+            </div>
+        </div>
+        <!-- 用户评价-->
+        <div class="user_evaluation clearfix">
+            <span class="user fl">用户评价</span>
+            <div class="grade">非常满意&nbsp;|&nbsp;满意&nbsp;|&nbsp;一般&nbsp;|&nbsp;不满意</div>
+            <a href="#" class="next fr"></a>
+        </div>
+        <!-- tab栏-->
+        <div class="tab_box">
+            <div class="tab_top">
+                <ul>
+                    <li><a href="javascript:;" class="active">项目介绍</a></li>
+                    <li><a href="javascript:;">注意事项</a></li>
+                    <li><a href="javascript:;">套餐选择</a></li>
+                </ul>
+
+            </div>
+            <div class="contain_box">
+                <div class="introduce selected " id="taocan">
+
+                </div>
+                <div class="introduce" id="zhuyi">
+
+                </div>
+                <div class="introduce">
+                    <div class="combo_box clearfix">
+                        <div class="basics fl">
+                            <span>基础服务套餐：</span>
+                            <p >月嫂服务 <em id="day"></em> 天</p>
+                        </div>
+                        <i id="jichu">25800元</i>
+                        <input type="radio" name="taocan" class="check1 fr"id="check1" checked/>
+                        <label for="check1" onclick="judge1()"></label>
+                    </div>
+                    <div class="combo_box clearfix">
+                        <div class="basics fl">
+                            <span>月嫂定制:</span>
+                            <p>定制服务天数</p>
+                        </div>
+
+                            <input type="number" value="26" class="tianshu"/>
+                            <!--<i class="number_day">天</i>-->
+                            <input type="radio" name="taocan" class="check1 fr"  id="check2"/>天
+                            <label for="check2" onclick="judge2()"></label>
+                        <div id="serviceTime" hidden="hidden" style="margin: auto;font-size: 14px;color: red;text-align: center">服务定制时间为26-100天</div>
+                    </div>
+                    <div class="price clearfix">
+                        <div class="price-r fr">
+                            <strong>价格：</strong>
+                            <i></i> 元
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <div class="answers">
+            <button id="btn">立即预约</button>
+        </div>
+
+    </footer>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/doctor-intro.js"></script>
+<script>
+    //     function judge1() {
+    //         if($('#check2').is(':checked')){
+    //             $('#check2').attr("checked",false);
+    //             $('.tianshu').attr("disabled","disabled");
+    //         }
+    //         $('.price-r').find('i').text($('#price').text().substr(0,$('#price').text().indexOf("元")));
+    //     }
+    //     function judge2() {
+    //         if($('#check1').is(':checked')){
+    //             $('#check1').attr("checked",false);
+    //         }
+    // //
+    //         var quntit=$('#quntit').text();
+    //         var tianshu =$('.tianshu').val();
+    //         // if(tianshu>100||tianshu<26){
+    //         //     layer.open({
+    //         //         content: "月嫂服务仅可预定26-100天"
+    //         //         , btn: ['确定',],
+    //         //         skin: 'my-skin'
+    //         //         , yes: function (index) {
+    //         //             layer.close(index);
+    //         //         }
+    //         //     });
+    //         //     return;
+    //         // }
+    //         tianshu=tianshu-quntit;
+    //         console.log(tianshu);
+    //         var price=$('#price').text();
+    //         price=parseInt(price.substring(0,price.indexOf('元')));
+    //         price=parseInt(tianshu*(price/quntit)+price);
+    //         console.log("price:"+price);
+    //         $('.price-r').find('i').text(price);
+    //         $('.tianshu').removeAttr("disabled");
+    //     }
+    function judge1() {
+        $('.tianshu').attr("disabled","disabled");
+        console.log("guding")
+        $(".price-r").find('i').text('25800')
+    }
+    function judge2() {
+        $('.tianshu').removeAttr("disabled");
+        var day= parseInt($('#day').text());
+        console.log("147"+day);
+        var tianshu=parseInt($(".tianshu").val());
+        console.log("155",tianshu)
+        tianshu = tianshu-day
+        console.log("tianshu"+tianshu);
+        var jichu=$("#jichu").text();
+        console.log("jichu152:"+jichu)
+        jichu=parseInt(jichu.substr(0,jichu.indexOf('元')));
+        console.log("jichu154:"+jichu );
+        $(".price-r").find('i').text( eval(parseInt(492.3*tianshu)+"+"+jichu) );
+    }
+    $('.tianshu').attr("disabled","disabled");
+    $('.back').click(function () {
+        window.history.back();
+    });
+</script>
+</html>

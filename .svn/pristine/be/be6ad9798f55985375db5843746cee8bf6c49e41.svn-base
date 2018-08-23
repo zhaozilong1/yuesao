@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/my.css"/>
+    <link rel="stylesheet" href="css/conmon-r.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">我的
+        <!--<a href="index.html" class="back fl"></a>-->
+    </header>
+
+    <div class="main">
+        <div class="material" onclick="skipData()">
+            <div class="touxiang_box">
+                <a href="#" class="touxiang" id="tou"></a>
+                <p id="myname">游客</p>
+                <p class="sex" id="mysex"></p>
+            </div>
+            <div class="next">
+                <a href="javascript:;" class="next_icon"></a>
+            </div>
+        </div>
+        <!-- tab栏-->
+        <div class="tab_box">
+            <div class="tab_top">
+                <ul>
+                    <li class="active" onclick="wallet()">我的钱包</li>
+                    <li onclick="integral()">我的积分220</li>
+                </ul>
+            </div>
+            <div class="tab_bottom_box">
+                <div class="tab_bottom">
+                    <ul>
+                        <li onclick="order()"><a>我的服务订单</a></li>
+                        <li onclick="shop()"><a>我的商品订单</a></li>
+                        <li onclick="chanjian()"><a >产检时间表</a></li>
+                        <!--<li><a href="three.html">我的档案</a></li>-->
+                        <li><a href="oneself.html">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 底部-->
+    <input type="hidden" value="wode" id="page"/>
+
+    <footer id="footer">
+
+    </footer>
+
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/footer.js"></script>
+<script src="./js/my.js"></script>
+
+<script>
+    function order() {
+        console.log(!sessionStorage['sessionId']);
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+        window.location.href="order.html";
+    }
+    function shop() {
+        console.log(!sessionStorage['sessionId']);
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+        window.location.href="My_order.html";
+    }
+    function chanjian () {
+        console.log(!sessionStorage['sessionId']);
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+        window.location.href="my-chainjianbiao.html";
+    }
+    function skipData(){
+        console.log(!sessionStorage['sessionId']);
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+        window.location.href="data.html";
+    }
+    function wallet(){
+        console.log(!sessionStorage['sessionId']);
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+    }
+    function integral(){
+        console.log(!sessionStorage['sessionId']);
+        if(!sessionStorage['sessionId']){
+            layer.open({
+                content: "需要登录后才能进行后续操作，是否登录？"
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    window.location.href="login.html";
+                }
+                ,btn2:function (index) {
+                    layer.close(index);
+
+                }
+            });
+            return;
+        }
+    }
+</script>
+</html>

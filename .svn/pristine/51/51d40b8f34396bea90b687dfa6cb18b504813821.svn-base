@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/doctor-dynamic.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="#" class="back fl"></a>
+        医生动态
+    </header>
+    <div class="main">
+        <div class="phase">
+
+        </div>
+
+        <div class="combo">
+            <div class="combo_top clearfix">
+                <span class="fr">王医生</span>
+            </div>
+            <div class="combo_bottom clearfix" id="now">
+                <!--<div class="pic fl">
+                    <span>今天</span>
+                </div>
+                <div class="right">
+
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <p>近5年来，我国儿科医生总数从10.5万下降到10万</p>
+                        <div class="upload_box">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+                </div>-->
+            </div>
+            <div class="combo_bottom combo_bottom_t clearfix" id="others">
+                <!--<div class="pic fl">
+                    <span>3.21</span>
+                </div>
+                <div class="right">
+
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <p>近5年来，我国儿科医生总数从10.5万下降到10万</p>
+                        <div class="upload_box">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+    $('.back').click(function () {
+        window.history.back();
+    })
+    
+    $(function () {
+        var sessionId = sessionStorage['sessionId']
+        $.post(baseURL + "yuesao/dynamic/myDynamic",{"sessionid":sessionId},function (result) {
+            console.log(result)
+            var code = result.code;
+            if (code =='USR000') {//成功
+                var myTemplate = '<div class="pic fl">'+
+                    '<span>[发表时间]</span>'+
+                    '</div>'+
+                    '<div class="right">'+
+                    '<div class="text">[内容]</div>'+
+                    '<div class="upload">'+
+                    '<div class="upload_box">[图片]</div>'+
+                    '</div>'+
+                    '</div>'
+                var username = result.data.sysuser.username
+                var photo = result.data.sysuser.photo
+                $('.fr').html(username)
+                $('.combo_top span:before').css("background-image','url ("+photo+")")//更换医生头像--未完成
+                var myDynamic = result.data.myDynamic;
+                var now = new Date();
+                var month_now = now.getMonth()+1;
+                var day_now = now.getDate();
+                var nowTime = month_now + "." +day_now;//现在时间
+                for (var i in myDynamic) {
+                    var dynamic = myDynamic[i];
+                    var createdate = new Date(dynamic.createDate);
+                    var month_createdate = createdate.getMonth()+1;
+                    var day_createdate = createdate.getDate()
+                    var createTime = month_createdate + "." + day_createdate;//发表时间
+                    var photo = dynamic.photo;
+                    var newdiv = myTemplate;
+                    if (photo == null) {
+                        newdiv = newdiv.replace('[图片]','');
+                    } else {
+                        var pictures = photo.split(";");
+                        console.log("pictures:"+pictures.length)
+                        var imgs = '';
+                        for (var j in pictures) {
+                            if (j == pictures.length-1) {
+                                continue;
+                            }
+                            var picture = pictures[j];
+                            imgs  = imgs + '<img src='+baseURL + picture+' style="height:85px;">'
+                        }
+                        console.log("imgs:"+imgs)
+                        newdiv = newdiv.replace("[图片]",imgs);
+                    }
+                    if (nowTime == createTime) {
+                        console.log("124:"+newdiv)
+                        newdiv = newdiv.replace('[发表时间]','今天').replace('[内容]',dynamic.says)
+                        console.log("126:"+newdiv)
+                        $("#now").append(newdiv)
+                    } else {
+                        console.log(dynamic.says)
+                        newdiv = newdiv.replace('[发表时间]',createTime).replace('[内容]',dynamic.says)
+                        $("#others").append(newdiv)
+                    }
+
+                }
+
+            } else if (code==' USR100') {//该上医暂无发布动态
+
+            } else if (code==' USR100') {//没有购买上医
+
+            } else {//其他
+
+            }
+        })
+    })
+</script>
+</html>

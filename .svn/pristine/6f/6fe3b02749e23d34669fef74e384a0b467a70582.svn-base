@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/quiz.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a class="back fl"></a>
+        我要提问
+    </header>
+    <div class="main">
+        <form action="">
+            <textarea placeholder="请输入您要咨询的问题" id="question"></textarea>
+            <button id="btn" type="button">提&nbsp;&nbsp;&nbsp;交</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+    $('#btn').click(function () {
+        var question = $("#question").val();
+        if(question == null || question.trim() == ""){
+            layer.open({
+                content: '请输入要提问的问题 ！',
+                btn: ['确定']
+            });
+            return;
+        }
+        var data={sessionid:sessionStorage["sessionId"],question:$('#question').val(),flag:GetQueryString()};
+        $.post(baseURL+'yuesao/tuser/question',data,function (result) {
+                if (result.code="USR000"){
+                    layer.open({
+                        content: '问题已提交！'
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                            window.history.back();
+                        }
+                    });
+                }else if(result.code="USR124"){
+                    layer.open({
+                        content: result.msg
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                            window.location.href="login.html";
+                        }
+                    });
+                }else if(result.code="USR100"){
+//                    layer.open({
+//                        content: result.msg
+//                        , btn: ['确定',],
+//                        skin: 'my-skin'
+//                        , yes: function (index) {
+//                            layer.close(index);
+//                        }
+//                    });
+                }else if(result.code="USR138"){
+                    layer.open({
+                        content: result.msg
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                        }
+                    });
+                }else if(result.code="USR201"){
+//                    layer.open({
+//                        content: result.msg
+//                        , btn: ['确定',],
+//                        skin: 'my-skin'
+//                        , yes: function (index) {
+//                            layer.close(index);
+//                        }
+//                    });
+                }else if(result.code="USR149"){
+                    layer.open({
+                        content: result.msg
+                        , btn: ['确定',],
+                        skin: 'my-skin'
+                        , yes: function (index) {
+                            layer.close(index);
+                        }
+                    });
+                }
+        });
+    })
+    $('.back').click(function () {
+        window.history.back();
+    })
+</script>
+</html>

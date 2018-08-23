@@ -1,0 +1,90 @@
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .main nav ul {
+    display: flex; }
+    .warp .main nav ul li {
+      height: 0.96rem;
+      line-height: 0.96rem;
+      flex: 1;
+      float: left;
+      text-align: center; }
+      .warp .main nav ul li a {
+        display: block;
+        font-size: 0.28rem; }
+  .warp .main .change {
+    color: red;
+    border-bottom: 2px solid red; }
+  .warp .main .dingdan_list .combo {
+    display: none; }
+    .warp .main .dingdan_list .combo .combo_bottom {
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      padding: 0 0.2rem;
+      box-sizing: border-box; }
+      .warp .main .dingdan_list .combo .combo_bottom .pic a {
+        display: block;
+        width: 1.8rem;
+        height: 1.8rem;
+        background: url("../images/img_yishengtixing.png") no-repeat;
+        background-size: 1.8rem 1.8rem;
+        margin-top: 0.15rem;
+        margin-right: 0.15rem;
+        padding-bottom: 0.15rem; }
+      .warp .main .dingdan_list .combo .combo_bottom .right {
+        float: left;
+        width: 70%; }
+        .warp .main .dingdan_list .combo .combo_bottom .right .top {
+          padding-top: 0.1rem; }
+          .warp .main .dingdan_list .combo .combo_bottom .right .top .user {
+            border-right: 1px solid #e5e5e5;
+            font-size: 0.32rem;
+            padding-right: 0.2rem;
+            color: #333333; }
+          .warp .main .dingdan_list .combo .combo_bottom .right .top .zhuzhi {
+            font-size: 0.24rem;
+            padding-left: 0.2rem;
+            padding-top: 0.04rem;
+            color: #666666; }
+          .warp .main .dingdan_list .combo .combo_bottom .right .top .detail {
+            font-size: 0.24rem;
+            color: #ff4400; }
+        .warp .main .dingdan_list .combo .combo_bottom .right P {
+          font-size: 0.24rem;
+          line-height: 2.5;
+          margin-top: 0.1rem; }
+          .warp .main .dingdan_list .combo .combo_bottom .right P img {
+            float: right;
+            width: 0.2rem;
+            padding-top: 0.3rem; }
+  .warp .main .dingdan_list .tishi {
+    width: 100%;
+    line-height: 2;
+    text-align: center;
+    font-size: 0.25rem;
+    margin-top: 1rem; }
+    .warp .main .dingdan_list .tishi img {
+      display: block;
+      margin: auto; }
+  .warp .main .dingdan_list .selected {
+    display: block; }
+
+/*# sourceMappingURL=dingdan_list.css.map */

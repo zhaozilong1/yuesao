@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/login.css"/>
+</head>
+<body>
+<div class="warp">
+    <header>
+
+    </header>
+    <!-- 表单-->
+    <form action="">
+      <div class="photo clearfix">
+          <!--<span class="fl phone_prefix">+86</span>-->
+          <input type="number" name="mobile" placeholder="请输入您的手机号" class="mobile fl" id="mobile"/>
+      </div>
+        <div class="note clearfix">
+            <input type="number" name="verify" placeholder="请输入短信验证码" class="fl" id="code"/>
+            <button class="code fr"  type="button" id="btn" onclick="getSms()">获取验证码</button>
+        </div>
+        <div class="consent">
+            <input type='checkbox' name="deal" checked="true" id="check1">
+            <label for="check1"></label>
+            <span>我以阅读并同意上医月嫂相关服务协议</span>
+        </div>
+        <div class="login">
+            <input type="button" name="submit" class="login_c" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录"/>
+        </div>
+        <div class="tourist">
+            <input type="button" name="submit-1" class="tourist_c" value="游客体验"/>
+        </div>
+    </form>
+
+
+
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/login.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+
+    $(".tourist").click(function(){
+        sessionStorage['sessionId']='';
+        window.location.href = "index.html?status=1";
+    })
+
+
+</script>
+</html>

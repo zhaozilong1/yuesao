@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/three_save.css">
+    <link rel="stylesheet" href="css/threeSave.css"/>
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="css/zoomify.min.css"/>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/icon.png" onclick="warps()"/>
+        <h2 id="mingcheng">体重腹围记录</h2>
+        <span></span>
+    </div>
+</div>
+<div class="data">
+    <p id="timeour">2018年5月4日</p>
+</div>
+
+<div class="tab">
+    <div class="tab-box" id="allhide">
+        <div class="tab_cen">
+            <div class="tab_demo">
+                <h3><img src="images/red.png" alt="">记录时间：<span id="tzfu_recordTime"></span></h3>
+                <ul class="tab_cen_ul">
+                    <li class="tzfu_01"><span style="display: none" id="sty">体重：</span><span id="tzfu_weight"></span></li>
+                    <li class="tzfu_01"><span style="display: none" id="sty1">腰围：</span><span id="tzfu_bust"></span></li>
+                    <li class="tzfu_01"><span id="miaoshustyle">描述：</span><span id="miaoshu"></span></li>
+                </ul>
+                <h4><img src="images/red.png" alt="">测评结果：<span id="tzfu_testResult"></span></h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="button">  <p id="certificate"></p></div>
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script src="js/mobile-util.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/zoomify.min.js"></script>
+<script>
+    function warps() {
+        window.location.href="three.html"
+    }
+    $('.example img').zoomify();
+
+   $(function () {
+       var url=location.search;
+       var Request = new Object();
+       if(url.indexOf("?")!=-1) {
+           var str = url.substr(1)　//去掉?号
+           strs = str.split("&");
+           for(var i=0;i<strs.length;i++) {
+               Request[strs[i ].split("=")[0]]=unescape(strs[ i].split("=")[1]);
+               　　}
+            }
+       console.log(Request["id"]);
+       if(Request["id"]==1){
+           $("#mingcheng").text("体重腹围")
+       }else if(Request["id"]==2){
+           $("#mingcheng").text("药品营养剂")
+       }else if(Request["id"]==3){
+           $("#mingcheng").text("胎动计数")
+       }else if(Request["id"]==4){
+           $("#mingcheng").text("产检");
+       }
+       $("#timeour").text(Request["recordTime"]);
+       console.log(Request["recordTime"])
+       var sessionId=sessionStorage['sessionId'];
+       $.post(baseURL+"yuesao/record/appResult",{sessionid:sessionId,recordTime:Request["recordTime"],recordId:Request["id"]},function (r) {
+          console.log(r)
+           if(r.code=="USR103"){
+           }else if(r.code=="USR100"){
+           }else if(r.code=="USER001 "){
+           }else if(r.code=="USR000") {
+               if (Request["id"] == 4) {
+                   $("#tzfu_recordTime").text(r.data.recordTime);
+                   $("#miaoshu").text(r.data.describes);
+                   if (r.data.testResult == null) {
+                       $("#tzfu_testResult").text("医生还没有评测，请稍后查看！");
+                   } else {
+                       $("#tzfu_testResult").text(r.data.testResult);
+                   }
+                   var desc = r.data.describesImg;
+                   var img=desc.split(";");
+                   for (var i = 0; i < img.length-1; i++) {
+                       var image='<img src="' +baseURL2+ img[i]+  '">';
+                       $("#certificate").append(image);
+                   }
+
+
+               };
+
+               if (Request["id"] == 3) {
+                   $("#tzfu_recordTime").text(r.data.recordTime);
+                   if (r.data.testResult == null) {
+                       $("#tzfu_testResult").text("医生还没有评测，请稍后查看！");
+                   } else {
+                       $("#tzfu_testResult").text(r.data.testResult);
+                   }
+                   $("#miaoshustyle").hide();
+                   $("#sty1").show();
+                   $("#sty1").text("胎动：")
+                   $("#tzfu_bust").text("在"+r.data.chronograph+"秒内，宝宝动了"+r.data.times+"次！！！");
+
+               }
+
+
+
+               if (Request["id"] == 2) {
+                   $("#tzfu_recordTime").text(r.data.recordTime);
+                   if (r.data.testResult == null) {
+                       $("#tzfu_testResult").text("医生还没有评测，请稍后查看！");
+                   } else {
+                       $("#tzfu_testResult").text(r.data.testResult);
+                   }
+                   $("#miaoshu").text(r.data.describes);
+                   $("#sty").show();
+                   $("#sty").text("药品：")
+                   $("#tzfu_weight").text(r.data.drug);
+                   var desc = r.data.describesImg;
+                   var img=desc.split(";");
+                   for (var i = 0; i < img.length-1; i++) {
+                       var image='<img src="' +baseURL2+ img[i]+  '">';
+                       $("#certificate").append(image);
+                   }
+
+               }
+
+
+               if (Request["id"] == 1) {
+                   $("#tzfu_recordTime").text(r.data.recordTime);
+                   if (r.data.testResult == null) {
+                       $("#tzfu_testResult").text("医生还没有评测，请稍后查看！");
+                   } else {
+                       $("#tzfu_testResult").text(r.data.testResult);
+                   }
+                   $("#miaoshu").text(r.data.describes);
+                   $("#sty").show();
+                   $("#sty").text("体重：");
+                   $("#sty1").show();
+                   $("#sty1").text("腹围：");
+                   $("#tzfu_bust").text(r.data.bust);
+                   $("#tzfu_weight").text(r.data.weight);
+                   var desc = r.data.describesImg;
+                   var img=desc.split(";");
+                   for (var i = 0; i < img.length-1; i++) {
+                       var image='<img src="' +baseURL2+ img[i]+  '">';
+                       $("#certificate").append(image);
+                   }
+
+               }
+
+
+
+
+
+
+
+
+           }
+       })
+   });
+
+
+</script>
+

@@ -1,0 +1,161 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    /*height: 1280px;*/
+    background: #ffffff;
+}
+ul li{
+    list-style: none;
+}
+.warp{
+    width: 100%;
+    height: 96px;
+    display: flex;
+    background:#FAFAFA;
+}
+.warp_cen{
+    width:667px;
+    height:96px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.warp_cen h2{
+    font-size: 36px;
+    color: #333333;
+}
+.data{
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    background:#8c8c8c3d;
+    font-size: 22px;
+}
+.tab{
+    width:100%;
+    /*height:300px;*/
+}
+.tab .tab-box:first-child{
+    margin-top:0;
+
+}
+.tab .tab-box{
+    /*margin-top: 100px;*/
+}
+.tab-menu{
+    width:100%;
+    height:82px;
+
+}
+.tab-menu ul{
+    list-style:none;
+}
+.tab-menu li{
+    display:block;
+    width:25%;
+    height:82px;
+    line-height: 82px;
+    text-align: center;
+    float:left;
+    border-right: 1px solid #e5e5e5;
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    font-size: 28px;
+    color:#666666;
+    background:#fff3f3;
+}
+.tab-menu li:nth-child(1){
+
+}
+.tab-box>div{
+    width:100%;
+    display:none;
+}
+
+.tab-box div:first-Child{
+    display:block;
+}
+.tab_cen{
+    width:776px;
+    /*height:226px;*/
+    padding:0px 26px 0;
+    box-sizing:border-box;
+}
+.tab_cen img{
+    padding-top: 12px;
+    /*float:left;*/
+    padding-left: 26px;
+    position: relative;
+}
+.tab_cen>h3{
+    color:#333333;
+    margin-bottom: 10px;
+}
+.tab_cen h4{
+    color:#333333;
+    font-size:20px;
+    padding-top: 14px;
+}
+.tab_demo h4 img{
+    width: 8px;
+    height: 8px;
+    margin-right: 20px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: -20px;
+}
+/**/
+.tab_cen>div:last-child{
+    border: none;
+}
+.tab_demo{
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px 0;
+}
+.tab_demo>h3>img{
+    /*width: 8px;*/
+    /*height: 8px;*/
+    margin-right: 20px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: -20px;
+}
+
+.tab_cen_ul>li{
+    color: #666666;
+    font-size: 20px;
+    line-height: 44px;
+    padding-left: 50px;
+}
+
+.tab-menu>ul>li.avit{
+    background:#ffffff;
+    color:#ff4400;
+}
+
+.button{
+    width: 100%;
+    /*background: #8c8c8c3d;*/
+}
+.button p{
+    /*padding: 20px;*/
+}
+.button p img{
+    width: 25%;
+    height: 125px;
+    margin-right: 20px;
+}
+
+
+.picture{
+    height: 106px;
+    background: pink;
+}
+.picture_img{
+
+}

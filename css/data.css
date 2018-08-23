@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul li{
+    list-style: none;
+}
+.warp{
+    width: 100%;
+    height: 82px;
+    display: flex;
+    background:#f0f0f0;
+}
+.warp_cen{
+    width:667px;
+    height:82px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.warp_cen a{
+    text-decoration: none;
+    font-size: 32px;
+    color:#333333;
+}
+.warp_cen h2{
+    font-size: 36px;
+    color: #333333;
+}
+/*.warp span{
+    font-size: 32px;
+    color:#333333;
+}*/
+.head{
+    width:100%;
+    height:216px;
+    background: #ffffff;
+    display:flex;
+}
+.head_cen{
+    width:672px;
+    height:216px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between; 
+}
+.head_left{
+    width:50%;
+    height:216px;
+    line-height: 216px;
+    font-size: 30px;
+    color:#999999;
+}
+.head_right{
+    width:50%;
+    height:216px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name{
+    width:100%;
+    height:120px;
+}
+.name_cen{
+    position: relative;
+    width:672px;
+    height:120px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+}
+.name_left{
+    width:50%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name_left h2{
+    color:#999999;
+    font-size: 30px;
+}
+.name_left input{
+    width:200px;
+    height:32px;
+    border: 0;   
+    outline: none; 
+    font-size: 24px;
+    color: #555;
+}
+.name_left1{
+    background:#fafafa;
+}
+.name_img{
+    position: absolute;
+    right: 10px;
+    bottom: 18px;
+}
+.name_right{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name_right h2{
+    color:#999999;
+    font-size: 30px;
+}
+
+.name_right input{
+    width: 80%;
+    height: 32px;
+    border: 0;
+    font-size: 24px;
+    color: #555;
+    outline: none;
+    margin-left: 10px;
+}
+.name_right span{
+    width:1px;
+    height:30px;
+    background:#c0c0c0;
+}
+.name_1{
+    background:#fafafa;
+}
+.container .z_photo{
+    width: 1.2rem;
+    height:1.2rem;
+    /* padding: 0.3rem; */
+    overflow: auto;
+    border-radius: 50%;
+    clear: both;
+    margin: 1rem auto;
+    border: 1px solid #555;
+    background-size: 100%;
+    overflow: hidden;
+}
+
+

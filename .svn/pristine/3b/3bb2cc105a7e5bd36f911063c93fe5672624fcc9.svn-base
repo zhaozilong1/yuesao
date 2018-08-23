@@ -1,0 +1,52 @@
+body {
+  background-image: linear-gradient(to bottom, #fff, #ffc6eb); }
+
+header {
+  height: 1.08rem;
+  line-height: 1.08rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 0.32rem;
+  padding: 0 0.25rem;
+  box-sizing: border-box; }
+  header .back {
+    display: block;
+    width: 0.28rem;
+    height: 0.28rem;
+    background: url("../images/doctor-01/icon_back.png") no-repeat;
+    background-size: 0.28rem 0.28rem;
+    margin-top: 0.1rem;
+    margin-top: 0.4rem;
+    float: left; }
+
+.call {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  padding: 0 0.2rem;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.32rem;
+  margin-top: 0.2rem; }
+
+.nickname {
+  text-align: center;
+  margin-top: 2.65rem; }
+  .nickname input {
+    width: 90%;
+    height: 0.9rem;
+    border: 1px solid #e5e5e5;
+    text-indent: 2em;
+    border-radius: 4px; }
+
+.next {
+  text-align: center;
+  margin-top: 2.65rem; }
+  .next button {
+    width: 90%;
+    height: 0.9rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #e77fc3; }
+
+/*# sourceMappingURL=server.css.map */

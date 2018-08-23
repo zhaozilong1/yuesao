@@ -1,0 +1,20 @@
+/**
+ * Created by 邵亚楠 on 2018/5/4.
+ */
+$(function(){
+    //tab切换
+    $("nav ul li").click(function(){
+        $(this).addClass("change").siblings().removeClass("change");
+        var index = $(this).index();
+        $(".dingdan_list .combo").eq(index).show().siblings().hide();
+    })
+
+    //返回我的页面
+    $(".back").click(function(){
+        window.location.href = "my.html";
+    })
+    //返回订单详情页面
+    $(".combo_bottom .right").click(function(){
+        window.location.href = "order.html";
+    })
+})

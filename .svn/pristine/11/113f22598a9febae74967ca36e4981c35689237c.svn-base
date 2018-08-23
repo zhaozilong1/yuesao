@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/two.css" />
+    <script src="js/mobile-util.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/base.js"></script>
+    <script src="lib/layer/layer.js"></script>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/icon.png" onclick="back()"/>
+        <h2>用户评价</h2>
+        <span></span>
+    </div>
+</div>
+<div class="tishi">
+    <img src="./images/drawable-xhdpi/icon_1-01.png" alt=""/>
+    暂无评价
+</div>
+</body>
+<script>
+    function back() {
+        window.history.back();
+    }
+    function getComment() {
+        var id=GetQueryString();
+        $.post(baseURL+"yuesao/sysuser/commentlist",{userId:id,page:1,pageSize:100},function (result) {
+           $('.center').remove();
+            if(result.code=="USR000"){
+                var comments=result.data.list;
+                for(var i in comments.length){
+                    var comment=comments[i];
+                    var div='<div class="center">'+
+                        '<div class="center_cen">'+
+                        '<div class="center_left">'+
+                        '<img src="'+comment.picUrl+' />'+
+                        '</div>'+
+                        '<div class="center_right">'+
+                        '<div class="center_top">'+
+                        '<h2>'+comment.userName+'</h2>'+
+                        '<span>'+commentDate+'</span>'+
+                        '</div>'+
+                        '<div class="center_bottom">'+
+                        '+commentContent+'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+                    $('body').append(div);
+                }
+
+            }else if(result.code=="USR108"){
+            $('.tishi').show();
+            }else if(result.code=="USR100"){
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR201"){
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }
+        })
+    }
+getComment();
+</script>
+</html>

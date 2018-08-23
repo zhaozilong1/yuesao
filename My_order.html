@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/My_order.css" />
+    <script src="js/mobile-util.js"></script>
+    <script src="./js/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <a href="my.html">
+            <img src="images/icon.png"/>
+        </a>
+        <h2>我的订单</h2>
+        <span></span>
+    </div>
+</div>
+<div class="whole">
+
+        <ul>
+            <li>全部</li>
+            <li>待付款</li>
+            <li>待收货</li>
+            <li>已完成</li>
+            <li>已取消</li>
+        </ul>
+
+</div>
+<div id="con">
+<!-- <div class="one"></div>
+<div class="content">
+    <div class="two"></div>
+    <div class="content_cen">
+       <img src="images/img_04.png" alt="" />
+       <h2>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</h2>
+    </div>
+    <div class="goods">
+        <div class="goods_cen">
+            <h2>共一件商品&nbsp;实付款<i>￥71.00</i></h2>
+            
+            <span class="goods_right">
+                <h2>查看详情<i>></i></h2>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="one"></div>
+
+<div class="content">
+    <div class="two"></div>
+    <div class="content_cen">
+       <img src="images/img_04.png" alt="" />
+       <h2>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</h2>
+    </div>
+    <div class="goods">
+        <div class="goods_cen">
+            <h2>共一件商品&nbsp;实付款<i>￥71.00</i></h2>
+            
+            <span class="goods_right">
+                <h2>查看详情<i>></i></h2>
+            </span>
+        </div>
+    </div>
+</div> -->
+</div>
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script type="text/javascript">
+        $(function(){
+            var sessionId=sessionStorage['sessionId'];
+                  $.ajax({  
+                    url:baseURL+"yuesao/order/list",
+                    data:{"sessionid":sessionId,'page':1,'pageSize':50,'type':"",'status':""}, //以键/值对的形式
+                    async : false,  
+                    dataType : "json",  
+                    success : function(data) {  
+                        console.log(data)
+                        if(data.code=='USR000'){
+                            var html='';
+                            var list=data.data.list;
+                            for(var i = 0; i < list.length; i++) {//循环后台传过来的Json数组 
+                                if(list[i].type != ""){
+                                    $.ajax({  
+                                        url:"http://shop.stevengg.com/shopsyys/product/api/detail/" + list[i].productId,  
+                                        async : false,  
+                                        dataType : "json",  
+                                        success : function(r) {
+                                              html += '<div class="two"></div><div class="content_cen"><img src="'+r.image+'" alt="" /><h2>'+r.name+'</h2></div>'
+                                         }
+                                     });
+                                    html += '<div class="goods"><div class="goods_cen"><h2>共'+list[i].quntity+'件商品&nbsp;实付款<i>￥'+list[i].price+'</i></h2><span class="goods_right"><h2 onclick="detail('+list[i].productId+')">查看详情<i>></i></h2></span></div></div>' 
+                                  
+                                }
+                             
+                                 
+                   
+                            }
+                            console.log(html)
+                            $("#con").append(html);
+                        }else{
+                            alert(data.msg);
+                    }
+               }  
+
+          });     
+    })
+   function detail(productId){
+    alert('message');
+        window.location.href ='product_detailed.html?productId=' + productId;
+   }
+</script>

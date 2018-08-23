@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/maternity-01.css"/>
+    <link rel="stylesheet" href="./lib/Swiper-4.0.7/dist/css/swiper.css"/>
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            width: 100%;
+            height: 100%;
+        }
+        .banner .swiper-slide {
+            width:7.2rem;
+            height: 2.87rem;
+            text-align: center;
+            font-size: 18px;
+            background:url("./images/img_bg.png") no-repeat;
+            background-size:7.2rem 2.87rem;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-pagination-bullet-active{
+            opacity: 1;
+            background: #faa9c0;
+        }
+
+
+        .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+            background-image: url("./images/icon_right.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+            background-image: url("./images/icon_left.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="index.html" class="back fl"></a>
+        月嫂风采
+    </header>
+    <div class="main">
+        <!-- 医生推荐-->
+        <div class="recommend">
+            <div class="recommend_top clearfix">
+                <span>月嫂推荐</span>
+                <a href="#" onclick="changeThree()" class="fr">换一批</a>
+            </div>
+            <div class="recommend_bottom clearfix">
+                <div class="recommentd-swiper doctor_sex">
+                    <div class="swiper-wrapper" id="tuijian">
+                        <!--<div class="swiper-slide">
+                            <div class="pic"><span>您还没有月嫂请尽快签约</span></div>
+                            <div class="doctor_box">
+                                <ul id="yuesaolist">
+                                </ul>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <!--<div class="swiper-button-next" id="next"></div>-->
+                <!--<div class="swiper-button-prev" id="prev"></div>-->
+            </div>
+        </div>
+        <!-- 全网月嫂动态-->
+        <div class="combo" id="allMoon">
+            <div class="combo_top">
+                <span>全网月嫂动态</span>
+            </div>
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">月嫂1号</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">月嫂2号</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload clearfix">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/maternity-01.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./lib/Swiper-4.0.7/dist/js/swiper.min.js"></script>
+<script>
+    // var swiper2 = new Swiper('.recommentd-swiper', {
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    // });
+    
+</script>
+
+<!--<script type="text/javascript">
+function getAllMoon(){
+    $('#tuijian').empty();
+    $.post(baseURL+"yuesao/sysuser/list",{roleName:"月嫂",page:1,pageSize:100},function (result) {
+        if(result.code=="USR000"){
+            var times=Math.ceil(result.data.list.length/3);
+            var moon=result.data.list;
+            console.log(times+"163");
+            var div='';
+            for(var i=0;i<times;i++){
+                div+='<div class="swiper-wrapper">'+
+                    '<div class="swiper-slide">'+
+                    '<div class="pic"><span>您还没有月嫂请尽快签约</span></div>'+
+                    '<div class="doctor_box">'+
+                    '<ul id="'+i+'">'+
+                    '</ul>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>';
+                var select=[];
+                var n=i*3;
+                var y=result.data.list.length%3;
+                if(i==times-1){
+                    for (var a=0;a<y;a++){
+                        select.push(moon[n]);
+                        n++;
+                    };
+                }else{
+                    for (var a=0;a<3;a++){
+                        select.push(moon[n]);
+                        n++;
+                    };
+                }
+                $('#tuijian').append(div);
+                changeThree(select,i);
+            }
+        }
+    })
+}    
+getAllMoon();
+function changeThree(obj,id){
+    console.log(obj);
+		var html='';
+		$.each(obj,function(n,item){
+			html+='<li><a ><span onclick="toyuesaoinfo(this)" id="'+item.userId+'" class="li"></span><p>'+item.name+'</p></a></li>';
+				
+		});
+		$("#"+id).append(html);
+		$.each(obj,function(n,item){
+			$("#"+item.userId).css("background-image", "url(" +baseURL2+item.photo + ")");
+		});
+}
+function toyuesaoinfo(val){
+    console.log(val);
+	 window.location.href="doctor-intro.html?id="+val.id;
+}
+</script>-->
+
+<script type="text/javascript">
+    $(function () {
+        changeThree();
+    })
+    function changeThree() {
+        $.post(baseURL+"yuesao/moonDynamic/change",function (result){
+            console.log("291")
+            console.log(result)
+            if (result.code == 'USR000') {
+                var moons = result.data.randomMoons;
+                var div = '<div class="swiper-slide">'+
+                    '<div class="pic"><span>您还没有月嫂请尽快签约</span></div>'+
+                    '<div class="doctor_box">'+
+                    ' <ul id="list" >'+
+//                    '<li><a href="doctor-intro.html?userId='+moons[0].userId+'"><span style="background:url('+ baseURL2 + moons[0].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+moons[0].username+'</p></a></li>'+
+//                    '<li><a href="doctor-intro.html?userId='+moons[1].userId+'"><span style="background:url('+ baseURL2 + moons[1].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+moons[1].username+'</p></a></li>'+
+//                    '<li><a href="doctor-intro.html?userId='+moons[2].userId+'"><span style="background:url('+ baseURL2 + moons[2].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+moons[2].username+'</p></a></li>'+
+                    '</ul>'+
+                    '</div>'+
+                    '</div>'
+                $("#tuijian").empty().append(div);
+                var html='';
+                $.each(moons,function (n,item) {
+                    html+='<li><a href="doctor-intro.html?userId='+item.userId+'"><span style="background:url('+ baseURL2 + item.photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+item.username+'</p></a></li>';
+                })
+                $('#list').append(html);
+            } else if (result.code == 'USR147') {
+
+            } else {
+
+            }
+        });
+    }
+</script>
+</html>

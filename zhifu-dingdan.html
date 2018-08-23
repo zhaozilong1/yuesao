@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/zhifu-dingdan.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="javascript:;" class="back fl"></a>
+        支付订单
+    </header>
+    <div class="combo">
+        <div class="detail">订单详情</div>
+        <div class="detail_box">
+            <ul>
+                <li>支付方式 :<span>微信支付  </span></li>
+                <li id="orderNumber">订单编号 : <span >U180409999999</span></li>
+                <li id="serviceName">预约项目 : <span>管家</span></li>
+                <li id="amount">订单金额 : <span>138.0元</span></li>
+                <li id="amount2">应付金额 : <span >138.0元</span></li>
+            </ul>
+        </div>
+
+    </div>
+    <footer>
+        <div class="answers">
+            <button id="btn">立即支付</button>
+        </div>
+
+    </footer>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/zhifu.js"></script>
+
+
+<script>
+    $(function () {
+        var sessionId = sessionStorage['sessionId']
+        $.post(baseURL+"yuesao/order/detail",{sessionid:sessionId},function (r) {
+            console.log("45",r)
+            var code = r.code;
+            if (code == 'USR000') {//成功
+                var amount = r.data.amount;
+                var orderNumber = r.data.orderNumber;
+                var serviceName = r.data.serviceName;
+                console.log(amount,orderNumber,serviceName)
+                if (!amount || !orderNumber || !serviceName) {
+                    $.post(baseURL+"yuesao/order/cancel",{sessionid:sessionId},function (result) {
+                        var codeCancel = result.code;
+                        if (codeCancel == 'USR000'){
+                            alert("订单失效，请重新下单")
+                            window.location = "index.html"
+                        } else if(codeCancel == 'USR124'){//登录已过期请重新登录
+
+                        } else if(codeCancel == 'USR139'){//查不到详情信息
+
+                        } else if(codeCancel == 'USR100'){//用户入参错误
+
+                        } else if(codeCancel == 'USR201'){//系统接口异常，请联系管理员
+
+                        } else {
+
+                        }
+                    });
+                    return ;
+                }
+                //todo
+                $("#amount").find('span').html('').html(parseInt(amount)+"元")
+                $("#amount2").find('span').html('').html(parseInt(amount)+"元")
+                $("#serviceName").find('span').html('').html(serviceName)
+                $("#orderNumber").find('span').html('').html(orderNumber)
+
+            } else if(code == 'USR124'){//登录已过期请重新登录
+
+            } else if(code == 'USR139'){//查不到详情信息
+
+            } else if(code == 'USR100'){//用户入参错误
+
+            } else if(code == 'USR201'){//系统接口异常，请联系管理员
+
+            } else {
+
+            }
+        });
+
+    })
+    $('#btn').click(function () {
+        var oederNumber=$('#orderNumber').find('span').text();
+//        alert(oederNumber);
+        payMethod(oederNumber,"one.html","zhifu-dingdan.html")
+    });
+    $('.back').click(function () {
+        window.history.back();
+    })
+
+</script>
+
+
+</html>

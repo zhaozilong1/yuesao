@@ -1,0 +1,209 @@
+body {
+  background-color: #f0f0f0; }
+
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .recommend .recommend_top {
+    width: 100%;
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+    margin-top: 0.1rem;
+    padding: 0 0.25rem;
+    box-sizing: border-box; }
+    .warp .recommend .recommend_top a {
+      color: #d12828; }
+    .warp .recommend .recommend_top span {
+      font-size: 0.28rem;
+      color: #333333;
+      padding-left: 0.45rem;
+      position: relative; }
+      .warp .recommend .recommend_top span:before {
+        display: block;
+        content: "";
+        width: 0.28rem;
+        height: 0.28rem;
+        background: url("../images/doctor-01/icon_01.png") no-repeat;
+        background-size: 0.28rem 0.28rem;
+        position: absolute;
+        top: 0px; }
+  .warp .recommend .recommend_bottom {
+    height: 1.76rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box;
+    position: relative; }
+    .warp .recommend .recommend_bottom .doctor_sex {
+      width: 100%;
+      margin: 0 auto;
+      height: 1.76rem;
+      box-sizing: border-box;
+      overflow: hidden; }
+      .warp .recommend .recommend_bottom .doctor_sex .pic {
+        width: 6.68rem;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        background: url(../images/doctor-01/img_bg_02.png) no-repeat;
+        background-size: 6.68rem 0.3rem;
+        position: relative;
+        margin: 3px auto;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%); }
+        .warp .recommend .recommend_bottom .doctor_sex .pic span {
+          font-size: 0.26rem;
+          /* position: absolute; */
+          /* top: -2px; */
+          /* left: 1rem; */
+          color: #d12828;
+          position: relative;
+          left: 2.2rem; }
+          .warp .recommend .recommend_bottom .doctor_sex .pic span:before {
+            display: block;
+            content: "";
+            width: 0.28rem;
+            height: 0.28rem;
+            background: url("../images/doctor-01/icon_03.png") no-repeat;
+            background-size: 0.28rem 0.28rem;
+            position: absolute;
+            left: -0.4rem; }
+      .warp .recommend .recommend_bottom .doctor_sex .doctor_box {
+        margin-top: 0.4rem; }
+        .warp .recommend .recommend_bottom .doctor_sex .doctor_box ul {
+          display: flex; }
+          .warp .recommend .recommend_bottom .doctor_sex .doctor_box ul li {
+            float: left;
+            flex: 1;
+            margin-top: 0.06rem; }
+            .warp .recommend .recommend_bottom .doctor_sex .doctor_box ul li a p {
+              text-align: center;
+              font-size: 0.24rem;
+              margin-top: 0.03rem; }
+            .warp .recommend .recommend_bottom .doctor_sex .doctor_box ul li a .li {
+              display: block;
+              content: "";
+              width: 0.8rem;
+              height: 0.8rem;
+              background: url("../images/img_10.png") no-repeat;
+              background-size: 0.8rem 0.8rem;
+              margin: auto; }
+            .warp .recommend .recommend_bottom .doctor_sex .doctor_box ul li a .zhang {
+              display: block;
+              content: "";
+              width: 0.8rem;
+              height: 0.8rem;
+              background: url("../images/img_02.png") no-repeat;
+              background-size: 0.8rem 0.8rem;
+              margin: auto; }
+            .warp .recommend .recommend_bottom .doctor_sex .doctor_box ul li a .zhao {
+              display: block;
+              content: "";
+              width: 0.8rem;
+              height: 0.8rem;
+              background: url("../images/img_03.png") no-repeat;
+              background-size: 0.8rem 0.8rem;
+              margin: auto; }
+    .warp .recommend .recommend_bottom .arrow_left {
+      width: 0.22rem;
+      height: 0.4rem;
+      background: url("../images/icon_left.png") no-repeat;
+      background-size: 0.22rem 0.4rem;
+      position: absolute;
+      top: 0.7rem;
+      cursor: pointer; }
+    .warp .recommend .recommend_bottom .arrow_right {
+      width: 0.22rem;
+      height: 0.4rem;
+      background: url("../images/icon_right.png") no-repeat;
+      background-size: 0.22rem 0.4rem;
+      position: absolute;
+      right: 0.25rem;
+      top: 0.7rem;
+      cursor: pointer; }
+  .warp .combo .combo_top {
+    width: 100%;
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+    margin-top: 0.1rem;
+    padding: 0 0.25rem; }
+    .warp .combo .combo_top span {
+      font-size: 0.28rem;
+      color: #333333;
+      padding-left: 0.45rem;
+      position: relative; }
+      .warp .combo .combo_top span:before {
+        display: block;
+        content: "";
+        width: 0.28rem;
+        height: 0.28rem;
+        background: url(../images/doctor-01/icon_02.png) no-repeat;
+        background-size: 0.28rem 0.28rem;
+        position: absolute;
+        top: 0px; }
+  .warp .combo .combo_bottom {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box; }
+    .warp .combo .combo_bottom .pic a {
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("../images/doctor-01/touxiang01.png") no-repeat;
+      background-size: 1.2rem 1.2rem;
+      margin-top: 0.15rem;
+      margin-right: 0.15rem; }
+    .warp .combo .combo_bottom .right {
+      float: left;
+      width: 76%; }
+      .warp .combo .combo_bottom .right .top {
+        padding-top: 0.1rem; }
+        .warp .combo .combo_bottom .right .top h3 {
+          font-size: 0.24rem;
+          font-weight: 400;
+          color: orange; }
+        .warp .combo .combo_bottom .right .top span {
+          color: #999999;
+          font-size: 0.24rem; }
+      .warp .combo .combo_bottom .right .text {
+        font-size: 0.24rem;
+        color: #666666;
+        padding-bottom: 0.1rem; }
+      .warp .combo .combo_bottom .right .upload {
+        height: 1.4rem; }
+        .warp .combo .combo_bottom .right .upload span {
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          background: url(../images/img_04.png) no-repeat;
+          background-size: 1.2rem 1.2rem;
+          float: left;
+          margin: 0 0.2rem; }
+
+/*# sourceMappingURL=maternity-01.css.map */

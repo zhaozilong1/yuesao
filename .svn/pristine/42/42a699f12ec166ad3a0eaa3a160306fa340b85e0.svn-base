@@ -1,0 +1,242 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul li{
+    list-style: none;
+}
+.warp{
+    width: 100%;
+    height: 96px;
+    display: flex;
+    background:#fff8fa;
+}
+.warp_cen{
+    width:667px;
+    height:96px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.warp_cen h2{
+    font-size: 36px;
+    color: #333333;
+}
+.center{
+    width:100%;
+   /* height:179px;*/
+    /*padding-top: 20px;*/
+}
+.center_cen{
+    width:667px;
+    height:160px;
+    margin:0 auto;
+    background:#f9f9f9;
+    border:solid 1px #e5e5e5;
+}
+.center_top{
+    width:100%;
+    height:61px;
+}
+.center_day{
+    width:95px;
+    height:61px;
+    line-height: 61px;
+    color:#333333;
+    float: left;
+    font-size: 28px; 
+    text-indent: 20px;
+    box-sizing: border-box;
+    border-right:solid 1px #eaeaea;
+}
+.center_end{
+    width:95px;
+    height:61px;
+    line-height: 61px;
+    color:#333333;
+    float: left;
+    font-size: 28px; 
+    text-indent: 20px;
+}
+.center_wire{
+    width:100%;
+    height:2px;
+    background:#f0f0f0;
+}
+.center_bottom{
+    width:100%;
+    height:95px;
+    border:solid 1px #e5e5e5;
+}
+.center_take{
+    width:95px;
+    height:95px;
+    float:left;
+    color:#333333;
+    font-size: 33px;
+    padding-left: 18px;
+    padding-top: 10px;
+    border-right: solid 1px #eaeaea;
+    box-sizing: border-box;
+}
+.center_take_end{
+    width:95px;
+    height:95px;
+    color:#333333;
+    float: left;
+    text-indent: 20px;
+    padding-top: 10px;
+    font-size: 33px; 
+    text-indent: 20px;
+}
+
+.keep h2{
+    width:39px;
+    height:39px;
+    line-height: 39px;
+    text-align: center;
+    font-size: 33px; 
+    color:#ffffff;
+    border-radius: 50%;    
+    background:#c7aff9;
+}
+.gray span{
+    color:#999999;
+    font-size: 24px;
+    float:right;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+.keep span{
+    color:#3dca3f;
+    font-size: 24px;
+    float:right;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+.one{
+    width:100%;
+    height:12px;
+    background:#f0f0f0;
+    border-top:solid 2px #e5e5e5;
+    border-bottom:solid 2px #e5e5e5;
+}
+.tab{
+    width:100%;
+    /*height:516px;*/
+}
+.tab-menu{
+    width:100%;
+    height:82px;
+   
+}
+.tab-menu ul{
+    list-style:none;
+}
+.tab-menu li{
+    display:block;
+    width:25%;
+    height:82px;
+    line-height: 82px;
+    text-align: center;
+    float:left;
+    border-right: 1px solid #e5e5e5;
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    font-size: 28px;
+    color:#666666;
+    background:#fff3f3;
+}
+.tab-menu li:nth-child(1){
+    
+}
+.tab-box>div{
+    width:100%;
+    /*height:516px;*/
+    display:none;
+    /*background:pink;*/
+}
+/* 让第一个框显示出来 */
+.tab-box div:first-Child{
+    display:block;
+} 
+/* 改变选项卡选中时候的样式 */
+/*.change{
+    background:#ffffff;
+} */
+/*.change:hover{
+    background:#ffffff;
+    color:#ff4400;
+}*/
+
+.tab_cen{
+    width:776px;
+    /*height:226px;*/
+    /*padding-top: 30px;*/
+    padding:30px 26px 0;
+    box-sizing:border-box;
+}
+.tab_cen img{
+    padding-left: 0;
+    height: 125px;
+    padding-left: 26px;
+    width: 25%;
+}
+.tab_cen img:nth-child(1){
+    padding-top: 12px;
+    padding-left: 0;
+}
+.tab_cen>h3{
+    color:#333333;
+    margin-bottom: 10px;
+}
+/**/
+.tab_cen>div:last-child{
+    border: none;
+    height:50px;
+}
+.tab_demo_right span{
+    float: right;
+    font-size: 28px;
+    color: #666 ;
+}
+.tab_demo{
+    border-bottom: 1px solid #e5e5e5;
+}
+.tab_demo .appraisal{
+    margin-left: 35px;
+}
+.tab_demo>h3>img{
+    width: 8px;
+    height: 8px;
+    margin-right: 20px;
+   vertical-align: middle;
+   margin-top: -13px;
+   /*margin-left: -20px;*/
+    }
+
+.tab_cen_ul>li{
+    color: #666666;
+    font-size: 20px;
+    line-height: 44px;
+    padding-left: 50px;
+}
+
+.tab-menu>ul>li.avit{
+    background:#ffffff;
+    color:#ff4400;
+}
+
+.footer{
+    width:618px;
+    margin-top: 19px;
+    margin-left: 49px;
+    height:100px;
+    line-height: 40px;
+}
+.footer{
+    font-size: 24px;
+    color:#666666;
+}

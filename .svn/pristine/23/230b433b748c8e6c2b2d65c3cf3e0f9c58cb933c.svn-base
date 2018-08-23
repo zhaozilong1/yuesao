@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/knowledge_list.css"/>
+    <link rel="stylesheet" href="css/conmon-r.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <!--<a href="index.html" class="back fl"></a>-->
+        知识阅读
+    </header>
+    <div class="banner">
+
+    </div>
+
+    <div class="tab_box">
+        <div class="tab_top">
+            <ul id="listType">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="list" id="knowLists">
+
+    </div>
+
+    <input type="hidden" value="zhishi" id="page"/>
+
+    <!-- 底部-->
+
+    <footer id="footer">
+
+    </footer>
+
+</div>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/knowledge_list.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/footer.js"></script>
+
+<script>
+    var defaultKonwId="";
+    var html="";
+    knowType();
+    // 知识分类
+    function knowType() {
+        var reval="";
+        $("#listType").empty();
+        $.post(baseURL+"yuesao/taxonomy/list",function (r) {
+            console.log(r)
+            if(r.code=="USR108"){
+                //暂无数据
+            }else if(r.code=="USR201"){
+                //系统接口异常，请联系管理员
+            }else if(r.code=="USR000"){
+                var list= r.data;
+                console.log("id67"+list[0].id)
+
+                console.log("reval",reval);
+                $.each(list,function(n,t){
+                    console.log(n+":"+t.name)
+                    if(t.name != "推荐"){
+                        if(n == 1){
+                            html+='<li><a href="#" onclick="togo(this, $(this).parent().index())" class="active" id="'+t.id+'">'+t.name+'</a></li>';
+                        }else{
+                            html+='<li><a href="#" onclick="togo(this, $(this).parent().index())" id="'+t.id+'">'+t.name+'</a></li>';
+                        }
+
+                    }
+                });
+                 knowList(list[1].id);
+
+
+            }
+            $("#listType").empty().append(html);
+
+        })
+        return reval;
+    }
+    function togo(val, index){
+        $('.tab_top ul').find('a').removeClass('active');
+        $('.tab_top ul').find('a').eq(index).addClass('active');
+        knowList(val.id);
+    }function check(val){
+        window.location.href="knowledge.html?"+val.id;
+    }
+    function xiangqing(val) {
+        window.location.href="knowledge.html?"+val.id;
+    }
+
+
+    //知识列表
+    var khtml="";
+    function knowList(val) {
+        console.log("knowlege")
+        khtml="";
+        $.post(baseURL+"yuesao/content/list",{"id":val,"page":"1","pageSize":"1000"},function (r) {
+            console.log(r)
+            if(r.code=="USR108"){
+                //暂无数据
+            }else if(r.code=="USR201"){
+                //系统接口异常，请联系管理员
+            }else if(r.code=="USR100"){
+                //用户入参错误
+            }else if(r.code=="USR000"){
+                var list= r.data.list;
+                $.each(list,function(n,t){
+
+                    khtml+='    <div class="combo_bottom clearfix">';
+                    khtml+='       <div class="pic fl" id="cl'+t.id+'">';
+                    khtml+='    <a href="#" id="'+t.id+'" onclick="xiangqing(this)" ></a>';
+                    khtml+='    </div>';
+                    khtml+='    <div class="right">';
+                    khtml+='    <div class="top clearfix">';
+                    khtml+='    <h3 class="fl">'+t.title+'</h3>';
+
+                    khtml+='    </div>';
+                    khtml+='    <div class="text" id="'+t.id+'" onclick="check(this)">'+t.text.substr(0,20)+'...</div>';
+                    khtml+='<div class="time">'+t.createTime+'</div>';
+                    khtml+=' </div> </div>';
+                });
+            }
+            $("#knowLists").empty();
+            $("#knowLists").append(khtml);
+            $.each(list,function(n,t){
+                if(t.thumbnail!=null){
+                    if (t.thumbnail == "") {
+
+                    } else {
+                        $("#"+t.id).css("background-image", "url("+baseURL2 + t.thumbnail  + ")");
+                    }
+
+                }
+
+            });
+
+        })
+    }
+
+    $(".tab_top ul li ").on( 'click' , 'a' ,function(){
+        $('.tab_top ul').find('a').removeClass('active');
+        $(this).addClass('active');
+        var index = $(this).parent().index();
+        $('.contain_box .introduce').eq(index).show().siblings().hide();
+    })
+</script>
+</body>
+</html>

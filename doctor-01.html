@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/doctor-01.css"/>
+    <link rel="stylesheet" href="./lib/Swiper-4.0.7/dist/css/swiper.css"/>
+    <script src="./js/base.js"></script>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./lib/Swiper-4.0.7/dist/js/swiper.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./lib/layer/layer.js"></script>
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            width: 100%;
+            height: 100%;
+        }
+        .banner .swiper-slide {
+            width:7.2rem;
+            height: 2.87rem;
+            text-align: center;
+            font-size: 18px;
+            background:url("./images/img_bg.png") no-repeat;
+            background-size:7.2rem 2.87rem;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-pagination-bullet-active{
+            opacity: 1;
+            background: #faa9c0;
+        }
+
+
+        .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+            background-image: url("./images/icon_right.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+            background-image: url("./images/icon_left.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a  class="back fl"></a>
+        医生提醒
+    </header>
+    <div class="main">
+        <!-- 医生推荐-->
+        <div class="recommend">
+            <div class="recommend_top">
+                <span>医生推荐</span>
+                <a href="javascript:;" class="batch fr" onclick="changeDoctor()">换一批</a>
+            </div>
+            <div class="recommend_bottom clearfix">
+                <div class="recommentd-swiper doctor_sex">
+                    <div class="swiper-wrapper" id="recommenddocter">
+                        <!--<div class="swiper-slider"></div>-->
+                        <!--<div class="swiper-slide">
+                            <div class="pic"><span>您还没有医生请尽快签约</span></div>
+                            <div class="doctor_box">
+                                <ul>
+                                    <li><a href="#"><span class="li"></span><p>李医生</p></a></li>
+                                    <li><a href="#"><span class="zhang"></span><p>张医生</p></a></li>
+                                    <li><a href="#"><span class="zhao"></span><p>赵医生</p></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swiper-slide"></div>
+                        <div class="swiper-slide">
+                            <div class="pic"><span>您还没有医生请尽快签约</span></div>
+                            <div class="doctor_box">
+                                <ul>
+                                    <li><a href="#"><span class="li"></span><p>李医生</p></a></li>
+                                    <li><a href="#"><span class="zhang"></span><p>张医生</p></a></li>
+                                    <li><a href="#"><span class="zhao"></span><p>赵医生</p></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="pic"><span>您还没有医生请尽快签约</span></div>
+                            <div class="doctor_box">
+                                <ul>
+                                    <li><a href="#"><span class="li"></span><p>李医生</p></a></li>
+                                    <li><a href="#"><span class="zhang"></span><p>张医生</p></a></li>
+                                    <li><a href="#"><span class="zhao"></span><p>赵医生</p></a></li>
+                                </ul>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <!--<div class="swiper-button-next"></div>-->
+                <!--<div class="swiper-button-prev"></div>-->
+            </div>
+        </div>
+        <!-- 全网医生动态-->
+        <div class="combo">
+            <div class="combo_top">
+                <span>全网医生动态</span>
+            </div>
+            <div class="combo_bottom clearfix" id="alldoctor">
+                <div class="pic fl">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">王朝阳</h3>
+                        <span class="fr">8:301</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">王朝阳</h3>
+                        <span class="fr">8:301</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload clearfix">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    // var swiper2 = new Swiper('.recommentd-swiper', {
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    // });
+    $('.back').click(function(){
+        window.history.back();
+    });
+    $(function () {
+       /* $.post(baseURL+"yuesao/sysuser/list",{'roleName':'上医','page':1,'pageSize':10000},function (result) {
+            $("#recommenddocter").empty();
+            var code = result.code;
+            console.log("189:")
+            console.log(result)
+            if (code == 'USR000') {
+                var list = result.data.list;
+                var length = result.data.list.length;
+                var times = parseInt(length/3);//计算包含3个推荐医生的次数
+                var remainder = length%3;
+                console.log("cishu:"+times+",yushu:"+remainder);
+                for (var i = 0;i<times;i++) {
+                    var div = '<div class="swiper-slide">'+
+                        '<div class="pic"><span>您还没有医生请尽快签约</span></div>'+
+                        '<div class="doctor_box">'+
+                        ' <ul>'+
+                        '<li><a href="doctor-intro.html?userId='+list[i*3].userId+'"><span style="background:url('+ baseURL2 + list[i*3].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+list[i*3].name+'</p></a></li>'+
+                        '<li><a href="doctor-intro.html?userId='+list[i*3+1].userId+'"><span style="background:url('+ baseURL2 + list[i*3+1].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+list[i*3+1].name+'</p></a></li>'+
+                        '<li><a href="doctor-intro.html?userId='+list[i*3+2].userId+'"><span style="background:url('+ baseURL2 + list[i*3+2].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+list[i*3+2].name+'</p></a></li>'+
+                        '</ul>'+
+                        '</div>'+
+                        '</div>'
+                    $("#recommenddocter").append(div)
+                    console.log("saassasas")
+                }
+
+                if (remainder == 0) {
+
+                } else if (remainder == 1) {
+                    var div = '<div class="swiper-slide">'+
+                        '<div class="pic"><span>您还没有医生请尽快签约</span></div>'+
+                        '<div class="doctor_box">'+
+                        ' <ul>'+
+                        '<li><a href="doctor-intro.html?userId='+list[times*3].userId+'"><span style="background:url('+ baseURL2 + list[times*3].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+list[times*3].name+'</p></a></li>'+
+                        '</ul>'+
+                        '</div>'+
+                        '</div>'
+                    $("#recommenddocter").append(div)
+                }else if (remainder == 2) {
+                    var div = '<div class="swiper-slide">'+
+                        '<div class="pic"><span>您还没有医生请尽快签约</span></div>'+
+                        '<div class="doctor_box">'+
+                        ' <ul>'+
+                        '<li><a href="doctor-intro.html?userId='+list[times*3].userId+'"><span style="background:url('+ baseURL2 + list[times*3].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+list[times*3].name+'</p></a></li>'+
+                        '<li><a href="doctor-intro.html?userId='+list[times*3+1].userId+'"><span style="background:url('+ baseURL2 + list[times*3+1].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+list[times*3+1].name+'</p></a></li>'+
+                        '</ul>'+
+                        '</div>'+
+                        '</div>'
+                    // var div = $(div)
+                    $("#recommenddocter").append(div)
+                } else {
+
+                }
+
+            } else if (code == 'USR108') {//暂无数据
+
+            } else if (code == 'USR100') {//用户入参错误
+
+            } else if (code == 'USR201') {//系统接口异常，请联系管理员
+
+            }
+        });*/
+        $.post(baseURL+"yuesao/dynamic/allDoctorDynamic",function (result) {
+            $("#alldoctor").empty();
+            var code = result.code;
+            if (code == 'USR000') {
+                console.log("284:")
+                console.log(result)
+                var allDoctor = result.data.allDoctor;
+                console.log("155:"+typeof(allDoctor)=='string');
+                if(typeof(allDoctor)=='string'){
+                    var p = '<div>'+allDoctor+'</div>';
+                    $("#alldoctor").append(p);
+                    return;
+                }
+                console.log(allDoctor)
+                for(var i in allDoctor){
+                    var dynamic=allDoctor[i];
+                    var div = '<div class="combo_bottom clearfix">'+
+                        '<div class="pic fl">'+
+                        // '<a href="personal_information.html?id="'+dynamic.sysId+'></a>'+
+                        '<a href="javascript:;"></a>'+
+                        '</div>'+
+                        '<div class="right">'+
+                        '<div class="top clearfix">'+
+                        '<h3 class="fl">'+dynamic.userName+'</h3>'+
+                        '<span class="fr">'+dynamic.createDate+'</span>'+
+                        '</div>'+
+                        '<div class="text">'+dynamic.says+'</div>'+
+                        '<div class="upload">'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+                    div=$(div);
+                    if (dynamic.userPhoto != '') {
+                        div.find('a').css('background-image','url('+baseURL2+dynamic.userPhoto+')');
+                    }
+                    if(dynamic.dynamicPhoto!=null){
+                        var pic=dynamic.dynamicPhoto.split(';');
+                        for(var j=0;j<pic.length;j++){
+                            var upload='<span></span>';
+                            upload=$(upload).css('background-image','url('+baseURL2+pic[j]+')');
+                            div.find('.upload').append(upload);
+                        }
+                    }
+                    $("#alldoctor").append(div);
+                }
+            } else if (code == 'USR147') {
+
+            } else {
+
+            }
+        });
+        changeDoctor();
+    });
+    function changeDoctor(){
+        $.post(baseURL+"yuesao/dynamic/change",function (result){
+            console.log("291")
+            console.log(result)
+            if (result.code == 'USR000') {
+                var doctors = result.data.randomDoctors;
+                var div = '<div class="swiper-slide">'+
+                    '<div class="pic"><span>您还没有医生请尽快签约</span></div>'+
+                    '<div class="doctor_box">'+
+                    ' <ul id="list">'+
+//                    '<li><a href="doctor-intro.html?userId='+doctors[0].userId+'"><span style="background:url('+ baseURL2 + doctors[0].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+doctors[0].username+'</p></a></li>'+
+//                    '<li><a href="doctor-intro.html?userId='+doctors[1].userId+'"><span style="background:url('+ baseURL2 + doctors[1].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+doctors[1].username+'</p></a></li>'+
+//                    '<li><a href="doctor-intro.html?userId='+doctors[2].userId+'"><span style="background:url('+ baseURL2 + doctors[2].photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+doctors[2].username+'</p></a></li>'+
+                    '</ul>'+
+                    '</div>'+
+                    '</div>'
+                $("#recommenddocter").empty().append(div);
+                var html='';
+                $.each(doctors,function (n,item) {
+                    html+='<li><a href="doctor-intro.html?userId='+item.userId+'"><span style="background:url('+ baseURL2 + item.photo+')0% 0% / 100% 100% no-repeat;width: 35px;height:45px;display: block;margin: auto;"></span><p>'+item.username+'</p></a></li>';
+                })
+                $('#list').append(html);
+            } else if (result.code == 'USR147') {
+
+            } else {
+
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+body {
+  background-color: #f0f0f0; }
+
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .combo .combo_bottom {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box; }
+    .warp .combo .combo_bottom .pic a {
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+      background: url("../images/img_0402_01.png") no-repeat;
+      background-size: 1.8rem 1.8rem;
+      margin-top: 0.15rem;
+      margin-right: 0.15rem;
+      padding-bottom: 0.15rem; }
+    .warp .combo .combo_bottom .right {
+      float: left;
+      width: 69%; }
+      .warp .combo .combo_bottom .right .top {
+        padding-top: 0.1rem; }
+        .warp .combo .combo_bottom .right .top .user {
+          border-right: 1px solid #e5e5e5;
+          font-size: 0.32rem;
+          padding-right: 0.2rem;
+          color: #333333; }
+        .warp .combo .combo_bottom .right .top .zhuzhi {
+          font-size: 0.24rem;
+          padding-left: 0.2rem;
+          padding-top: 0.04rem;
+          color: #666666; }
+        .warp .combo .combo_bottom .right .top .detail {
+          font-size: 0.24rem;
+          color: #ff4400;
+          padding: 0.06rem 0.12rem;
+          background-color: #e5e5e5;
+          border-radius: 0.1rem; }
+      .warp .combo .combo_bottom .right P {
+        font-size: 0.24rem;
+        line-height: 1.8; }
+        .warp .combo .combo_bottom .right P:last-child {
+          color: #ff4400; }
+  .warp .tab_box {
+    margin-top: 0.1rem;
+    background-color: #fff; }
+    .warp .tab_box .tab_top {
+      width: 100%;
+      height: 0.8rem;
+      border-bottom: 1px solid #e5e5e5;
+      line-height: 0.8rem; }
+      .warp .tab_box .tab_top ul {
+        display: flex; }
+        .warp .tab_box .tab_top ul li {
+          float: left;
+          flex: 1;
+          text-align: center;
+          border-right: 1px solid #e5e5e5;
+          font-size: 0.28rem;
+          color: #333333; }
+          .warp .tab_box .tab_top ul li:last-child {
+            border-right: none; }
+          .warp .tab_box .tab_top ul li a {
+            display: block; }
+    .warp .tab_box .contain_box {
+      padding: 0.25rem 0.56rem; }
+      .warp .tab_box .contain_box .introduce {
+        display: none; }
+        .warp .tab_box .contain_box .introduce span {
+          font-size: 0.28rem;
+          color: #333333;
+          position: relative; }
+          .warp .tab_box .contain_box .introduce span:before {
+            display: block;
+            content: "";
+            width: 0.1rem;
+            height: 0.1rem;
+            background-color: #ff4400;
+            position: absolute;
+            top: 3px;
+            border-radius: 50%;
+            left: -10px; }
+        .warp .tab_box .contain_box .introduce i {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_up.png") no-repeat;
+          background-size: 0.4rem 0.4rem;
+          cursor: pointer; }
+        .warp .tab_box .contain_box .introduce .active {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_down.png") no-repeat;
+          background-size: 0.4rem 0.4rem; }
+        .warp .tab_box .contain_box .introduce ol {
+          border-bottom: 1px solid #e5e5e5;
+          padding: 0.1rem; }
+          .warp .tab_box .contain_box .introduce ol li {
+            font-size: 0.24rem;
+            color: #666666;
+            line-height: 1.8; }
+        .warp .tab_box .contain_box .introduce .pinglun {
+          position: relative;
+          padding: 0.2rem;
+          padding: 0.2rem;
+          font-size: 0.2rem;
+          padding-left: 0.3rem;
+          border-bottom: 1px solid #e5e5e5; }
+          .warp .tab_box .contain_box .introduce .pinglun:before {
+            display: block;
+            content: "";
+            width: 0.3rem;
+            height: 0.3rem;
+            background: url("../images/dingdan/icon_pinglun.png") no-repeat;
+            background-size: 0.3rem 0.3rem;
+            position: absolute;
+            left: -6px;
+            top: 12px; }
+  .warp .combo_bottom {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box; }
+    .warp .combo_bottom .pic a {
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("../images/doctor-01/touxiang01.png") no-repeat;
+      background-size: 1.2rem 1.2rem;
+      margin-top: 0.15rem;
+      margin-right: 0.15rem; }
+    .warp .combo_bottom .right {
+      float: left;
+      width: 75%; }
+      .warp .combo_bottom .right .top {
+        padding-top: 0.1rem; }
+        .warp .combo_bottom .right .top h3 {
+          font-size: 0.24rem;
+          font-weight: 400; }
+        .warp .combo_bottom .right .top span {
+          color: #999999;
+          font-size: 0.24rem; }
+      .warp .combo_bottom .right .text {
+        font-size: 0.24rem;
+        color: #666666;
+        padding-bottom: 0.1rem; }
+      .warp .combo_bottom .right .time {
+        font-size: 0.24rem;
+        color: #666; }
+      .warp .combo_bottom .right .upload {
+        height: 1.4rem; }
+        .warp .combo_bottom .right .upload span {
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          background: url(../images/img_04.png) no-repeat;
+          background-size: 1.2rem 1.2rem;
+          float: left;
+          margin: 0 0.2rem; }
+
+.warp .tab_box .contain_box .introduce.selected {
+  display: block; }
+
+.warp .tab_box .tab_top ul li a.active {
+  background-color: #fff3f3;
+  color: #ff4400; }
+
+footer {
+  height: 0.96rem;
+  line-height: 0.96rem;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff8fa;
+  border-top: 1px solid #e5e5e5; }
+  footer .answers {
+    flex: 1;
+    text-align: center; }
+    footer .answers button {
+      height: 0.76rem;
+      width: 90%;
+      border-radius: 0.1rem;
+      border: 1px solid #ffd7d7;
+      background-color: #ff8383;
+      font-size: 0.28rem;
+      color: #fff; }
+
+/*# sourceMappingURL=my_doctor.css.map */

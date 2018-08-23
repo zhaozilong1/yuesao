@@ -1,0 +1,260 @@
+body{
+  background-color:#f0f0f0;
+  //height: 200%;
+}
+.warp{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  header{
+    height:0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size:0.36rem;
+    color: #333333;
+    padding: 0.25rem;
+    .back{
+      display: block;
+      width:0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size:0.28rem 0.28rem;
+      margin-top:0.17rem;
+
+    }
+  }
+  //推荐
+  .recommend{
+    .recommend_top{
+      width: 100%;
+      height:0.58rem;
+      line-height:0.58rem;
+      border-bottom: 1px solid #e5e5e5;
+      border-top: 1px solid #e5e5e5;
+      background-color: #fff;
+      margin-top: 0.1rem;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+      span{
+        font-size:0.28rem;
+        color: #333333;
+        padding-left:0.45rem;
+        position: relative;
+        &:before{
+          display: block;
+          content:"";
+          width:0.28rem;
+          height: 0.28rem;
+          background: url("../images/doctor-01/icon_01.png") no-repeat;
+          background-size:0.28rem 0.28rem;
+          position: absolute;
+          top: 0px;
+        }
+      }
+      .batch{
+        color:#d12828;
+
+      }
+
+    }
+    .recommend_bottom{
+      height: 1.76rem;
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+      position: relative;
+      .doctor_sex{
+        //padding: 0 1rem;
+        width: 100%;
+        margin: 0 auto;
+
+        height: 1.76rem;
+        box-sizing: border-box;
+        overflow: hidden;
+        .pic{
+          width: 6.68rem;
+          height: 0.3rem;
+          background: url("../images/doctor-01/img_bg_01.png") no-repeat;
+          background-size:6.68rem 0.3rem;
+          margin: 3px auto;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          line-height: 0.3rem;
+          span{
+            font-size: 0.26rem;
+            color: #d12828;
+            margin-left: 2.1rem;
+
+            &:before{
+              display: block;
+              content: "";
+              width: 0.28rem;
+              height: 0.28rem;
+              background: url(../images/doctor-01/icon_03.png) no-repeat;
+              background-size: 0.28rem 0.28rem;
+              position: absolute;
+              top: 0px;
+              left: 1.8rem;
+            }
+          }
+
+        }
+        .doctor_box{
+          margin-top: 0.4rem;
+          ul{
+            display: flex;
+            li{
+              float: left;
+              flex: 1;
+              margin-top: 0.06rem;
+              a{
+                p{
+                  text-align: center;
+                  font-size: 0.24rem;
+                  margin-top: 0.03rem;
+                }
+                .li{
+                  display: block;
+                  content:"";
+                  width:0.8rem;
+                  height: 0.8rem;
+                  background: url("../images/img_10.png") no-repeat;
+                  background-size:0.8rem 0.8rem;
+                  margin: auto;
+                }
+                .zhang{
+                  display: block;
+                  content:"";
+                  width:0.8rem;
+                  height: 0.8rem;
+                  background: url("../images/img_02.png") no-repeat;
+                  background-size:0.8rem 0.8rem;
+                  margin: auto;
+                }
+                .zhao{
+                  display: block;
+                  content:"";
+                  width:0.8rem;
+                  height: 0.8rem;
+                  background: url("../images/img_03.png") no-repeat;
+                  background-size:0.8rem 0.8rem;
+                  margin: auto;
+                }
+              }
+            }
+          }
+        }
+
+      }
+      .arrow_left{
+        width:0.22rem;
+        height: 0.4rem;
+        background: url("../images/icon_left.png") no-repeat;
+        background-size:0.22rem 0.4rem;
+        position: absolute;
+        top: 0.7rem;
+        cursor: pointer;
+      }
+      .arrow_right{
+        width:0.22rem;
+        height: 0.4rem;
+        background: url("../images/icon_right.png") no-repeat;
+        background-size:0.22rem 0.4rem;
+        position: absolute;
+        right: 0.25rem;
+        top: 0.7rem;
+        cursor: pointer;
+      }
+
+    }
+  }
+  //套餐
+  .combo{
+    .combo_top{
+      width: 100%;
+      height:0.58rem;
+      line-height:0.58rem;
+      border-bottom: 1px solid #e5e5e5;
+      border-top: 1px solid #e5e5e5;
+      background-color: #fff;
+      margin-top: 0.1rem;
+      padding: 0 0.25rem;
+      span{
+        font-size:0.28rem;
+        color: #333333;
+        padding-left:0.45rem;
+        position: relative;
+        &:before {
+          display: block;
+          content: "";
+          width: 0.28rem;
+          height: 0.28rem;
+          background: url(../images/doctor-01/icon_02.png) no-repeat;
+          background-size: 0.28rem 0.28rem;
+          position: absolute;
+          top: 0px;
+        }
+      }
+    }
+    .combo_bottom{
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+      .pic{
+        a{
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          //background: url("../images/doctor-01/touxiang01.png") no-repeat;
+          background-size:1.2rem 1.2rem;
+          margin-top: 0.15rem;
+          margin-right: 0.15rem;
+        }
+      }
+      .right{
+
+        float: left;
+        width: 76%;
+        .top{
+          padding-top: 0.1rem;
+          padding-top: 0.1rem;
+          h3{
+            font-size: 0.24rem;
+            font-weight: 400;
+            color: orange;
+          }
+          span{
+            color: #999999;
+            font-size: 0.24rem;
+          }
+        }
+        .text{
+          font-size: 0.24rem;
+          color: #666666;
+          padding-bottom: 0.1rem;
+        }
+        .upload{
+          height: 1.4rem;
+          span{
+            display: block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: url(../images/img_04.png) no-repeat;
+            background-size: 1.2rem 1.2rem;
+            float: left;
+            margin: 0 0.2rem;
+          }
+        }
+
+      }
+    }
+  }
+
+}

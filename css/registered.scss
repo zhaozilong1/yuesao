@@ -1,0 +1,157 @@
+body{
+  background-color:#f0f0f0;
+  //height: 200%;
+}
+.warp{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  header{
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size:0.36rem;
+    color: #333333;
+    padding: 0.25rem;
+    .back{
+      display: block;
+      width:0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size:0.28rem 0.28rem;
+      margin-top:0.17rem;
+
+    }
+  }
+  .main{
+    margin-bottom: 0.96rem;
+    .combo{
+
+      .combo_bottom{
+        border-bottom: 1px solid #e5e5e5;
+        background-color: #fff;
+        padding: 0 0.25rem;
+        box-sizing: border-box;
+        .pic{
+          display: block;
+          width: 0.8rem;
+          height: 0.8rem;
+          background: url("../images/touxiang02.png") no-repeat;
+          background-size:0.8rem 0.8rem;
+          margin-top: 0.15rem;
+          margin-right: 0.15rem;
+          //a{
+          //  display: block;
+          //  width: 0.8rem;
+          //  height: 0.8rem;
+          //  background: url("../images/touxiang02.png") no-repeat;
+          //  background-size:0.8rem 0.8rem;
+          //  margin-top: 0.15rem;
+          //  margin-right: 0.15rem;
+          //}
+        }
+        .right{
+          float: left;
+          width: 85%;
+          .top{
+            padding-top: 0.1rem;
+            h3{
+              font-size: 0.24rem;
+              font-weight: 400;
+            }
+            span{
+              color: #999999;
+              font-size: 0.24rem;
+            }
+          }
+          .text{
+            font-size: 0.28rem;
+            color: #0f3773;
+            padding: 0.2rem 0;
+          }
+
+
+        }
+      }
+      .questions_box{
+        background-color: #fff;
+        padding: 0 0.25rem;
+        .questions_in{
+          //height:2.34rem;
+          padding-left: 0.1rem;
+          border-bottom: 1px solid #e5e5e5;
+          .questions_top{
+            height: 0.64rem;
+            line-height: 0.64rem;
+            border-bottom: 1px solid #e5e5e5;
+            .left{
+              .user{
+                border-right: 1px solid #e5e5e5;
+                padding: 0 0.2rem;
+                padding-left: 0.3rem;
+                position: relative;
+                &:before{
+                  display: block;
+                  content:"";
+                  width:0.2rem;
+                  height: 0.2rem;
+                  background: url("../images/doctor-01/icon_05.png") no-repeat;
+                  background-size:0.2rem 0.2rem;
+                  position: absolute;
+                  top: 4px;
+                }
+
+              }
+              .yuesao{
+                color: #ff7676;
+                padding-left: 0.1rem;
+              }
+            }
+            .time{
+              color: #999999;
+              font-size:0.24rem;
+            }
+          }
+          .text{
+            font-size:0.24rem;
+            color: #666666;
+            padding: 0.1rem 0;
+          }
+        }
+      }
+
+    }
+    .gauge{
+      margin-top: 0.1rem;
+    }
+
+
+  }
+
+footer{
+  height: 0.96rem;
+  line-height: 0.96rem;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff8fa;
+  border-top: 1px solid #e5e5e5;
+  .answers{
+    flex: 1;
+    text-align: center;
+    button{
+      height: 0.76rem;
+      width: 2.8rem;
+      border-radius: 0.1rem;
+      border: 1px solid #ffd7d7;
+      background-color: #ffd7d7;
+      font-size:0.28rem;
+      color: #333333;
+    }
+  }
+}
+}

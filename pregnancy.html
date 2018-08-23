@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/pregnancy.css"/>
+</head>
+<body>
+<div class="warp">
+    <!--孕妈准确消息 -->
+    <div class="box_top">
+        <header>
+            孕妈准确消息
+            <a href="#" class="back"></a>
+        </header>
+        <input name="status" id="status" type="hidden" value="0">
+        <div class="expected">
+            请输入您的预产期:
+            <input type="date" id="id_yy_input"/>
+        </div>
+        <div class="text">
+            <span>如何计算预产期:</span>
+            <p>医学上规定,以末次月经的第一天起计算预产期, 其整个孕期为280天,10个妊娠月(每个妊娠月为28天、即40周)。</p>
+            <p>如记不清末次月经日期,可根据胎动日期作大概计算。一般胎动日期大约在怀孕后的18-20周，再加上20周就能推算出大约的预产期。</p>
+        </div>
+        <div class="next">
+            <!--<button onclick="window.location.href = 'server.html'">下一步</button>-->
+            <button class="btn">下一步</button>
+        </div>
+    </div>
+    <!-- 定制服务-->
+    <div class="box_bottom">
+        <header>
+            定制服务
+        </header>
+        <div class="main">
+            <div class="call">
+                希望我们如何称呼您?
+            </div>
+            <div class="nickname">
+                <input type="text" placeholder="请输入您的昵称" />
+            </div>
+            <div class="next">
+                <button onclick="register()" id="btn">完成</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/pregnancy.js"></script>
+</html>

@@ -1,0 +1,287 @@
+body{
+  background-color:#fff;
+  //height: 200%;
+}
+.warp{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  header{
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size:0.36rem;
+    color: #333333;
+    padding: 0.25rem;
+    .back{
+      display: block;
+      width:0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size:0.28rem 0.28rem;
+      margin-top: 0.17rem;
+
+    }
+  }
+
+  .combo{
+
+    .combo_bottom{
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+      .pic{
+        a{
+          display: block;
+          width: 1.8rem;
+          height: 1.8rem;
+          background: url("../images/img_10.png") no-repeat;
+          background-size:1.8rem 1.8rem;
+          margin-top: 0.15rem;
+          margin-right: 0.15rem;
+          padding-bottom: 0.15rem;
+        }
+      }
+      .right{
+
+        float: left;
+        width: 69%;
+        .top{
+          padding-top: 0.1rem;
+          .user{
+            border-right: 1px solid #e5e5e5;
+            font-size: 0.32rem;
+            padding-right: 0.2rem;
+            color: #333333;
+          }
+          .zhuzhi{
+            font-size: 0.24rem;
+            padding-left: 0.2rem;
+            padding-top: 0.04rem;
+            color: #666666;
+          }
+          .detail{
+            font-size: 0.24rem;
+            color: #ff4400;
+            padding: 0.06rem 0.12rem;
+            background-color: #e5e5e5;
+            border-radius: 0.1rem;
+          }
+        }
+        P{
+          font-size: 0.24rem;
+          line-height: 1.8;
+          &:last-child{
+            color: #ff4400;
+          }
+        }
+
+
+
+      }
+    }
+  }
+  .tab_box{
+    //margin-top: 0.1rem;
+    background-color: #fff;
+    .tab_top{
+      width: 100%;
+      height:0.8rem;
+      border-bottom: 1px solid #e5e5e5;
+      line-height:0.8rem;
+
+      ul{
+        display: flex;
+        li{
+          float: left;
+          flex: 1;
+          text-align: center;
+          border-right: 1px solid #e5e5e5;
+          font-size: 0.28rem;
+          color: #333333;
+          &:last-child{
+            border-right:none;
+          }
+          a{
+
+            display: block;
+          }
+        }
+      }
+    }
+    .tishi{
+      width: 100%;
+      line-height: 2;
+      text-align: center;
+      font-size: 0.25rem;
+      margin-top: 1rem;
+      img{
+        display: block;
+        margin: auto;
+      }
+    }
+    .contain_box{
+      padding:0.25rem 0.56rem;
+
+      .introduce{
+        display: none;
+        span{
+          font-size:0.28rem;
+          color: #333333;
+          position: relative;
+          &:before{
+            display: block;
+            content: "";
+            width: 0.1rem;
+            height: 0.1rem;
+            background-color: #ff4400;
+            position: absolute;
+            top: 3px;
+            border-radius: 50%;
+            left: -10px;
+          }
+
+        }
+        i{
+          display:block;
+          width:0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_down.png") no-repeat;
+          background-size:0.4rem 0.4rem;
+          cursor: pointer;
+        }
+        .active{
+          display:block;
+          width:0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_up.png") no-repeat;
+          background-size:0.4rem 0.4rem;
+        }
+        ol{
+          border-bottom: 1px solid #e5e5e5;
+          padding: 0.1rem;
+          li{
+            font-size:0.24rem;
+            color: #666666;
+            line-height: 1.8;
+
+          }
+        }
+        .pinglun{
+          position: relative;
+          padding: 0.2rem;
+          padding: 0.2rem;
+          font-size: 0.2rem;
+          padding-left: 0.3rem;
+          border-bottom: 1px solid #e5e5e5;
+          &:before{
+            display:block;
+            content:"";
+            width:0.3rem;
+            height: 0.3rem;
+            background: url("../images/dingdan/icon_pinglun.png") no-repeat;
+            background-size:0.3rem 0.3rem;
+            position: absolute;
+            left: -6px;
+            top: 12px;
+          }
+        }
+      }
+
+    }
+
+
+  }
+
+  .combo_bottom{
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box;
+    .pic{
+      a{
+        display: block;
+        width: 1.2rem;
+        height: 1.2rem;
+        background: url("../images/doctor-01/touxiang01.png") no-repeat;
+        background-size:1.2rem 1.2rem;
+        margin-top: 0.15rem;
+        margin-right: 0.15rem;
+      }
+    }
+    .right{
+
+      float: left;
+      width: 75%;
+      .top{
+        padding-top: 0.1rem;
+        h3{
+          font-size: 0.24rem;
+          font-weight: 400;
+        }
+        span{
+          color: #999999;
+          font-size: 0.24rem;
+        }
+      }
+      .text{
+        font-size: 0.24rem;
+        color: #666666;
+        padding-bottom: 0.1rem;
+      }
+      .time{
+        font-size: 0.24rem;
+        color: #666;
+      }
+      .upload{
+        height: 1.4rem;
+        span{
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          background: url(../images/img_04.png) no-repeat;
+          background-size: 1.2rem 1.2rem;
+          float: left;
+          margin: 0 0.2rem;
+        }
+      }
+
+    }
+  }
+}
+.warp .tab_box .contain_box .introduce.selected{
+  display: block;
+}
+.warp .tab_box .tab_top ul li a.active{
+  background-color: #fff3f3;
+  color:#ff4400;
+}
+
+
+footer{
+  height: 0.96rem;
+  line-height: 0.96rem;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff8fa;
+  border-top: 1px solid #e5e5e5;
+  .answers{
+    flex: 1;
+    text-align: center;
+    button{
+      height: 0.76rem;
+      width: 2.8rem;
+      border-radius: 0.1rem;
+      border: 1px solid #ffd7d7;
+      background-color: #ffd7d7;
+      font-size:0.28rem;
+      color: #333333;
+    }
+  }
+}

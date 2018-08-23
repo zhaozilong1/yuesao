@@ -1,0 +1,133 @@
+body{
+  background-color:#f0f0f0;
+}
+.warp{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  header{
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size:0.36rem;
+    color: #333333;
+    padding: 0.25rem;
+    .back{
+      display: block;
+      width:0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size:0.28rem 0.28rem;
+      margin-top:0.17rem;
+
+    }
+
+
+  }
+  .main{
+    margin-bottom: 50px;
+    .phase{
+      position: relative;
+      z-index: 1;
+      height: 2.87rem;
+      padding: 0 0.25rem;
+      width: 7.2rem;
+      background: url(../images/img_bg.png) no-repeat;
+      background-size: 7.2rem 2.87rem;
+      box-sizing: border-box;
+    }
+    .combo{
+      .combo_top{
+        width: 100%;
+        height:0.58rem;
+        line-height:0.58rem;
+        border-top: 1px solid #e5e5e5;
+        background-color: #fff;
+        padding: 0 0.25rem;
+        box-sizing: border-box;
+        span{
+          font-size: 0.26rem;
+          color: #333333;
+          padding-right: 1rem;
+          position: relative;
+          color: #c37c7c;
+          &:before {
+            display: block;
+            content: "";
+            width: 0.8rem;
+            height: 0.8rem;
+            background: url(../images/doctor-01/touxiang01.png) no-repeat;
+            background-size: 0.8rem 0.8rem;
+            position: absolute;
+            top: -0.5rem;
+            left: 0.9rem;
+            z-index: 1;
+          }
+        }
+      }
+      .combo_bottom{
+        border-bottom: 1px solid #e5e5e5;
+        background-color: #fff;
+        padding: 0 0.25rem;
+        box-sizing: border-box;
+
+        .right{
+          width: 100%;
+          padding-left: 0.9rem;
+          box-sizing: border-box;
+          .top{
+            padding-top: 0.1rem;
+            h3{
+              font-size: 0.24rem;
+              font-weight: 400;
+            }
+            span{
+              color: #999999;
+              font-size: 0.24rem;
+            }
+          }
+          .text{
+            font-size: 0.24rem;
+            color: #666666;
+            padding-bottom: 0.1rem;
+            border-bottom: 1px solid #e5e5e5;
+          }
+          .upload{
+            p{
+              line-height: 1.5;
+              font-size: 0.24rem;
+              padding-top: 0.1rem;
+
+            }
+            .upload_box{
+              height: 1.5rem;
+              span{
+                display: block;
+                width: 1.2rem;
+                height: 1.2rem;
+                background: url(../images/img_04.png) no-repeat;
+                background-size: 1.2rem 1.2rem;
+                float: left;
+                margin: 0 0.2rem;
+              }
+            }
+
+          }
+
+        }
+      }
+      .combo_bottom_t{
+        margin-top: 0.1rem;
+        padding-top: 0.2rem;
+      }
+    }
+  }
+
+
+
+
+
+}

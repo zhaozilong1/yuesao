@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/dingdan_list.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a  class="back fl"></a>
+        订单列表
+    </header>
+    <div class="main">
+        <nav>
+            <ul>
+                <li class="change">全部订单</li>
+                <li>未支付</li>
+                <li>服务中</li>
+                <li>已完成</li>
+            </ul>
+
+        </nav>
+
+        <div class="dingdan_list">
+            <div class="combo selected">
+
+                <div class="combo_bottom clearfix">
+                    <div class="pic fl">
+                        <a id="photo_01"></a>
+                    </div>
+                    <div class="right">
+                        <div class="top clearfix">
+                            <span class="user fl" id="name_w">王朝阳</span>
+                            <span class="zhuzhi fl">主治医生</span>
+                            <a  class="detail fr">服务中</a>
+                        </div>
+                        <!--<p id="shanchang">擅长：月经病、痛经病等</p>-->
+                        <!--<p id="zhengshu">相关证书：职业证书、资格证书等</p>-->
+                        <!--<p id="fuwu">服务   220次     |     从业  14年</p>-->
+                        <p id="price">价格: <span>***元</span> <img src="./images/icoe.png" alt=""/></p>
+                        <p id="time">下单时间: <span>2017年4月10号13:20</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="combo">
+                <div class="combo_bottom clearfix">
+                    <div class="pic fl">
+                        <a id="photo"></a>
+                    </div>
+                    <div class="right">
+                        <div class="top clearfix">
+                            <span class="user fl" id="name">旺旺网</span>
+                            <span class="zhuzhi fl">来来阿里</span>
+                            <a  class="detail fr">服务中</a>
+                        </div>
+                        <!--<p id="shanchang">擅长：月经病、痛经病等</p>-->
+                        <!--<p id="zhengshu">相关证书：职业证书、资格证书等</p>-->
+                        <!--<p id="fuwu">服务   220次     |     从业  14年</p>-->
+                        <p id="price">价格: <span>***元</span> <img src="./images/icoe.png" alt=""/></p>
+                        <p id="time">下单时间: <span>2017年4月10号13:20</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="combo">
+                <div class="combo_bottom clearfix">
+                    <div class="pic fl">
+                        <a id="photo"></a>
+                    </div>
+                    <div class="right">
+                        <div class="top clearfix">
+                            <span class="user fl" id="name">网</span>
+                            <span class="zhuzhi fl">来来阿里</span>
+                            <a  class="detail fr">服务中</a>
+                        </div>
+                        <!--<p id="shanchang">擅长：月经病、痛经病等</p>-->
+                        <!--<p id="zhengshu">相关证书：职业证书、资格证书等</p>-->
+                        <!--<p id="fuwu">服务   220次     |     从业  14年</p>-->
+                        <p id="price">价格: <span>***元</span> <img src="./images/icoe.png" alt=""/></p>
+                        <p id="time">下单时间: <span>2017年4月10号13:20</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="combo">
+                <div class="combo_bottom clearfix">
+                    <div class="pic fl">
+                        <a id="photo"></a>
+                    </div>
+                    <div class="right">
+                        <div class="top clearfix">
+                            <span class="user fl" id="name">旺旺</span>
+                            <span class="zhuzhi fl">来来阿里</span>
+                            <a  class="detail fr">服务中</a>
+                        </div>
+                        <!--<p id="shanchang">擅长：月经病、痛经病等</p>-->
+                        <!--<p id="zhengshu">相关证书：职业证书、资格证书等</p>-->
+                        <!--<p id="fuwu">服务   220次     |     从业  14年</p>-->
+                        <p id="price">价格: <span>***元</span> <img src="./images/icoe.png" alt=""/></p>
+                        <p id="time">下单时间: <span>2017年4月10号13:20</span></p>
+                    </div>
+                </div>
+            </div>
+<!--订单为空显示图标-->
+            <div class="tishi" style="display: none">
+                <img src="./images/drawable-xhdpi/icon_1-01.png" alt=""  style="width: 2rem"/>暂无订单
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/dingdan_list.js"></script>
+</html>

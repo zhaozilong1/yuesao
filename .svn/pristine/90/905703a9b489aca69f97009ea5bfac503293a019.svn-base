@@ -1,0 +1,199 @@
+body {
+  background-color: #f0f0f0; }
+
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .recommend .recommend_top {
+    width: 100%;
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+    margin-top: 0.1rem;
+    padding: 0 0.25rem; }
+    .warp .recommend .recommend_top span {
+      font-size: 0.24rem;
+      color: #333333;
+      padding-left: 0.45rem;
+      position: relative; }
+      .warp .recommend .recommend_top span:before {
+        display: block;
+        content: "";
+        width: 0.28rem;
+        height: 0.28rem;
+        background: url("../images/doctor-01/icon_03.png") no-repeat;
+        background-size: 0.28rem 0.28rem;
+        position: absolute;
+        top: 0px; }
+  .warp .recommend .recommend_bottom {
+    height: 1.28rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box;
+    position: relative; }
+    .warp .recommend .recommend_bottom .remind_box {
+      padding: 0 0.48rem; }
+      .warp .recommend .recommend_bottom .remind_box p {
+        font-size: 0.24rem;
+        height: 0.64rem;
+        line-height: 0.64rem;
+        border-bottom: 1px solid #e5e5e5;
+        padding-left: 0.3rem;
+        position: relative; }
+        .warp .recommend .recommend_bottom .remind_box p:before {
+          display: block;
+          content: "";
+          width: 0.2rem;
+          height: 0.2rem;
+          background: url("../images/doctor-01/icon_05.png") no-repeat;
+          background-size: 0.2rem 0.2rem;
+          position: absolute;
+          top: 10px;
+          left: 0; }
+        .warp .recommend .recommend_bottom .remind_box p:last-child {
+          border: 0; }
+  .warp .combo .combo_top {
+    width: 100%;
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+    margin-top: 0.1rem;
+    padding: 0 0.25rem; }
+    .warp .combo .combo_top span {
+      font-size: 0.24rem;
+      color: #333333;
+      padding-left: 0.45rem;
+      position: relative; }
+      .warp .combo .combo_top span:before {
+        display: block;
+        content: "";
+        width: 0.28rem;
+        height: 0.28rem;
+        background: url(../images/doctor-01/icon_04.png) no-repeat;
+        background-size: 0.28rem 0.28rem;
+        position: absolute;
+        top: 0px; }
+  .warp .combo .combo_bottom {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box; }
+    .warp .combo .combo_bottom .pic a {
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("../images/doctor-01/touxiang01.png") no-repeat;
+      background-size: 1.2rem 1.2rem;
+      margin-top: 0.15rem;
+      margin-right: 0.15rem; }
+    .warp .combo .combo_bottom .right {
+      float: left;
+      width: 76%; }
+      .warp .combo .combo_bottom .right .top {
+        padding-top: 0.1rem; }
+        .warp .combo .combo_bottom .right .top h3 {
+          font-size: 0.24rem;
+          font-weight: 400; }
+        .warp .combo .combo_bottom .right .top span {
+          color: #999999;
+          font-size: 0.24rem; }
+      .warp .combo .combo_bottom .right .text {
+        font-size: 0.24rem;
+        color: #666666;
+        padding-bottom: 0.1rem; }
+      .warp .combo .combo_bottom .right .upload {
+        height: 1.4rem; }
+        .warp .combo .combo_bottom .right .upload span {
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          background: url(../images/img_04.png) no-repeat;
+          background-size: 1.2rem 1.2rem;
+          float: left;
+          margin: 0 0.2rem; }
+  .warp .combo_box .combo_top {
+    width: 100%;
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    background-color: #fff;
+    margin-top: 0.1rem;
+    padding: 0 0.25rem; }
+    .warp .combo_box .combo_top span {
+      font-size: 0.24rem;
+      color: #333333;
+      padding-left: 0.45rem;
+      position: relative; }
+      .warp .combo_box .combo_top span:before {
+        display: block;
+        content: "";
+        width: 0.28rem;
+        height: 0.28rem;
+        background: url(../images/doctor-01/icon_02.png) no-repeat;
+        background-size: 0.28rem 0.28rem;
+        position: absolute;
+        top: 0px; }
+  .warp .combo_box .combo_bottom {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 0 0.25rem;
+    box-sizing: border-box; }
+    .warp .combo_box .combo_bottom .pic a {
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("../images/doctor-01/touxiang01.png") no-repeat;
+      background-size: 1.2rem 1.2rem;
+      margin-top: 0.15rem;
+      margin-right: 0.15rem; }
+    .warp .combo_box .combo_bottom .right {
+      float: left;
+      width: 76%; }
+      .warp .combo_box .combo_bottom .right .top {
+        padding-top: 0.1rem; }
+        .warp .combo_box .combo_bottom .right .top h3 {
+          font-size: 0.24rem;
+          font-weight: 400; }
+        .warp .combo_box .combo_bottom .right .top span {
+          color: #999999;
+          font-size: 0.24rem; }
+      .warp .combo_box .combo_bottom .right .text {
+        font-size: 0.24rem;
+        color: #666666;
+        padding-bottom: 0.1rem; }
+      .warp .combo_box .combo_bottom .right .upload {
+        height: 1.4rem; }
+        .warp .combo_box .combo_bottom .right .upload span {
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          background: url(../images/img_04.png) no-repeat;
+          background-size: 1.2rem 1.2rem;
+          float: left;
+          margin: 0 0.2rem; }
+
+/*# sourceMappingURL=maternity-02.css.map */

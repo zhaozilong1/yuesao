@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <title></title>
+    <link rel="stylesheet" href="css/order.css" />
+    <script src="js/mobile-util.js"></script>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/sys_back.png" onclick="backmy()"/>
+        <h2>订单详情</h2>
+        <span></span>
+    </div>
+</div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/order.png" />
+            <span>订<br>单</span>
+        </div>
+        <div class="center_right">
+            
+                <div class="name_right">
+                    <h2>套餐名称:</h2>
+                    <input type="text" placeholder="" id="Package" readonly/><br>
+                </div>
+
+                <div class="name_right">
+                    <h2>订单编号:</h2>
+                    <input type="text" placeholder="" id="number" readonly/><br>
+                </div>
+                <div class="name_right">
+                    <h2>订单状态:</h2>
+                    <input type="text" placeholder="" id="orderstatus" readonly/><br>
+                </div>
+                <div class="name_right">
+                    <h2>下单时间:</h2>
+                    <input type="text" placeholder="" id="ordertime" readonly/><br>
+                </div>                                
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="concent_cen">
+        <div class="concent_left">
+            <img src="images/order1.png" />
+            <span>联<br>系<br>人<br>信<br>息</span>
+        </div>
+        <div class="center_right">
+            
+                <div class="name_right name_1">
+                    <h2>联系人姓名:</h2>
+                    <input type="text" placeholder="" id="contactname" readonly/><br>
+                </div>
+
+                <div class="name_right name_1">
+                    <h2>联系人电话:</h2>
+                    <input type="text" placeholder="" id="contactnumber" readonly/><br>
+                </div>
+                <div class="name_right name_1">
+                    <h2>服务地址:</h2>
+                    <input type="text" placeholder="" id="Address" readonly/><br>
+                </div>
+                <div class="name_right name_1">
+                    <h2>用户备注:</h2>
+                    <input type="text" placeholder="" id="Usernote" readonly/><br>
+                </div>                                
+        </div>
+    </div>
+</div>
+<div class="pay">
+    <div class="pay_cen">
+        <div class="pay_left">
+            <img src="images/order2.png" />
+            <span>支<br>付<br>信<br>息</span>
+        </div>
+        <div class="center_right">
+                <div class="name_right">
+                    <h2>订单金额:</h2>
+                    <input type="text" placeholder="" id="amount" readonly/><br>
+                </div>
+                <div class="name_right">
+                    <h2>支付方式:</h2>
+                    <input type="text" placeholder="" id="payment" readonly/><br>
+                </div>
+                <div class="name_right">
+                    <h2>支付金额:</h2>
+                    <input type="text" placeholder="" id="paymentamount" readonly/><br>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="dingdan_box">
+    <a href="#" onclick=" immediatepayment()" id="ip" class="ip" style="display: none">立即支付</a>
+    <a href="#" onclick="cancellationoforder()" id="coo" class="coo" style="display: none">取消订单</a>
+</div>
+
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/date/js/mobiscroll_date.js" charset="gb2312"></script>
+<script src="./js/date/js/mobiscroll.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/zhifu.js"></script>
+<script>
+
+    function backmy() {
+        window.history.back();
+    };
+    //获取订单详情
+    $(function () {
+        var sessionId=sessionStorage['sessionId'];
+        $.post(baseURL+"yuesao/order/detail",{sessionid:sessionId},function (r) {
+            console.log(r)
+            if(r.code=="USR139"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                })
+            }else if(r.code=="USR100"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+            }else if(r.code=="USR201"){
+//                layer.open({
+//                    content: r.msg,
+//                    btn: ['确定',]
+//                });
+            }else if(r.code=="USR000"){
+                if(r.data.suserName=="" && r.data.roleName==""){
+                    $("#Package").val(r.data.serviceName);
+                }else{
+                    $("#Package").val(r.data.roleName+r.data.suserName);
+                }
+
+                $("#number").val(r.data.orderNumber);
+                if(r.data.status==0){
+                    $("#orderstatus").val("未支付");
+                    $("#ip").show();
+                    $("#coo").show();
+                }else if(r.data.status==1){
+                    $("#orderstatus").val("未完成");
+                }else {
+                    $("#orderstatus").val("已完成");
+                }
+
+                $("#ordertime").val(r.data.createDate);
+                $("#contactname").val(r.data.name);
+                $("#Address").val(r.data.address);
+                $("#Usernote").val(r.data.memo);
+                $("#amount").val(r.data.amount);
+                $("#payment").val(r.data.payMentMethodName);
+                $("#paymentamount").val(r.data.price);
+                $("#contactnumber").val(r.data.phone)
+            }
+        })
+    });
+    //取消订单
+    function cancellationoforder() {
+        var sessionId=sessionStorage['sessionId'];
+        $.post(baseURL+"yuesao/order/cancel",{sessionid:sessionId},function (r) {
+            console.log(r)
+            if(r.code == "USR140"){
+                alert(r.msg);
+            }else if(r.code=="USR124"){
+                alert(r.msg);
+            }else if(r.code == "USR201"){
+                alert(r.msg);
+            }else if(r.code=="USR000"){
+                alert("取消成功");
+                location.reload();
+            }
+        })
+    };
+    //立即支付
+function immediatepayment() {
+    var sessionId=sessionStorage['sessionId'];
+    if(!sessionId){
+        layer.open({
+            content: result.msg
+            , btn: ['确定',],
+            skin: 'my-skin'
+            , yes: function (index) {
+                layer.close(index);
+                window.location.href="login.html";
+            }
+        });
+        return;
+    }
+    var orderNumber=$('#number').val();
+    //alert(orderNumber);
+    payMethod(orderNumber,"one.html","zhifu-dingdan.html")
+}
+</script>
+</body>
+</html>

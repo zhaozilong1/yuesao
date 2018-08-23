@@ -1,0 +1,205 @@
+function back1() {
+    window.history.back();
+}
+ 
+function initTime(){
+	var datetime = new Date();  
+    var year=datetime.getFullYear();//获取完整的年份(4位,1970)  
+    var month=datetime.getMonth()+1;//获取月份(0-11,0代表1月,用的时候记得加上1)  
+    if(month<=9){  
+        month="0"+month;  
+    }  
+    var date=datetime.getDate();//获取日(1-31)  
+    if(date<=9){  
+        date="0"+date;  
+    }  
+    var dateformat=year+"-"+month+"-"+date;  
+ return dateformat;
+}
+
+tzfw();
+
+function tzfw() {
+    $("#show").attr("style","display:show");
+    var sessionId=sessionStorage['sessionId'];
+    var day = $("#top_shu").html();
+    var nianyue = $("#ymym").html();
+    var recordTime=nianyue+day;
+    recordTime = recordTime.replace("年","-" ).replace("月","-");
+    var times = recordTime.split("-");
+    var yue=p(times[1]);
+    recordTime = times[0] + "-" + yue + "-" + p(times[2])
+    if(yue.length==3){
+    	yue=yue.substring(yue.length,yue.length-2);
+    	recordTime=initTime();
+    }
+    $.post(baseURL+"yuesao/record/appResult",{sessionid:sessionId,recordTime:recordTime,recordId:1},function (r) {
+//        console.log(r)
+        if(r.code=="USR103"){
+            /*layer.open({
+                content: r.msg,
+                btn: ['确定',]
+            })*/
+        }else if(r.code=="USR100"){
+           /* layer.open({
+                content: r.msg,
+                btn: ['确定',]
+            });*/
+        	
+        	$(".tzfu_01").css("display","none");
+        	$(".tzfu_02").css("display","block");
+        	
+        }else if(r.code=="USER001 "){
+           /* layer.open({
+                content: r.msg,
+                btn: ['确定',]
+            });*/
+        }else if(r.code=="USR000"){
+//        	console.log(r,"====");
+        	$(".tzfu_02").css("display","none");
+        	$(".tzfu_01").css("display","block");
+        	
+            $("#tzfu_recordTime").html(r.data.recordTime);
+            $("#tzfu_weight").text(r.data.weight+" kg");
+            $("#tzfu_bust").text(r.data.bust+" cm");
+            
+            $("#tzfu_testTime").text(r.data.testTime);
+            $("#tzfu_testResult").text(r.data.testResult);
+
+        }
+    })
+
+}
+function p(date) {
+    return date > 9 ? date:'0'+date;
+}
+
+function ypyyj(num) {
+
+    $("#show").attr("style","display:none");
+    var sessionId=sessionStorage['sessionId'];
+    var day = $("#top_shu").html();
+    var nianyue = $("#ymym").html();
+    var recordTime=nianyue+day;
+    recordTime = recordTime.replace("年","-" ).replace("月","-");
+    var times = recordTime.split("-");
+    recordTime = times[0] + "-" + p(times[1]) + "-" + p(times[2])
+//    console.log(recordTime)
+    $.post(baseURL+"yuesao/record/appResult",{sessionid:sessionId,recordTime:recordTime,recordId:num},
+    	function (r) {
+//	        console.log(r);
+	        //var list=r.data;
+	        if(r.code=="USR100"){
+	           /* layer.open({
+	                content: r.msg,
+	                btn: ['确定',]
+	            })*/
+	        	
+	        	
+	        	$(".yaopin_01").css("display","none");
+	        	$(".yaopin_02").css("display","block");
+	        	
+	        }else if(r.code=="USR000"){
+
+	        	$(".yaopin_02").css("display","none");
+	        	$(".yaopin_01").css("display","block");
+	        	
+	        	$("#yaopin_null").css("display","none");
+	        	$("#yaopin_ul").css("display","block");
+	        	$("#yaopin_time").html(r.data.recordTime);
+	        	$("#yaopin_drug").html(r.data.drug);
+	        	$("#yaopin_describes").html(r.data.describes);
+	        	
+	        	$("#yaopin_testTime").html(r.data.testTime);
+	        	$("#yaopin_testResult").html(r.data.testResult);
+	        }
+    })
+
+}
+
+function tdjs(num) {
+    $("#show").attr("style","display:none");
+    var sessionId=sessionStorage['sessionId'];
+    var day = $("#top_shu").html();
+    var nianyue = $("#ymym").html();
+    var recordTime=nianyue+day;
+    recordTime = recordTime.replace("年","-" ).replace("月","-");
+    var times = recordTime.split("-");
+    recordTime = times[0] + "-" + p(times[1]) + "-" + p(times[2])
+//    console.log(recordTime)
+    $.post(baseURL+"yuesao/record/appResult",{sessionid:sessionId,recordTime:recordTime,recordId:num},function (r) {
+//        console.log(r)
+        var list=r.data;
+        if(r.code=="USR100"){
+//            layer.open({
+//                content: r.msg,
+//                btn: ['确定',]
+//            })
+        	$(".taidong_01").css("display","none");
+        	$(".taidong_02").css("display","block");
+        }else if(r.code=="USR000"){
+            //var keyval = '';
+            /*keyval+='<div>'+'<strong>时间:</strong>'
+                + r.data.recordTime+ '<br/>'+'<strong>胎动次数:</strong>'
+                + r.data.times +'<br/> '+'<strong>计时:</strong>'
+                + r.data.chronograph + '<br/>'+'<strong>测评结果:</strong>'
+                + r.data.testResult + '<br/>'+'<strong>测评时间:</strong>'
+                + r.data.testTime + '</div>';
+            $("#taidong1").empty();
+            $("#taidong1").append(keyval);*/
+        	$(".taidong_02").css("display","none");
+        	$(".taidong_01").css("display","block");
+        	
+        	$("#taidong_recordTime").html(r.data.recordTime);
+        	$("#taidong_times").html("在"+r.data.chronograph+"秒内，宝宝动了"+r.data.times+"次！！！");
+        	$("#taidong_describes").html(r.data.taidong_describes);
+        	
+        	$("#taidong_testTime").html(r.data.testTime);
+        	$("#taidong_testResult").html(r.data.testResult);
+        }
+    })
+
+}
+
+
+function chancheck(num) {
+    $("#show").attr("style","display:none");
+    var sessionId=sessionStorage['sessionId'];
+    var day = $("#top_shu").html();
+    var nianyue = $("#ymym").html();
+    var recordTime=nianyue+day;
+    recordTime = recordTime.replace("年","-" ).replace("月","-");
+    var times = recordTime.split("-");
+    recordTime = times[0] + "-" + p(times[1]) + "-" + p(times[2])
+//    console.log(recordTime)
+    $.post(baseURL+"yuesao/record/appResult",{sessionid:sessionId,recordTime:recordTime,recordId:num},function (r) {
+//        console.log(r)
+        var list=r.data;
+        if(r.code=="USR100"){
+//            layer.open({
+//                content: r.msg,
+//                btn: ['确定',]
+//            })
+        	$(".chancheck_01").css("display","none");
+        	$(".chancheck_02").css("display","block");
+        	
+        }else if(r.code=="USR000"){
+        	$(".chancheck_02").css("display","none");
+        	$(".chancheck_01").css("display","block");
+//            var keyval = '';
+//            keyval+='<div>'+'<strong>时间:</strong>'
+//                + r.data.recordTime+ '<br/>'+'<strong>测评结果:</strong>'
+//                + r.data.testResult + '<br/>'+'<strong>测评时间:</strong>'
+//                + r.data.testTime + '</div>';
+//            $("#chancheck").empty();
+//            $("#chancheck").append(keyval);
+        	$("#chancheck_recordTime").html(r.data.recordTime);
+        	$("#chancheck_describes").html(r.data.describes);
+        	
+        	$("#chancheck_testTime").html(r.data.testTime);
+        	$("#chancheck_testResult").html(r.data.testResult);
+
+        }
+    })
+
+}

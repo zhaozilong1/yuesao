@@ -1,0 +1,179 @@
+body {
+  background-color: #f0f0f0; }
+
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff8fa;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #333333;
+    padding: 0.25rem; }
+    .warp header .back {
+      display: block;
+      width: 0.28rem;
+      height: 0.28rem;
+      background: url("../images/doctor-01/icon_back.png") no-repeat;
+      background-size: 0.28rem 0.28rem;
+      margin-top: 0.17rem; }
+  .warp .main .server_box {
+    background-color: #fff;
+    margin-top: 0.1rem;
+    font-size: 0.3rem; }
+    .warp .main .server_box ul li {
+      height: 0.96rem;
+      line-height: 0.96rem;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 0.25rem;
+      padding-left: 0.8rem; }
+      .warp .main .server_box ul li span {
+        padding-left: 0.6rem;
+        font-size: 0.24rem;
+        color: #666666; }
+      .warp .main .server_box ul li .server_p {
+        position: relative; }
+        .warp .main .server_box ul li .server_p:before {
+          display: block;
+          content: "";
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url(../images/dingdan/icon_dingdan01.png) no-repeat;
+          background-size: 0.4rem 0.4rem;
+          position: absolute;
+          top: -3px;
+          left: -0.6rem; }
+      .warp .main .server_box ul li .technical {
+        position: relative; }
+        .warp .main .server_box ul li .technical:before {
+          display: block;
+          content: "";
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url(../images/dingdan/icon_dingdan02.png) no-repeat;
+          background-size: 0.4rem 0.4rem;
+          position: absolute;
+          top: -3px;
+          left: -0.6rem; }
+      .warp .main .server_box ul li .price {
+        position: relative; }
+        .warp .main .server_box ul li .price:before {
+          display: block;
+          content: "";
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url(../images/dingdan/icon_dingdan03.png) no-repeat;
+          background-size: 0.4rem 0.4rem;
+          position: absolute;
+          top: -3px;
+          left: -0.6rem; }
+  .warp .main .relation {
+    margin-top: 0.1rem;
+    font-size: 0.3rem; }
+    .warp .main .relation ul li {
+      height: 0.96rem;
+      line-height: 0.96rem;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 0.25rem;
+      padding-left: 0.8rem;
+      background-color: #fff;
+      position: relative; }
+      .warp .main .relation ul li label {
+        font-weight: 700; }
+        .warp .main .relation ul li label input {
+          margin-left: 0.6rem;
+          border: none; }
+      .warp .main .relation ul li .user:before {
+        display: block;
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        background: url(../images/dingdan/icon_dingdan04.png) no-repeat;
+        background-size: 0.4rem 0.4rem;
+        position: absolute;
+        top: 13px;
+        left: 10px; }
+      .warp .main .relation ul li .photo:before {
+        display: block;
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        background: url(../images/dingdan/icon_dingdan05.png) no-repeat;
+        background-size: 0.4rem 0.4rem;
+        position: absolute;
+        top: 13px;
+        left: 10px; }
+      .warp .main .relation ul li .address:before {
+        display: block;
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        background: url(../images/dingdan/icon_dingdan06.png) no-repeat;
+        background-size: 0.4rem 0.4rem;
+        position: absolute;
+        top: 13px;
+        left: 10px; }
+      .warp .main .relation ul li .remark:before {
+        display: block;
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        background: url(../images/dingdan/icon_dingdan07.png) no-repeat;
+        background-size: 0.4rem 0.4rem;
+        position: absolute;
+        top: 13px;
+        left: 10px; }
+  .warp .main .pay {
+    background-color: #fff;
+    margin-top: 0.1rem;
+    font-size: 0.3rem; }
+    .warp .main .pay ul li {
+      height: 0.96rem;
+      line-height: 0.96rem;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 0.25rem;
+      padding-left: 0.8rem;
+      position: relative; }
+      .warp .main .pay ul li span {
+        padding-left: 0.6rem;
+        font-size: 0.24rem;
+        color: #666666; }
+      .warp .main .pay ul li:before {
+        display: block;
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        background: url(../images/dingdan/icon_dingdan08.png) no-repeat;
+        background-size: 0.4rem 0.4rem;
+        position: absolute;
+        top: 13px;
+        left: 0.2rem; }
+      .warp .main .pay ul li span {
+        color: #ff8383; }
+  .warp footer {
+    height: 0.96rem;
+    line-height: 0.96rem;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff8fa;
+    border-top: 1px solid #e5e5e5; }
+    .warp footer .answers {
+      flex: 1;
+      text-align: center; }
+      .warp footer .answers button {
+        height: 0.76rem;
+        width: 90%;
+        border-radius: 0.1rem;
+        border: 1px solid #ffd7d7;
+        background-color: #ff8383;
+        font-size: 0.28rem;
+        color: #fff; }
+
+/*# sourceMappingURL=taocan-zhifu.css.map */

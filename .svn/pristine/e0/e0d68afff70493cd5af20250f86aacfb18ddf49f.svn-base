@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/my-pinglun.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="#" class="back fl"></a>
+        我要评论
+    </header>
+    <div class="main">
+        <div class="grade">
+            <div class="active">非常满意</div>
+            <div>满意</div>
+            <div>一般</div>
+            <div>不满意</div>
+        </div>
+        <form action="">
+            <textarea placeholder="请输入您对此次服务的评论"></textarea>
+            <button>提&nbsp;&nbsp;&nbsp;交</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/my-pinglun.js"></script>
+</html>

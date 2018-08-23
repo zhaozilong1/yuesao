@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="css/butler.css" />
+    <script src="js/mobile-util.js"></script>
+    <style>
+        .layui-layer-dialog{
+            min-width: 260px;
+            height: 2rem;
+        }
+        .layui-layer .layui-layer-btn{
+            text-align: center;
+        }
+        .layui-layer-btn .layui-layer-btn0{
+            border-color: #1E9FFF;
+            background-color: #1E9FFF;
+            color: #fff;
+            font-size: 0.2rem;
+        }
+
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+        <img src="images/icon.png" id="back"/>
+        <h2 id="title">管家·曹庆</h2>
+        <span></span>
+    </div>
+</div>
+<div class="one"></div>
+<div class="center">
+    <div class="center_cen">
+        <div class="center_left">
+            <img src="images/img.png" id="photo"/>
+        </div>
+        <div class="center_right">
+            <div class="center_top">
+                <h2 id="name">曹庆</h2>
+                <span></span>
+                <i id="zhicheng">中医调理师</i>
+                <div class="center_ri" onclick="checkxiangqing()">查看详情</div>
+            </div>
+            <div class="center_bottom" id="shanchang">
+                擅长：月经病、痛经病等
+            </div>
+            <div class="center_bottom">
+                相关证书：职业证书、资格证书等
+            </div>
+            <div class="center_bottom_r">
+                服务  &nbsp;&nbsp; 220次   &nbsp;&nbsp;  |   &nbsp;&nbsp;  从业  14年
+            </div>
+        </div>
+    </div>
+</div>
+<div class="one"></div>
+<div class="main">
+    <div class="main_cen" onclick="pingjia()">
+        <img src="images/hong.png" />
+        <h2>用户评价</h2>
+    </div>
+</div>
+<div class="content">
+    <div class="content_cen">
+        <div class="content_left">
+            <img src="images/boby.png" />
+        </div>
+        <div class="content_right">
+            <div class="content_top">
+                <h2>小艾同学</h2>
+                <span>2018-04-01&nbsp;&nbsp;&nbsp;13:05</span>
+            </div>
+            <div class="concent_bottom">
+                精通中医妇科、中医内科、中医皮科常见病、多发病，及各种疑难杂症。
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="content_cen">
+        <div class="content_left">
+            <img src="images/boby.png" />
+        </div>
+        <div class="content_right">
+            <div class="content_top">
+                <h2>小艾同学</h2>
+                <span>2018-04-01&nbsp;&nbsp;&nbsp;13:05</span>
+            </div>
+            <div class="concent_bottom">
+                精通中医妇科、中医内科、中医皮科常见病、多发病，及各种疑难杂症。
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="content_cen">
+        <div class="content_left">
+            <img src="images/boby.png" />
+        </div>
+        <div class="content_right">
+            <div class="content_top">
+                <h2>小艾同学</h2>
+                <span>2018-04-01&nbsp;&nbsp;&nbsp;13:05</span>
+            </div>
+            <div class="concent_bottom">
+                精通中医妇科、中医内科、中医皮科常见病、多发病，及各种疑难杂症。
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="content_cen">
+        <div class="content_left">
+            <img src="images/boby.png" />
+        </div>
+        <div class="content_right">
+            <div class="content_top">
+                <h2>小艾同学</h2>
+                <span>2018-04-01&nbsp;&nbsp;&nbsp;13:05</span>
+            </div>
+            <div class="concent_bottom">
+                精通中医妇科、中医内科、中医皮科常见病、多发病，及各种疑难杂症。
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer_cen" id="btn">
+        选为我的经纪人
+    </div>
+</div>
+</body>
+<script src="js/base.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+    function getInfo(){
+        var id=GetQueryString();
+        console.log(id);
+        $.post(baseURL+"yuesao/sysuser/detail",{id:id},function (result) {
+            if(result.code=="USR000"){
+                var user=result.data;
+                $('#title').text("管家·"+user.name);
+                $('#photo').attr("src",baseURL2+user.photo);
+                $('#name').text(user.name);
+                $('#zhicheng').text(user.profession);
+                $('#shanchang').text("擅长："+user.workExperience);
+                var times=0;
+                if(user.serviceTimes){
+                   times=user.serviceTimes;
+                }
+                $('.center_bottom_r').html("服务  &nbsp;&nbsp; "+times+"次   &nbsp;&nbsp;  |   &nbsp;&nbsp;  从业  "+user.workYear+"年");
+            }else if(result.code=="USR139"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+            }else if(result.code=="USR100"){
+                /*layer.open({
+                 content: result.msg
+                 , btn: ['确定',],
+                 skin: 'my-skin'
+                 , yes: function (index) {
+                 layer.close(index);
+                 }
+                 });*/
+            }else if(result.code=="USR201"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+            }
+
+        })
+    }
+    $('#back').click(function(){
+        window.history.back();
+    });
+    getInfo();
+    function getCommentlist() {
+        var id=GetQueryString();
+        $('.content').remove();
+        $.post(baseURL+"yuesao/sysuser/commentlist",{userId:id,page:1,pageSize:100},function (result) {
+            if(result.code=="USR000"){
+
+                var comments=result.data.list;
+                for(var i in comments){
+                    var comment=comments[i];
+                    var div='<div class="content">'+
+                            '<div class="content_cen">'+
+                            '<div class="content_left">'+
+                            '<img src="'+comment.picUrl+'" />'+
+                            '</div>'+
+                            '<div class="content_right">'+
+                            '<div class="content_top">'+
+                            '<h2>'+comment.userName+'</h2>'+
+                            '<span>'+comment.commentDate+'</span>'+
+                            '</div>'+
+                            '<div class="concent_bottom">'+
+                            comment.commentContent+
+                            '</div>'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>';
+                    $('body').append(div);
+                }
+            }else if(result.code=="USR108"){
+                /* layer.open({
+                 content: result.msg
+                 , btn: ['确定',],
+                 skin: 'my-skin'
+                 , yes: function (index) {
+                 layer.close(index);
+                 }
+                 });*/
+            }else if(result.code=="USR100"){
+                /* layer.open({
+                 content: result.msg
+                 , btn: ['确定',],
+                 skin: 'my-skin'
+                 , yes: function (index) {
+                 layer.close(index);
+                 }
+                 });*/
+            }else if(result.code=="USR201"){
+                /* layer.open({
+                 content: result.msg
+                 , btn: ['确定',],
+                 skin: 'my-skin'
+                 , yes: function (index) {
+                 layer.close(index);
+                 }
+                 });*/
+            }
+        });
+    }
+    function checkxiangqing() {
+        var id=GetQueryString();
+        window.location.href="personal_information.html?id="+id;
+    };
+    function pingjia() {
+        var id=GetQueryString();
+        window.location.href="evaluate.html?id="+id;
+    }
+    getCommentlist();
+    $('#btn').click(function () {
+        var sessionId=sessionStorage["sessionId"];
+        console.log(sessionId);
+        var userId=GetQueryString();
+        $.post(baseURL+"yuesao/order/updateOrder",{sessionid:sessionId,userId:userId},function (result) {
+            if(result.code=="USR000"){
+                var name=$('#name').text();
+                layer.open({
+                    content: " 您已经选择"+name+"为你服务"
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                        window.location.href="index.html";
+                    }
+                });
+            }else if(result.code=="USR100"){
+                alert(result.msg)
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR138"){
+                alert(result.msg)
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR201"){
+                alert(result.msg)
+//                layer.open({
+//                    content: result.msg
+//                    , btn: ['确定',],
+//                    skin: 'my-skin'
+//                    , yes: function (index) {
+//                        layer.close(index);
+//                    }
+//                });
+            }else if(result.code=="USR124"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,145 @@
+/**
+ * Created by m1324 on 2018/3/30.
+ */
+$(function(){
+    $('.login_c').click(login);
+
+    $("#mobile").focus(function(){
+        $(".fa-times-circle-o").show();
+    })
+    $(".fa-times-circle-o").click(function(){
+         $(".mobile").val("");
+        $(this).hide();
+
+    })
+});
+//获取手机号
+function getMobile(){
+    var mobile = $("[name = 'mobile']").val();
+    //var mobileReg = /^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/;
+    var mobileReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if(mobileReg.test(mobile) === false){
+        layer.open({
+            content: '<span>请输入真实有效的手机号</span>'
+            ,btn: ['确定',],
+            skin:'my-skin'
+            ,yes: function(index){
+                layer.close(index);
+            }
+        });
+        return 0;
+    }
+    return mobile;
+}
+//获取验证码
+function getSms(){
+    var mobile=getMobile();
+    if(!mobile){
+        console.log("getcode:"+!mobile);return;
+    }
+    sendemail();
+    console.log("getcode:"+mobile);
+    var cc=$('#btn').attr('disabled');
+    $.post(baseURL+"yuesao/service/sendSms",{mobile:mobile},function (result) {
+        if (result.code=="USR000"){
+            // layer.open({
+            //     content: '<span>验证码已发送</span>'
+            //     ,btn: ['确定',],
+            //     skin:'my-skin'
+            //     ,yes: function(index){
+            //         layer.close(index);
+            //     }
+            // });
+        }else if(result.code=="USR100"){
+             layer.open({
+                 content: result.msg
+                 ,btn: ['确定',],
+                 skin:'my-skin'
+                 ,yes: function(index){
+                     layer.close(index);
+                 }
+             });
+        }else if(result.code=="USR107"){
+             layer.open({
+                 content: result.msg
+                 ,btn: ['确定',],
+                 skin:'my-skin'
+                 ,yes: function(index){
+                     layer.close(index);
+                 }
+             });
+        }
+    })
+}
+function login() {
+    var mobile=getMobile();
+    var code=$('#code').val();
+    var check=$('#check1').prop('checked');
+    console.log("mobile:"+mobile+"code:"+code+"check:"+check);
+    if(!mobile){
+        return;
+    }
+    if(!check){
+        return;
+    }
+    $.post(baseURL+"yuesao/login",{mobile:mobile,code:code},function (result) {
+        if(result.code=="USR101"){
+            sessionStorage['mobile']=mobile;
+            sessionStorage['code']=code;
+            sessionStorage['sessionId']=result.data.sessionid;
+            console.log("82moblie:"+mobile);
+            var url='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc61c7965e9de767e&redirect_uri='+baseURL+'wechat/userInfo?mobile='+mobile+'&response_type=code&scope=snsapi_base&state=http://ys.stevengg.com/yuesao_h5/index.html#wechat_redirect';
+            window.location.href=url;
+     
+        }else if(result.code=="USR100"){
+            // layer.open({
+            //     content: result.msg
+            //     ,btn: ['确定',],
+            //     skin:'my-skin'
+            //     ,yes: function(index){
+            //         layer.close(index);T
+            //     }
+            // });
+        }else if(result.code=="USR104"){
+            layer.open({
+                content: result.msg
+                ,btn: ['确定',],
+                skin:'my-skin'
+                ,yes: function(index){
+                    layer.close(index);
+                }
+            });
+        }else if(result.code=="USR103"){
+            sessionStorage["mobile"]=mobile;
+            sessionStorage["code"]=code;
+            window.location.href="state.html";
+        }
+    })
+}
+
+//获取验证码倒计时
+var countdown=60;
+function sendemail(){
+    var obj = $("#btn");
+    settime(obj);
+}
+function settime(obj) { //发送验证码倒计时
+    if (countdown == 0) {
+        obj.attr('disabled',false);
+        //obj.removeattr("disabled");
+        obj.text("免费获取验证码");
+        countdown = 60;
+        $('#btn').click(getSms);
+        return;
+    } else {
+        obj.attr('disabled',true);
+        obj.text("重新发送(" + countdown + ")");
+        countdown--;
+        $('#btn').unbind('click');
+    }
+    setTimeout(function() {
+            settime(obj) }
+        ,1000)
+}
+
+

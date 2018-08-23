@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/css/index.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/css/login.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/dingdan_list.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/expected.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/taocan-zhifu.js" charset="GBK" />
+  </component>
+</project>

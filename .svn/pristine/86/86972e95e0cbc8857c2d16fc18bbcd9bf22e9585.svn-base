@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/knowledge.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="knowledge_list.html" class="back fl"></a>
+        知识阅读
+    </header>
+    <div class="combo_bottom clearfix">
+        <div class="pic" >
+            <a href="#" id="img"></a>
+        </div>
+        <div class="right">
+            <div class="top clearfix">
+                <h3 class="fl" id="title">标题</h3>
+
+            </div>
+            <div class="text" id="content">文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容。</div>
+            <div class="time" id="creatTime">
+                2018-4-2  20:25:20
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script>
+
+    $(function () {
+         var str = decodeURI(window.location.search);//解码
+         var id=str.split("?")[1];//取值
+        console.log(id)
+        $.post(baseURL+"yuesao/content/detail",{id:id},function (r) {
+            console.log(r)
+            if(r.code=="USR139"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR100"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR201"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR000"){
+                 console.log(r.data.title);
+                 $("#title").text(r.data.title);
+                 $("#content").html(r.data.text);
+                 $("#creatTime").text(r.data.createTime);
+                 console.log(r.data.createTime);
+                if(r.data.thumbnail !=""){
+                    if (r.data.thumbnail== "") {
+
+                    } else {
+                        $("#img").css("background-image", "url(" +baseURL2+ r.data.thumbnail  + ")");
+                    }
+                }
+
+            }
+        })
+    })
+
+</script>
+</body>
+
+</html>

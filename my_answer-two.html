@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/my-answers.css"/>
+</head>
+<body>
+<!--头部-->
+<div class="warp">
+    <header class="clearfix">
+        <a href="#" class="back fl" onclick="backfirst()"></a>
+        我的问答
+    </header>
+    <div class="main">
+        <div class="combo">
+
+
+        </div>
+    </div>
+    <div class="tishi">
+        <img src="./images/drawable-xhdpi/icon_1-01.png" alt=""/>
+        暂无问答
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var html="";
+        $(".combo").empty();
+        var data={sessionid:sessionStorage["sessionId"],"page":"1","pageSize":"100","scope":1};
+        $.post(baseURL+'yuesao/question/mylist',data,function (result) {
+            console.log(result);
+            console.log(result.data.list.id);
+            var pic = result.data.list.picUrl;
+            $.each(result.data.list,function(n,t){
+                html+='<div class="combo_bottom clearfix">';
+                html+=' <div class="pic fl" style="background: url('+baseURL2+pic+')">'  ;
+                html+='  <a href="#"></a>';
+                html+='   </div>';
+                html+=' <div class="right">';
+                html+='    <div class="top clearfix">';
+                html+='    <h3 id="'+t.id+'" class="fl">'+t.userName+'</h3>';
+                html+='   <span   class="fr">'+t.questionDate.substr(0,19)+'</span>';
+                html+='     </div>';
+                html+='      <div id="question" class="text">'+t.question+'?</div>';
+                html+='  </div>';
+                html+=' </div> ';
+                if(!t.answer==""){
+                    html+=' <div class="questions_box">';
+                    html+='<div class="questions_in">';
+                    html+='<div class="questions_top clearfix">';
+                    html+='          <div class="left fl">';
+                    html+='              <span class="user">'+t.name+'</span>';
+                    html+='                <span class="yuesao">'+t.roleName+'</span>';
+                    html+='          </div>';
+                    html+='                   <div  class="time fr">'+t.answerDate+'</div>';
+                    html+='                </div>';
+                    html+='        <div class="text">'+t.answer+'</div>';
+                    html+='</div></div>';
+                }
+            });
+            $(".combo").empty().append(html);
+            if(result.code=="USR108"){
+                $('.tishi').show();
+            }
+        });
+
+
+    })
+    function backfirst(){
+        window.history.back();
+    }
+</script>
+</html>

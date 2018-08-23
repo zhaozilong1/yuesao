@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/ready_pregnancy.css"/>
+    <link rel="stylesheet" href="./css/datetimepicker/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="warp">
+    <!--孕妈准确消息 -->
+    <div class="box_top">
+        <header>
+            孕妈准确消息
+            <a href="#" class="back"></a>
+        </header>
+        <input name="status" id="status" type="hidden" value="0">
+        <div class="expected">
+            请输入您上次月经开始时间期:
+            <!--<input type="date" id="id_yy_input" onchange="checkdate();"/>-->
+            <input type="text" value="2017-07-31 17:58" id="datetimepicker"  class="form_datetime" data-date-format="yyyy-mm-dd">
+        </div>
+        <div class="expected">
+            平均月经周期:
+            <input type="number" id="zhouqi" placeholder="月经周期" onblur="checkzhouqi();"/> 天
+        </div>
+        <div class="expected">
+            月经天数:
+            <input type="number" id="tianshu" placeholder="月经天数" onblur="checktianshu();"/> 天
+        </div>
+
+        <div class="tishi">
+            <h3>温馨提示!</h3>
+            <p>月经周期14-60天</p>
+            <p>月经持续天数2-14天</p>
+        </div>
+
+
+        <div class="next">
+
+            <button class="btn">下一步</button>
+        </div>
+
+    </div>
+
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/ready_pregnancy.js"></script>
+<script src="./js/datetimepicker/bootstrap.min.js" type="text/javascript" language="utf-8"></script>
+<script src="./js/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript" language="utf-8"></script>
+<script>
+    //解决blur事件重复问题
+    window.onblur=function(){
+        var inputs = $("input");
+        for(var i=0; i<inputs.length; i++){
+            document.getElementsByTagName('input')[i].blur();
+        }
+    }
+    $('.btn').click(function () {
+        var riqi = $("#datetimepicker").val();
+        console.log("riqi",riqi)
+        var zhouqi=$('#zhouqi').val();
+        if(zhouqi<14||zhouqi>60){
+            layer.open({
+                content: "请输入您正确的月经周期！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                }
+            });
+            return;
+        }
+        var tianshu=$('#tianshu').val();
+        if(tianshu<2||tianshu>14){
+            layer.open({
+                content: "请输入您正确的经期数！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                }
+            });
+            return;
+        }
+        sessionStorage["riqi"]=riqi;
+        sessionStorage["zhouqi"]=zhouqi;
+        sessionStorage["tianshu"]=tianshu;
+          window.location.href="server.html?state=0";
+    });
+
+    $(".back").click(function(){
+//        window.history.back();
+        window.location.href = "state.html"
+    })
+
+
+    // function checkdate() {
+    //     var checkTime = $("#id_yy_input").val();
+    //     checkTime = new Date(checkTime);
+    //     var nowTime = new Date();
+    //     if (checkTime.getTime() > nowTime.getTime()) {
+    //         layer.open({
+    //             content: "时间选择不合理，请重新选择日期！",
+    //             btn: ['确定',],
+    //             skin: 'my-skin',
+    //                 yes: function (index) {
+    //                     console.log(1111)
+    //                     layer.close(index);
+    //                     $("#id_yy_input").val(today);
+    //             }
+    //         });
+    //     }
+    // }
+
+    function checkzhouqi() {
+        var zhouqi = $("#zhouqi").val()
+        if (zhouqi == "") {
+            return;
+        }
+        if (zhouqi < 14 | zhouqi > 60) {
+            layer.open({
+                content: "请您输入正确的月经周期天数！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    $("#zhouqi").val("")
+                }
+            });
+        }
+
+    }
+
+    function checktianshu() {
+        var tianshu = $("#tianshu").val();
+        if (tianshu == '') {
+            return;
+        }
+
+        if (tianshu < 2 || tianshu > 14) {
+            layer.open({
+                content: "请您输入正确的月经持续天数！"
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                    $("#tianshu").val("")
+                }
+            });
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth()+1;
+        var day = now.getDate();
+        console.log(year+"/"+month+"/"+day)
+        $("#datetimepicker").attr("value",year+"-"+month+"-"+day);
+    })
+    $('#datetimepicker').datetimepicker({
+        endDate: new Date(),
+        language:"zh-CN",
+        todayHighlight: true,
+        minView:2,//最精准的时间选择为日期0-分 1-时 2-日 3-月
+        weekStart:1,
+        autoclose : true,
+        format: 'yyyy-mm-dd',      /*此属性是显示顺序，还有显示顺序是mm-dd-yyyy*/
+    });
+</script>
+</html>

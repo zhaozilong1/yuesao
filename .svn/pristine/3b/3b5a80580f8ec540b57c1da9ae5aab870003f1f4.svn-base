@@ -1,0 +1,92 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0; }
+
+html, body {
+  font-size: 16px;
+  color: #333;
+  height: 100%; }
+
+*::selection {
+  background-color: limegreen;
+  color: #fff; }
+
+*::-moz-selection {
+  background-color: limegreen;
+  color: #fff; }
+
+ol, ul {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+
+img {
+  border: 0; }
+
+body, button, input, select, textarea {
+  color: #333;
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", STHeiti, sans-serif !important; }
+
+button, input[type=button], input[type=reset], input[type=submit] {
+  cursor: pointer;
+  -webkit-appearance: button; }
+
+input:not([type=radio]) {
+  border-radius: 0;
+  outline: none; }
+
+button, a {
+  outline: none; }
+
+table {
+  /*合并边框模型*/
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+/*清除浮动*/
+.clearfix::before,
+.clearfix::after {
+  display: block;
+  content: "";
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both; }
+
+.clearfix {
+  *zoom: 1;
+  /*IE/7/6*/ }
+
+/* 屏幕的适配 750的设计稿*/
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 106.7px !important; } }
+@media only screen and (max-width: 435px) {
+  html {
+    font-size: 60.42px !important; } }
+@media only screen and (max-width: 414px) {
+  html {
+    font-size: 57.5px !important; } }
+@media only screen and (max-width: 411px) {
+  html {
+    font-size: 57.08px !important; } }
+@media only screen and (max-width: 375px) {
+  html {
+    font-size: 52.08px !important; } }
+@media only screen and (max-width: 360px) {
+  html {
+    font-size: 50px !important; } }
+@media only screen and (max-width: 320px) {
+  html {
+    font-size: 44.44px !important; } }
+
+/*# sourceMappingURL=base.css.map */

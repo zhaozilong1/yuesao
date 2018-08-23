@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/my_doctor.css?v=1.0"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix" id="heard">
+        <a href="index.html" class="back fl"></a>
+        上医·王朝阳
+    </header>
+    <div class="main">
+
+        <div class="combo">
+
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a id="photo"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <span class="user fl" id="name">王朝阳</span>
+                        <span class="zhuzhi fl">主治医生</span>
+                        <a  class="detail fr" >查看详情</a>
+                    </div>
+                    <p id="shanchang">擅长：月经病、痛经病等</p>
+                    <p>相关证书：职业证书、资格证书等</p>
+                    <p id="fuwu">服务   220次     |     从业  14年</p>
+                </div>
+            </div>
+        </div>
+        <!-- tab栏-->
+        <div class="tab_box">
+            <div class="tab_top">
+                <ul>
+                    <li><a href="#" class="active" value="0">服务记录</a></li>
+                    <li><a href="#" value="1">服务日程</a></li>
+                </ul>
+
+            </div>
+            <div class="contain_box">
+                <div class="introduce selected  p">
+                    <div class="top_box">
+                        <div class="top">
+                            <span class="time">2018年3月18日</span>
+                            <i class="icon_01 fr"></i>
+                        </div>
+                        <div class="box">
+                            <ol>
+                                <li>1.生活照料</li>
+                                <li>2.专业护理</li>
+                                <li>3.产后恢复</li>
+                                <li>4.预防疾病</li>
+                            </ol>
+                            <div class="pinglun">我要评论</div>
+                            <!-- 评论的盒子-->
+                            <div class="pinglun_box">评论的内容</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="introduce f">
+                    <div class="top_box">
+                        <div class="top">
+                            <span class="time">2018年3月18日</span>
+                            <i class="icon_01 fr"></i>
+                        </div>
+                        <div class="box">
+                            <ol>
+                                <li>1.生活照料</li>
+                                <li>2.专业护理</li>
+                                <li>3.产后恢复</li>
+                                <li>4.预防疾病</li>
+                            </ol>
+                            <div class="pinglun">我要评论</div>
+                            <!-- 评论的盒子-->
+                            <div class="pinglun_box">评论的内容</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tishi">
+
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <div class="answers">
+            <button id="btn">我要提问</button>
+        </div>
+    </footer>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/my_doctor.js"></script>
+</html>

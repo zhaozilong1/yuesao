@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=720">
+    <link rel="stylesheet" href="./css/product_list.css" />
+    <script src="./js/mobile-util.js"></script>
+    <script src="./js/base.js"></script>
+	<script src="./js/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="warp">
+    <div class="warp_cen">
+		<a href="index.html"> <img src="images/icon.png"/></a>
+
+        <h2>商品列表</h2>
+        <span></span>
+   
+    </div>
+       <div class="dynamic_t clearfix">
+					<div class="dynamic_b fl">
+						<span>动态 | </span>
+					</div>
+					<span class="new"></span>
+					<marquee behavior = "scroll" direction = "left" behavior = "scroll" style="position: absolute;color: #d26262;font-size: 24px;margin-top:-46px;
+					float: right;width: 80%;margin-left: 112px;">
+						最新优惠打8折!!!
+					</marquee>
+		</div>
+        
+</div>
+<div id="list">
+
+</div>
+ 
+</body>
+<script type="text/javascript">
+var html="";
+	$(function(){
+		$.ajax({
+			url: shopsyysURL+"product/api/list",
+			type: "GET",
+			dataType: "json",
+			success: function(r){
+				 html="";
+				 $.each(r,function(n,t){
+				 	console.log(n,t);
+					 html+='<div class="one"></div>';
+					 html+='<div class="center" >';
+					 html+='    <div class="center_cen" >';
+					 html+='<div class="center_left" id='+t.id+' onclick="detailed(this)">';
+				     html+='    <img src="'+t.image+'" name='+t.id+' onclick="detailed_name(this)"/>';
+				     html+='</div>';
+				     html+='<div class="center_right">';
+				     html+='    <div class="center_top" onclick="detailed_name('+t.id+')"> ';
+				     html+='        <h2 onclick="">'+t.name+'</h2>';
+				     html+='    </div>';
+				     html+='    <div class="center_bottom"  onclick="detailed_name('+t.id+')">';
+				     html+='        <span>'+t.caption+'</span>';
+				     html+='        <i>￥'+t.price+'</i>';
+				     html+='    </div>';
+				     html+='	<div class="center_bottom bottom_num">';
+				     html+='        <button class="num1" onclick="numAdd(this)"><img src="images/red1.png" alt="" /></button><span>0</span><button class="num2" onclick="numdel(this)"><img src="images/minus.png" alt="" /><button>';
+				     html+='    </div>';
+				     html+='    <div class="center_but">';
+				     html+='        <button name='+t.id+' onclick="toBuy(this)">点击购买</button>';
+				     html+='    </div>';
+				     html+='</div></div></div>	';
+				 });
+				 $("#list").empty().append(html);
+			},
+			error:function(data){
+				
+			}
+			});
+	});
+	function numAdd(val){
+		var num = $(val).parent().children("span");
+		num.text(parseInt(num.text())+1);
+	}
+	function numdel(val){
+		var num = $(val).parent().children("span");
+		if (parseInt(num.text()) > 0) {
+			num.text(parseInt(num.text())-1);
+		} else {
+			num.text(0);
+		}
+		
+	}
+	function detailed_name(val){
+		window.location.href="product_detailed.html?productId="+val;
+	}
+	function detailed(val){
+		window.location.href="product_detailed.html?productId="+val.id;
+	}
+	function toBuy(val){
+		console.log(val);
+		// var unit = $(val).parent().siblings().children("i").text().substring(1);
+		var number = $(val).parent().siblings().find("span").eq(1).text();
+		// var price = parseFloat(unit) * parseInt(number);
+		// console.log(price);
+		window.location.href="product_order.html?productId="+val.name+"&number="+number;
+	}
+</script>
+</html>

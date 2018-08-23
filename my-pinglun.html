@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/my-pinglun.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="javascript:;" class="back fl"></a>
+        我要评论
+    </header>
+    <div class="main">
+        <div class="grade">
+            <div class="active" value="0">非常满意</div>
+            <div value="1">满意</div>
+            <div value="2">一般</div>
+            <div value="3">不满意</div>
+        </div>
+        <form action="">
+            <textarea placeholder="请输入您对此次服务的评论" id="content"></textarea>
+            <button type="button" onclick="saveComment()">提&nbsp;&nbsp;&nbsp;交</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/my-pinglun.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+    function saveComment() {
+        var url=window.location.search;
+        var suggest=new Object();
+        if(url.indexOf("?")!=-1) {
+            var str = url.substr(1)　//去掉?号
+            var　strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                suggest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        var userId=suggest["userId"];
+        var serviceId=suggest["serviceId"];
+        var sessionId=sessionStorage["sessionId"];
+        var commentGrade=$('.active').attr("value");
+        var commentContent=$('.active').text()+';'+$('#content').val();
+        var data={sessionid:sessionId,serviceRecordId:serviceId,suserId:userId,commentGrade:commentGrade,commentContent:commentContent};
+        console.log(data)
+        $.post(baseURL+"yuesao/sysuser/comment",data,function (result) {
+            if(result.code=="USR000"){
+                layer.open({
+                    content: "评论成功！"
+                    , btn: ['确定',]
+                    , yes: function (index) {
+                        layer.close(index);
+                        window.location.href="my_doctor.html?id="+userId;
+                    }
+                });
+            }else if(result.code=="USR124"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',]
+                    , yes: function (index) {
+                        layer.close(index);
+                        window.location.href="login.html";
+                    }
+                });
+            }
+        })
+
+    }
+$('.back').click(function () {
+    window.history.back();
+})
+</script>
+</html>

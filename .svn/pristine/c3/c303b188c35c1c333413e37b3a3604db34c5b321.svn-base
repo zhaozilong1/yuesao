@@ -1,0 +1,509 @@
+body {
+  background-color: #f0f0f0;
+  height: 200%; }
+
+.warp {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .warp header {
+    height: 2.87rem;
+    border-bottom: 1px solid #e5e5e5; }
+    .warp header .phase {
+      position: relative;
+      z-index: 1;
+      height: 2.87rem;
+      padding: 0 0.25rem;
+      background: url(../images/img_bg.png) no-repeat;
+      background-size: 7.2rem 2.87rem;
+      box-sizing: border-box;
+      display: none; }
+      .warp header .phase .phase_in .nickname_box {
+        height: 0.96rem;
+        line-height: 0.96rem;
+        font-size: 0.28rem; }
+        .warp header .phase .phase_in .nickname_box P span {
+          color: #e65683; }
+        .warp header .phase .phase_in .nickname_box .news {
+          display: block;
+          width: 0.32rem;
+          height: 0.31rem;
+          background: url("../images/icon_11.png") no-repeat;
+          background-size: 0.32rem 0.31rem;
+          margin-top: 0.22rem; }
+      .warp header .phase .phase_in .period_box {
+        text-align: center;
+        margin-top: 0.3rem; }
+        .warp header .phase .phase_in .period_box .fetation {
+          font-size: 0.32rem;
+          color: #e65683; }
+          .warp header .phase .phase_in .period_box .fetation i {
+            padding: 0.18rem 0.33rem;
+            background-color: #e65683;
+            color: #fff;
+            font-style: normal;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            font-size: 0.56rem; }
+        .warp header .phase .phase_in .period_box p {
+          font-size: 0.24rem;
+          color: #666666;
+          margin-top: 0.3rem; }
+  .warp .main {
+    margin-bottom: 50px; }
+    .warp .main .dynamic_box .dynamic_t {
+      height: 0.63rem;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 0.25rem;
+      background-color: #fff;
+      line-height: 0.63rem;
+      position: relative; }
+      .warp .main .dynamic_box .dynamic_t .dynamic_b {
+        padding-left: 0.5rem; }
+        .warp .main .dynamic_box .dynamic_t .dynamic_b span {
+          color: #000;
+          font-size: 0.28rem;
+          position: relative; }
+          .warp .main .dynamic_box .dynamic_t .dynamic_b span:before {
+            display: block;
+            content: "";
+            width: 0.28rem;
+            height: 0.28rem;
+            background: url("../images/icon_02.png") no-repeat;
+            background-size: 0.28rem 0.28rem;
+            position: absolute;
+            top: 0;
+            left: -0.5rem; }
+      .warp .main .dynamic_box .dynamic_t .new {
+        color: #666666;
+        font-size: 0.24rem;
+        padding-left: 0.1rem; }
+    .warp .main .dynamic_box .dynamic_n {
+      height: 3.8rem;
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+      margin-top: 0.1rem;
+      background-color: #fff;
+      padding: 0.2rem;
+      box-sizing: border-box; }
+      .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box {
+        height: 1.6rem;
+        display: flex; }
+        .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .doctor {
+          flex: 1;
+          background-color: #fff4f7;
+          height: 1.6rem;
+          margin: 0px 10px 10px 0;
+          border: 1px solid #fff4f7;
+          border-radius: 5px; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .doctor a {
+            flex: 1;
+            height: 1.6rem;
+            display: block; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .doctor .pic {
+            margin-top: 0.2rem;
+            margin-left: 0.1rem;
+            width: 1.04rem;
+            height: 1.04rem;
+            background: url(../images/icon_05.png) no-repeat;
+            background-size: 1.04rem 1.04rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .doctor .right {
+            font-size: 0.24rem;
+            color: #333333;
+            padding-left: 1.3rem;
+            padding-top: 0.2rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .doctor h3 {
+            font-weight: 400; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .doctor p {
+            font-size: 0.2rem;
+            color: #999999; }
+        .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .infant {
+          flex: 1;
+          background-color: #fff4f7;
+          height: 1.6rem;
+          margin: 0px 0 10px 0;
+          border: 1px solid #fff4f7;
+          border-radius: 5px; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .infant .pic {
+            margin-top: 0.2rem;
+            margin-left: 0.1rem;
+            width: 1.04rem;
+            height: 1.04rem;
+            background: url(../images/icon_06.png) no-repeat;
+            background-size: 1.04rem 1.04rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .infant .right {
+            font-size: 0.24rem;
+            color: #333333;
+            padding-left: 1.3rem;
+            padding-top: 0.2rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .infant h3 {
+            font-weight: 400; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_box .infant p {
+            font-size: 0.2rem;
+            color: #999999; }
+      .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom {
+        margin-top: 10px;
+        height: 1.6rem;
+        display: flex; }
+        .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .doctor {
+          flex: 1;
+          background-color: #fff4f7;
+          height: 1.6rem;
+          margin: 0px 10px 10px 0;
+          border: 1px solid #fff4f7;
+          border-radius: 5px; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .doctor .pic {
+            margin-top: 0.2rem;
+            margin-left: 0.1rem;
+            width: 1.04rem;
+            height: 1.04rem;
+            background: url(../images/icon_07.png) no-repeat;
+            background-size: 1.04rem 1.04rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .doctor .right {
+            font-size: 0.24rem;
+            color: #333333;
+            padding-left: 1.3rem;
+            padding-top: 0.2rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .doctor h3 {
+            font-weight: 400; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .doctor p {
+            font-size: 0.2rem;
+            color: #999999; }
+        .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .infant {
+          flex: 1;
+          background-color: #fff4f7;
+          height: 1.6rem;
+          margin: 0px 0 10px 0;
+          border: 1px solid #fff4f7;
+          border-radius: 5px; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .infant .pic {
+            margin-top: 0.2rem;
+            margin-left: 0.1rem;
+            width: 1.04rem;
+            height: 1.04rem;
+            background: url(../images/icon_08.png) no-repeat;
+            background-size: 1.04rem 1.04rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .infant .right {
+            font-size: 0.24rem;
+            color: #333333;
+            padding-left: 1.3rem;
+            padding-top: 0.2rem; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .infant h3 {
+            font-weight: 400; }
+          .warp .main .dynamic_box .dynamic_n .dynamic_in .kind_bottom .infant p {
+            font-size: 0.2rem;
+            color: #999999; }
+    .warp .main .recommend .recommend_top {
+      width: 100%;
+      height: 0.58rem;
+      line-height: 0.58rem;
+      border-bottom: 1px solid #e5e5e5;
+      border-top: 1px solid #e5e5e5;
+      background-color: #fff;
+      margin-top: 0.1rem;
+      padding: 0 0.25rem; }
+      .warp .main .recommend .recommend_top span {
+        font-size: 0.24rem;
+        color: #333333;
+        padding-left: 0.45rem;
+        position: relative;
+        font-size: 0.28rem; }
+        .warp .main .recommend .recommend_top span:before {
+          display: block;
+          content: "";
+          width: 0.28rem;
+          height: 0.28rem;
+          background: url("../images/icon_03.png") no-repeat;
+          background-size: 0.28rem 0.28rem;
+          position: absolute;
+          top: 0; }
+    .warp .main .recommend .recommend_bottom {
+      height: 1.76rem;
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      padding: 0 0.25rem;
+      box-sizing: border-box;
+      position: relative; }
+      .warp .main .recommend .recommend_bottom .pic {
+        width: 4.6rem;
+        height: 0.3rem;
+        background: url("../images/img_bg_01.png") no-repeat;
+        background-size: 4.6rem 0.3rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 3px auto; }
+        .warp .main .recommend .recommend_bottom .pic span {
+          font-size: 0.26rem;
+          position: absolute;
+          top: -2px;
+          left: 2rem;
+          color: #fff; }
+      .warp .main .recommend .recommend_bottom .doctor_sex {
+        width: 82%;
+        margin: 0 auto;
+        height: 1.76rem;
+        box-sizing: border-box;
+        overflow: hidden; }
+        .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box {
+          margin-top: 0.4rem; }
+          .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box ul {
+            display: flex; }
+            .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box ul li {
+              float: left;
+              flex: 1;
+              margin-top: 0.06rem; }
+              .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box ul li a p {
+                text-align: center;
+                font-size: 0.24rem;
+                margin-top: 0.03rem; }
+              .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box ul li a .li {
+                display: block;
+                content: "";
+                width: 0.8rem;
+                height: 0.8rem;
+                background: url("../images/img_10.png") no-repeat;
+                background-size: 0.8rem 0.8rem;
+                margin: auto; }
+              .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box ul li a .zhang {
+                display: block;
+                content: "";
+                width: 0.8rem;
+                height: 0.8rem;
+                background: url("../images/img_02.png") no-repeat;
+                background-size: 0.8rem 0.8rem;
+                margin: auto; }
+              .warp .main .recommend .recommend_bottom .doctor_sex .doctor_box ul li a .zhao {
+                display: block;
+                content: "";
+                width: 0.8rem;
+                height: 0.8rem;
+                background: url("../images/img_03.png") no-repeat;
+                background-size: 0.8rem 0.8rem;
+                margin: auto; }
+      .warp .main .recommend .recommend_bottom .arrow_left {
+        width: 0.22rem;
+        height: 0.4rem;
+        background: url("../images/icon_left.png") no-repeat;
+        background-size: 0.22rem 0.4rem;
+        position: absolute;
+        top: 0.7rem;
+        cursor: pointer; }
+      .warp .main .recommend .recommend_bottom .arrow_right {
+        width: 0.22rem;
+        height: 0.4rem;
+        background: url("../images/icon_right.png") no-repeat;
+        background-size: 0.22rem 0.4rem;
+        position: absolute;
+        right: 0.25rem;
+        top: 0.7rem;
+        cursor: pointer; }
+    .warp .main .combo .combo_top {
+      width: 100%;
+      height: 0.58rem;
+      line-height: 0.58rem;
+      border-bottom: 1px solid #e5e5e5;
+      border-top: 1px solid #e5e5e5;
+      background-color: #fff;
+      margin-top: 0.1rem;
+      padding: 0 0.25rem; }
+      .warp .main .combo .combo_top span {
+        font-size: 0.24rem;
+        color: #333333;
+        padding-left: 0.45rem;
+        position: relative;
+        font-size: 0.28rem; }
+        .warp .main .combo .combo_top span:before {
+          display: block;
+          content: "";
+          width: 0.28rem;
+          height: 0.28rem;
+          background: url(../images/icon_14.png) no-repeat;
+          background-size: 0.28rem 0.28rem;
+          position: absolute;
+          top: 0; }
+    .warp .main .combo .combo_bottom {
+      height: 1.76rem;
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #fff;
+      padding: 0 0.25rem;
+      box-sizing: border-box; }
+      .warp .main .combo .combo_bottom .pic a {
+        display: block;
+        width: 1.2rem;
+        height: 1.2rem;
+        background: url("../images/img_04.png") no-repeat;
+        background-size: 1.2rem 1.2rem;
+        margin-top: 0.25rem;
+        margin-right: 0.15rem; }
+      .warp .main .combo .combo_bottom .right {
+        float: left;
+        width: 76%;
+        height: 1.76rem;
+        position: relative; }
+        .warp .main .combo .combo_bottom .right .top {
+          padding-top: 0.2rem; }
+          .warp .main .combo .combo_bottom .right .top h3 {
+            font-size: 0.26rem;
+            font-weight: 400; }
+          .warp .main .combo .combo_bottom .right .top span {
+            color: #ff4400;
+            font-size: 0.28rem; }
+        .warp .main .combo .combo_bottom .right .text {
+          font-size: 0.2rem;
+          color: #666666; }
+        .warp .main .combo .combo_bottom .right .yuyue {
+          position: absolute;
+          right: -0.1rem;
+          bottom: 0.2rem; }
+          .warp .main .combo .combo_bottom .right .yuyue .order {
+            padding: 0.1rem 0.2rem;
+            background-color: #ff4400;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.26rem; }
+    .warp .main .classify_box {
+      display: block;
+      width: 100%;
+      height: 5rem;
+      background: url(../images/dingdan/img_index_bg.png) no-repeat;
+      background-size: 100% 5rem;
+      margin-top: 0.1rem;
+      overflow: hidden; }
+      .warp .main .classify_box .classify {
+        width: 3.98rem;
+        height: 4.13rem;
+        background: url("../images/fenlei_01.png") no-repeat;
+        background-size: 3.98rem 4.13rem;
+        margin: auto;
+        margin-top: 0.1rem;
+        position: relative; }
+        .warp .main .classify_box .classify .sijiao {
+          position: absolute;
+          top: 0;
+          left: 1.3rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 0.9rem 0.5rem 0 0.45rem; }
+        .warp .main .classify_box .classify .guanjia {
+          position: absolute;
+          top: 0.6rem;
+          left: 0.1rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 1rem 0.5rem 0 0.45rem; }
+        .warp .main .classify_box .classify .shangyi {
+          position: absolute;
+          top: 0.6rem;
+          left: 2.47rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 1rem 0.5rem 0 0.45rem; }
+        .warp .main .classify_box .classify .ziji {
+          position: absolute;
+          top: 1.3rem;
+          left: 1.35rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 1rem 0.5rem 0 0.45rem; }
+        .warp .main .classify_box .classify .yuesao {
+          position: absolute;
+          top: 2rem;
+          left: 0.1rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 1rem 0.5rem 0 0.45rem; }
+        .warp .main .classify_box .classify .yizhu {
+          position: absolute;
+          top: 2rem;
+          left: 2.47rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 1rem 0.5rem 0 0.45rem; }
+        .warp .main .classify_box .classify .yingyangshi {
+          position: absolute;
+          top: 2.7rem;
+          left: 1.2rem;
+          color: #fff;
+          font-size: 0.24rem;
+          padding: 1rem 0.5rem 0 0.45rem; }
+  .warp footer {
+    width: 100%;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    border-top: 1px solid #e5e5e5;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff8fa;
+    z-index: 2; }
+    .warp footer ul {
+      display: flex; }
+      .warp footer ul li {
+        flex: 1;
+        float: left;
+        text-align: center; }
+        .warp footer ul li a {
+          font-size: 0.24rem;
+          margin-top: 4px;
+          display: block; }
+          .warp footer ul li a p {
+            line-height: 1.5; }
+        .warp footer ul li span {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_tab_02.png") no-repeat;
+          background-size: 0.4rem 0.4rem;
+          margin: 2px auto; }
+        .warp footer ul li .jilu {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_tab_04.png") no-repeat;
+          background-size: 0.4rem 0.4rem;
+          margin: 2px auto; }
+        .warp footer ul li .zhishi {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_tab_06.png") no-repeat;
+          background-size: 0.4rem 0.4rem;
+          margin: 2px auto; }
+        .warp footer ul li .ziji {
+          display: block;
+          width: 0.4rem;
+          height: 0.4rem;
+          background: url("../images/icon_tab_08.png") no-repeat;
+          background-size: 0.4rem 0.4rem;
+          margin: 2px auto; }
+  .warp ul li a .active0 {
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("../images/icon_tab_01.png") no-repeat;
+    background-size: 0.4rem 0.4rem; }
+  .warp ul li a .active1 {
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("../images/icon_tab_03.png") no-repeat;
+    background-size: 0.4rem 0.4rem; }
+  .warp ul li a .active2 {
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("../images/icon_tab_05.png") no-repeat;
+    background-size: 0.4rem 0.4rem; }
+  .warp ul li a .active3 {
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("../images/icon_tab_07.png") no-repeat;
+    background-size: 0.4rem 0.4rem; }
+
+.warp footer ul p.change {
+  color: #d26262; }
+
+/*# sourceMappingURL=index.css.map */

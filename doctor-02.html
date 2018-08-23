@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/doctor-02.css"/>
+    <link rel="stylesheet" href="./lib/Swiper-4.0.7/dist/css/swiper.css"/>
+    <style>
+
+
+
+        .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+            background-image: url("./images/icon_right.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+            background-image: url("./images/icon_left.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a  class="back fl"></a>
+        医生提醒
+    </header>
+    <div class="main">
+        <!-- 医生提醒-->
+        <div class="recommend">
+            <div class="recommend_top">
+                <span>医生提醒</span>
+            </div>
+            <div class="recommend_bottom clearfix">
+                <div class="remind_box">
+                    <p>上午午饭后别忘记按时用药</p>
+                    <p>4月18日上午10点帮您四诊合参</p>
+                </div>
+            </div>
+        </div>
+        <!-- 我的医生动态-->
+        <div class="combo">
+            <div class="combo_top">
+                <span>我的医生动态</span>
+            </div>
+            <div class="combo_bottom clearfix" id="mydoctor">
+                <!--<div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">王朝阳</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>-->
+            </div>
+            <!-- <div class="combo_bottom clearfix">
+                 &lt;!&ndash;<div class="pic fl">
+                     <a href="#"></a>
+                 </div>
+                 <div class="right">
+                     <div class="top clearfix">
+                         <h3 class="fl">王朝阳</h3>
+                         <span class="fr">8:30</span>
+                     </div>
+                     <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                     <div class="upload clearfix">
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                     </div>
+                 </div>&ndash;&gt;
+             </div>-->
+        </div>
+        <!-- 全网医生动态-->
+        <div class="combo_box">
+            <div class="combo_top">
+                <span>全网医生动态</span>
+            </div>
+            <div class="combo_bottom clearfix" id="alldoctor">
+                <!--<div class="pic fl">-->
+                <!--<a href="#"></a>-->
+                <!--</div>-->
+                <!--<div class="right">-->
+                <!--<div class="top clearfix">-->
+                <!--<h3 class="fl">王朝阳</h3>-->
+                <!--<span class="fr">8:30</span>-->
+                <!--</div>-->
+                <!--<div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>-->
+                <!--<div class="upload" id="allDoctorPhoto">-->
+
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <!--<div class="combo_bottom clearfix">
+                &lt;!&ndash;<div class="pic fl">&ndash;&gt;
+                &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                &lt;!&ndash;</div>&ndash;&gt;
+                &lt;!&ndash;<div class="right">&ndash;&gt;
+                &lt;!&ndash;<div class="top clearfix">&ndash;&gt;
+                &lt;!&ndash;<h3 class="fl">王朝阳</h3>&ndash;&gt;
+                &lt;!&ndash;<span class="fr">8:30</span>&ndash;&gt;
+                &lt;!&ndash;</div>&ndash;&gt;
+                &lt;!&ndash;<div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>&ndash;&gt;
+                &lt;!&ndash;<div class="upload clearfix" id="myDoctorPhoto">&ndash;&gt;
+
+                &lt;!&ndash;</div>&ndash;&gt;
+            </div>-->
+        </div>
+    </div>
+</div>
+
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./lib/Swiper-4.0.7/dist/js/swiper.min.js"></script>
+<script>
+    var swiper2 = new Swiper('.recommentd-swiper', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+    $('.back').click(function () {
+        window.history.back();
+    })
+    $(function () {
+        var sessionId = sessionStorage['sessionId'];
+        var remind_box = $(".remind_box");
+        $("#mydoctor").empty();
+        remind_box.empty();
+        $.post(baseURL+"yuesao/dynamic/doctorDynamic",{"sessionid":sessionId,"flag":1},function (result) {
+            console.log(result)
+            if (result.code == 'USR000') {//成功
+                var suggests = result.data.suggest;
+                showDoctorSuggests(suggests);
+                var mydoctor=result.data.mydoctor;
+                showMydoctorDynamic(mydoctor);
+
+            } else if (result.code == 'USR100') {//医生暂无意见
+
+            } else if (result.code == 'USR103') {//该医师暂无发布动态
+
+            } else if (result.code == 'USR148') {//没有上医动态
+
+            } else {//其余情况
+
+            }
+        });
+    })
+    function showMydoctorDynamic(mydoctor) {
+        console.log("155:"+typeof(mydoctor)=='string');
+        if(typeof(mydoctor)=='string'){
+            var p = '<div>'+mydoctor+'</div>';
+            $("#mydoctor").append(p);
+            return;
+        }
+        console.log("149"+suggests.length);
+                if(mydoctor){
+                    for(var i in mydoctor){
+                        var dynamic=mydoctor[i];
+                        var div = '<div class="combo_bottom clearfix">'+
+                            '<div class="pic fl">'+
+                            '<a href="personal_information.html?id="'+dynamic.sysId+'></a>'+
+                            '</div>'+
+                            '<div class="right" onclick="skipDynamic()">'+
+                            '<div class="top clearfix">'+
+                            '<h3 class="fl">'+dynamic.userName+'</h3>'+
+                            '<span class="fr">'+dynamic.createDate+'</span>'+
+                            '</div>'+
+                            '<div class="text">'+dynamic.says+'</div>'+
+                            '<div class="upload">'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>';
+                        div=$(div);
+                        div.find('a').css('background-image','url('+baseURL2+dynamic.userPhoto+')');
+                        if(dynamic.dynamicPhoto!=null){
+                            console.log("pic:");
+                            var pic=dynamic.dynamicPhoto.split(';');
+                            for(var j=0;j<pic.length;j++){
+                                var upload='<span></span>';
+                                upload=$(upload).css('background-image','url('+baseURL2+pic[j]+')');
+                                div.find('.upload').append(upload);
+                            }
+                        }
+                        $("#mydoctor").append(div);
+                    }
+                }
+    }
+    function showAlldoctorDynamic() {
+        var alldoctor = $("#alldoctor");
+        alldoctor.empty();
+        $.post(baseURL+"yuesao/dynamic/allDoctorDynamic",function (result) {
+            if(result.code == 'USR000'){
+                var allDoctorDynamic=result.data.allDoctor;
+                if(allDoctorDynamic.length>0){
+                    for(var i in allDoctorDynamic){
+                        var dynamic=allDoctorDynamic[i];
+                        var div = '<div class="combo_bottom clearfix">'+
+                            '<div class="pic fl">'+
+                            '<a href="personal_information.html?id='+dynamic.sysId+'"></a>'+
+                            '</div>'+
+                            '<div class="right">'+
+                            '<div class="top clearfix">'+
+                            '<h3 class="fl">'+dynamic.userName+'</h3>'+
+                            '<span class="fr">'+dynamic.createDate+'</span>'+
+                            '</div>'+
+                            '<div class="text">'+dynamic.says+'</div>'+
+                            '<div class="upload">'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>';
+                        div=$(div);
+                        div.find('a').css('background-image','url('+baseURL2+dynamic.userPhoto+')');
+                        if(dynamic.dynamicPhoto!=null){
+                            var pic=dynamic.dynamicPhoto.split(';');
+                            for(var j=0;j<pic.length;j++){
+                                var upload='<span></span>';
+                                upload=$(upload).css('background-image','url('+baseURL2+pic[j]+')');
+                                div.find('.upload').append(upload);
+                            }
+                        }
+                        alldoctor.append(div);
+                    }
+                }
+            }else if(result.code=="USR102"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                        window.location.href="login.html";
+                    }
+                });
+
+            }
+
+        });
+    }
+    function showDoctorSuggests(suggests){
+        console.log("155:"+typeof(suggests)=='string');
+        if(typeof(suggests)=='string'){
+            var p = '<div>'+suggests+'</div>';
+            $(".remind_box").append(p);
+            return;
+        }
+        console.log("149"+suggests.length);
+        for (var i in suggests) {
+            var p = '<p>'+suggests[i].suggest+'</p>'
+            remind_box.append(p);
+        }
+    }
+    showAlldoctorDynamic();
+function skipDynamic() {
+    window.location.href="doctor-dynamic.html"
+}
+</script>
+</body>
+</html>

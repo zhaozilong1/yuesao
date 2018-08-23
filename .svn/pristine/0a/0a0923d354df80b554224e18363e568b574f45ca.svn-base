@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/state.css"/>
+</head>
+<body>
+<!--头部字--ew777111-----------11111117wwe---体展示区-->
+<header class="head">
+</header>
+<!--状态区域-->
+<div class="base">
+    <div class="status">请选择您当前所处的状态：</div>
+    <!--备孕-->
+    <button class="Ready" onclick="window.location.href = 'ready_pregnancy.html?statuFlah=0'">备孕</button>
+    <!--孕期-->
+    <button class="pregnancy" onclick="window.location.href = 'expected.html'">孕期</button>
+    <!--育儿期-->
+    <button class="Parentingperiod" onclick="window.location.href = 'baobao.html'">育儿期</button>
+
+    <button class="Parentingperiod save" onclick="window.location.href = 'data.html'">保存</button>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/state.js"></script>
+<!--<script src="./js/pregnancy.js"></script>-->
+</html>

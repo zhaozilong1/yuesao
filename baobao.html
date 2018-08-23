@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/baobao.css"/>
+    <link rel="stylesheet" href="./css/datetimepicker/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css">
+    <style>
+
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="warp">
+    <div class="box_top">
+        <header>宝宝准确消息
+            <a class="back"></a>
+        </header>
+        <div class="birth">
+            请选择宝宝出生日期:
+            <!--<input type="date" id="id_yy_input" onchange="checkdate();" required max=now/>-->
+            <input type="text" value="2017-07-31 17:58" id="datetimepicker"  class="form_datetime" data-date-format="yyyy-mm-dd">
+
+        </div>
+        <div class="sex clearfix">
+            <input name="status" id="status" type="hidden" value="2">
+
+            <div class="nan fl">
+                <span class="pic_nan"></span>
+                <p class="sex_n">男孩</p>
+            </div>
+            <div class="nv fr">
+                <span class="pic_nv"></span>
+                <p class="sex_n">女孩</p>
+            </div>
+        </div>
+        <div class="next">
+            <button id="btn">下一步</button>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./js/baobao.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./js/datetimepicker/bootstrap.min.js" type="text/javascript" language="utf-8"></script>
+<script src="./js/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript" language="utf-8"></script>
+<script>
+    $(function () {
+        console.log("11111111111jjjjjll111111111");
+        var now = new Date().toDateString();
+        $('.nv .pic_nv').css("background-image", "url('./images/icon_woman-02.png')");
+        $('.nan .pic_nan').css("background-image", "url('./images/icon_man-01.png')");
+    })
+    var sex = -1;
+
+    $('#btn').click(function () {
+        var date = $("#datetimepicker").val();
+        sessionStorage['date']=date;
+        sessionStorage['babySex']=sex;
+        // $.cookie('date',date);
+        // $.cookie('babySex',sex);
+        console.log("sex",sex)
+        if (sex == -1) {
+            layer.open({
+                content: '请选择宝宝性别'
+                , btn: ['确定',],
+                skin: 'my-skin'
+                , yes: function (index) {
+                    layer.close(index);
+                }
+            });
+            return;
+        }
+        var today = new Date();
+        today = today.getFullYear()+"-"+eval(today.getMonth()+"+1")+"-"+today.getDate();
+        console.log(date,today)
+        if (date == today) {
+            layer.open({
+                content: '若宝宝今天出生，请选择确定，否则请取消!'
+                , btn: ['确定','取消'],
+                skin: 'my-skin'
+                , btn1: function (index) {
+                    layer.close(index);
+                    window.location.href = 'server.html?state=2';
+                }
+                , btn2: function (index) {
+                    layer.close(index);
+                    return;
+                }
+            });
+        } else {
+            window.location.href = 'server.html?state=2';
+        }
+
+    });
+    $('.nv .pic_nv').css("background-image", "url('./images/icon_woman-02.png')");
+    $('.nan .pic_nan').css("background-image", "url('./images/icon_man-01.png')");
+
+    $('.nan').click(function () {
+        sex=0;
+        $('.nv .pic_nv').css("background-image", "url('./images/icon_woman-02.png')");
+        $('.nan .pic_nan').css("background-image", "url('./images/man.png')");
+    });
+    $('.nv').click(function () {
+        sex=1;
+        $('.nan .pic_nan').css("background-image", "url('./images/icon_man-01.png')");
+        $('.nv .pic_nv').css("background-image", "url('./images/woman.png')");
+    });
+    $('.back').click(function () {
+        window.history.back();
+    });
+
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth()+1;
+        var day = now.getDate();
+        console.log(year+"/"+month+"/"+day)
+        $("#datetimepicker").attr("value",year+"-"+month+"-"+day);
+    })
+    $('#datetimepicker').datetimepicker({
+        endDate: new Date(),
+        language:"zh-CN",
+        todayHighlight: true,
+        minView:2,//最精准的时间选择为日期0-分 1-时 2-日 3-月
+        weekStart:1,
+        autoclose : true,
+        format: 'yyyy-mm-dd',      /*此属性是显示顺序，还有显示顺序是mm-dd-yyyy*/
+    });
+
+
+    $("#datetimepicker").focus(function(){
+        document.activeElement.blur();
+    });
+</script>
+
+</html>

@@ -1,0 +1,120 @@
+.warp {
+  width: 100%;
+  height: 100%; }
+
+.warp header {
+  height: 0.58rem;
+  line-height: 0.58rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff8fa;
+  text-align: center;
+  font-size: 0.36rem;
+  color: #333333;
+  padding: 0.25rem; }
+
+.warp header .back {
+  display: block;
+  width: 0.28rem;
+  height: 0.28rem;
+  background: url("../images/doctor-01/icon_back.png") no-repeat;
+  background-size: 0.28rem 0.28rem;
+  margin-top: 0.17rem; }
+
+.warp .banner {
+  width: 100%;
+  height: 3.77rem;
+  background: url(../images/bg_pic.png) no-repeat;
+  background-size: 100% 3.77rem; }
+
+.warp .tab_box {
+  background-color: #fff; }
+
+.warp .tab_box .tab_top {
+  width: 100%;
+  height: 0.8rem;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 0.8rem; }
+
+.warp .tab_box .tab_top ul {
+  display: flex; }
+
+.warp .tab_box .tab_top ul li {
+  float: left;
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #e5e5e5;
+  font-size: 0.28rem;
+  color: #333333; }
+
+.warp .tab_box .tab_top ul li:last-child {
+  border-right: none; }
+
+.warp .tab_box .tab_top ul li a {
+  display: block; }
+
+.warp .list {
+  margin-bottom: 0.99rem; }
+
+.warp .list .combo_bottom {
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+  padding: 0 0.25rem;
+  box-sizing: border-box; }
+
+.warp .list .combo_bottom .pic a {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url("../images/zhishi.png") no-repeat;
+  background-size: 1.2rem 1.2rem;
+  margin-top: 0.15rem;
+  margin-right: 0.15rem;
+  margin-bottom: 0.2rem; }
+
+.warp .list .combo_bottom .right {
+  float: left;
+  width: 76%; }
+
+.warp .list .combo_bottom .right .top {
+  padding-top: 0.1rem; }
+
+.warp .list .combo_bottom .right .top h3 {
+  font-size: 0.26rem;
+  font-weight: 400; }
+
+.warp .list .combo_bottom .right .top span {
+  color: #999999;
+  font-size: 0.24rem; }
+
+.warp .list .combo_bottom .right .text {
+  font-size: 0.24rem;
+  color: #666666;
+  padding-bottom: 0.1rem; }
+
+.warp .list .combo_bottom .right .upload {
+  height: 1.4rem; }
+
+.warp .list .combo_bottom .right .upload span {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url(../images/img_04.png) no-repeat;
+  background-size: 1.2rem 1.2rem;
+  float: left;
+  margin: 0 0.2rem; }
+
+.warp .list .combo_bottom .right .time {
+  padding-top: 0.2rem;
+  font-size: 0.22rem;
+  color: #c0c0c0; }
+
+.warp .tab_box .contain_box .introduce.selected {
+  display: block; }
+
+.warp .tab_box .tab_top ul li a.active {
+  background-color: #fff3f3;
+  color: #ff4400; }
+
+/*# sourceMappingURL=knowledge_list.css.map */
+
+/*# sourceMappingURL=knowledge_list.css.map */

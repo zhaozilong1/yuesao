@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/quickening.css"/>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="record.html" class="back fl"></a>
+        胎动计数
+    </header>
+    <div class="main">
+        <div class="record_box">
+            <span class="fl">记录</span>
+            <span class="fr">胎动计数</span>
+        </div>
+
+        <div id="count-record" class="record_pic ensconce">
+            <span class="time">时间记录</span>
+            <!--<p class="miaobiao">0:0:23</p>-->
+            <p>
+                <input type="text" id="timetext" value="00:00:00" readonly class="miaobiao"><br>
+                <input type="text" style="display: none;" id="timetextval"> 
+            </p>
+            <a href="#" class="count" onclick="countstart()"> 
+                <span id="count-click"></span>
+            </a>
+            <p id="count-text">提示:点击按钮即可开始测试</p>
+            <button id="count-btn" onclick="countstop()" style="display: none">结束</button>
+        </div>
+
+        <div id="count-info" class="record_pic save-cishu ensconce" style="display: none">
+            <div class="julu_t">
+                时间记录: <span id="count-sjjl">0:0:34</span>
+            </div>
+            <div class="taidong_c">
+                胎动次数: <span id="count-num">11次</span>
+            </div>
+            <div class="btn_box">
+                <button onclick="save()">保存记录</button>
+                <button onclick="countReset()">重新开始</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.cookie.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script>
+
+    /**
+     * 中间开始
+     */
+    function countstart() {
+        var obj = $("#count-click").text();
+        if(obj == null || obj == '') {
+            $("#count-click").text(1);
+            start();
+        } else {
+            var t =obj.substr(0);
+            var s = t - 0;
+            $("#count-click").text( + (s + 1));
+        }
+
+        $("#count-text").hide();
+        $("#count-btn").show();
+    }
+
+    /**
+     * 停止按钮
+     */
+    function countstop() {
+        stop();
+        $("#count-record").hide();
+        $("#count-info").show();
+
+
+        var obj = $("#count-click").text();
+        console.log();
+        var t =obj.substr(1);
+        var s = t - 0;
+
+        var time = $("#timetext").val();
+
+        $("#count-sjjl").text(time);
+        $("#count-num").text(obj+"次");
+
+    }
+
+    /**
+     * 重置
+     */
+    function countReset() {
+        Reset();
+        $("#count-click").text("");
+        $("#count-record").show();
+        $("#count-info").hide();
+    }
+
+    /**
+     * 保存
+     */
+    function save() {
+        var sessionId=sessionStorage["sessionId"];
+        console.log("session:"+sessionId)
+        var sjjl = $("#timetextval").val();
+        //var sjjl = $("#count-sjjl").text();
+        if(sjjl==null||sjjl.trim()==""){
+            layer.open({
+                content: "请填写时间记录",
+                btn: ['确定',]
+            });
+            return;
+        }
+        var num = $("#count-num").text();
+        if(num==null||num.trim()==""){
+            layer.open({
+                content: "请填写胎动次数",
+                btn: ['确定',]
+            });
+            return;
+        }
+        alert("时间记录："+sjjl +"秒"+ ", 胎动次数：" + num);
+        num =num.substr(0,num.indexOf("次"));
+        $.post(baseURL+"yuesao/record/save",{sessionid:sessionId,recordId:3,chronograph:sjjl,times:num},function (r) {
+            console.log(r)
+            if(r.code=="USR100"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }else if(r.code=="USR000"){
+                layer.open({
+                    content: r.msg,
+                    btn: ['确定',]
+                });
+            }
+        })
+    }
+    var hour,minute,second;//时 分 秒
+    hour=minute=second=0;//初始化
+    var millisecond=0;//毫秒
+    var int;
+    function Reset()//重置
+    {
+        window.clearInterval(int);
+        millisecond=hour=minute=second=0;
+        document.getElementById('timetext').value='00:00:00';
+    }
+
+    function start()//开始
+    {
+        int=setInterval(timer,50);
+    }
+
+    function timer()//计时
+    {
+        millisecond=millisecond+50;
+        if(millisecond>=1000)
+        {
+            millisecond=0;
+            second=second+1;
+        }
+        if(second>=60)
+        {
+            second=0;
+            minute=minute+1;
+        }
+
+        if(minute>=60)
+        {
+            minute=0;
+            hour=hour+1;
+        }
+        document.getElementById('timetext').value=hour+'时'+minute+'分'+second+'秒';
+        $("#timetextval").val(second+minute*60+hour*60*60);
+
+    }
+
+    function stop()//暂停
+    {
+        window.clearInterval(int);
+    }
+
+</script>
+
+
+</html>

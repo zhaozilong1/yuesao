@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/maternity-02.css"/>
+    <link rel="stylesheet" href="./lib/Swiper-4.0.7/dist/css/swiper.css"/>
+    <style>
+        .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+            background-image: url("./images/icon_right.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+            background-image: url("./images/icon_left.png");
+            width:0.22rem;
+            height: 0.4rem;
+            background-size:0.22rem 0.4rem;
+            top: 66%;
+        }
+    </style>
+</head>
+<body>
+<div class="warp">
+    <header class="clearfix">
+        <a href="index.html" class="back fl"></a>
+        月嫂风采
+    </header>
+    <div class="main">
+        <!-- 医生提醒-->
+        <div class="recommend">
+            <div class="recommend_top">
+                <span>月嫂提醒</span>
+            </div>
+            <div class="recommend_bottom clearfix">
+                <div class="remind_box">
+                    <p>上午午饭后别忘记按时用药</p>
+                    <p>4月18日上午10点帮您四诊合参</p>
+                </div>
+            </div>
+        </div>
+        <!-- 我的月嫂动态-->
+        <div class="combo" id="myMoon">
+            <div class="combo_top">
+                <span>我的月嫂动态</span>
+            </div>
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">月嫂1号</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">月嫂2号</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload clearfix">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 全网月嫂动态-->
+        <div class="combo_box" id="allMoon">
+            <div class="combo_top">
+                <span>全网月嫂动态</span>
+            </div>
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">月嫂1号</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="combo_bottom clearfix">
+                <div class="pic fl">
+                    <a href="#"></a>
+                </div>
+                <div class="right">
+                    <div class="top clearfix">
+                        <h3 class="fl">月嫂2号</h3>
+                        <span class="fr">8:30</span>
+                    </div>
+                    <div class="text">《2015年中国卫生统计年鉴》公布的数据显示，近5年来，我国儿科医生总数从10.5万下降到10万，平均每1000名儿童只有0.43位儿科医生，与全国平均每千人配备2.06名医师水平相比相去甚远。有人测算过，几年前，我国的儿科医生缺口就有20万。</div>
+                    <div class="upload clearfix">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/base.js"></script>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./lib/layer/layer.js"></script>
+<script src="./lib/Swiper-4.0.7/dist/js/swiper.min.js"></script>
+<script>
+    var swiper2 = new Swiper('.recommentd-swiper', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+<script>
+    $(function () {
+       getSuggest();
+       allMoonDynamic();
+        $('.combo_bottom').remove();
+    });
+    //获取月嫂提示
+    function getSuggest() {
+        $(".remind_box").empty();
+        var sessionId = sessionStorage['sessionId'];
+        $.post(baseURL+"yuesao/moonDynamic/moonDynamic",{"sessionid":sessionId,"flag":2},function (result) {
+            console.log(result)
+            if (result.code == 'USR000') {//成功
+                var suggests = result.data.suggest;
+                var myMoon = result.data.myMoon;
+                showSuggest(suggests);
+                showMyMoon(myMoon);
+            }else if(result.code=="USR102"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                        window.location.href="login.html";
+                    }
+                });
+
+            }
+        });
+    }
+    //获取我的月嫂动态
+    function showMyMoon(myMoonD){
+        console.log("155:"+typeof(myMoonD)=='string');
+        if(typeof(myMoonD)=='string'){
+            var p = '<div>'+myMoonD+'</div>';
+            $("#myMoon").append(p);
+            return;
+        }
+        if (myMoonD.length> 0) {
+            for (var i in myMoonD) {
+                var p = '<p>'+myMoonD[i].suggest+'</p>';
+                $("#myMoon").append(p);
+            }
+        }
+                if (myMoonD) {
+                    for (var i in myMoonD ){
+                        var moon = myMoonD[i];
+                        var div = '<div class="combo_bottom clearfix">'+
+                            '<div class="pic fl">'+
+                            '<a href="personal_information.html?id='+moon.sysId+'"></a>'+
+                            '</div>'+
+                            '<div class="right">'+
+                            '<div class="top clearfix">'+
+                            '<h3 class="fl">'+moon.userName+'</h3>'+
+                            '<span class="fr">'+moon.createDate+'</span>'+
+                            '</div>'+
+                            '<div class="text">'+moon.says+'</div>'+
+                            '<div class="upload">'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>';
+                        div=$(div);
+                        div.find('a').css('background-image','url('+baseURL2+moon.userPhoto+')');
+                        if(moon.photo!=null){
+                            var pic=moon.dynamicPhoto.split(';');
+                            for(var j=0;j<pic.length;j++){
+                                var upload='<span></span>';
+                                upload=$(upload).css('background-image','url('+baseURL2+pic[j]+')');
+                                div.find('.upload').append(upload);
+                            }
+                        }
+                        $("#myMoon").append(div);
+                    }
+
+                }
+    }
+    //获取全网月嫂
+    function allMoonDynamic() {
+        $.post(baseURL+"yuesao/moonDynamic/allMoonDynamic",function (result) {
+            console.log(result)
+            if (result.code == 'USR000') {//成功
+                var allMoom = result.data.allMoon;
+                var allmoon = $("#allMoon");
+                $('combo_bottom').remove();
+                if (allMoom.length > 0) {
+                    for (var i in allMoom) {
+                        var moon = allMoom[i];
+                        var div = '<div class="combo_bottom clearfix">'+
+                            '<div class="pic fl">'+
+                            '<a href="personal_information.html?id='+moon.sysId+'"></a>'+
+                            '</div>'+
+                            '<div class="right">'+
+                            '<div class="top clearfix">'+
+                            '<h3 class="fl">'+moon.userName+'</h3>'+
+                            '<span class="fr">'+moon.createDate+'</span>'+
+                            '</div>'+
+                            '<div class="text">'+moon.says+'</div>'+
+                            '<div class="upload">'+
+                            '</div>'+
+                            '</div>'+
+                            '</div>';
+                        div=$(div);
+                        div.find('a').css('background-image','url('+baseURL2+moon.userPhoto+')');
+                        if(moon.dynamicPhoto!=null){
+                            console.log('pic');
+                            var pic=moon.dynamicPhoto.split(';');
+                            for(var j=0;j<pic.length;j++){
+                                var upload='<span></span>';
+                                upload=$(upload).css('background-image','url('+baseURL2+pic[j]+')');
+                                div.find('.upload').append(upload);
+                            }
+                        }
+                        allmoon.append(div);
+                    }
+                }
+            }else if(result.code=="USR102"){
+                layer.open({
+                    content: result.msg
+                    , btn: ['确定',],
+                    skin: 'my-skin'
+                    , yes: function (index) {
+                        layer.close(index);
+                        window.location.href="login.html";
+                    }
+                });
+
+            }
+        });
+
+    }
+    function showSuggest(suggests){
+        console.log("155:"+typeof(suggests)=='string');
+        if(typeof(suggests)=='string'){
+            var p = '<div>'+suggests+'</div>';
+            $(".remind_box").append(p);
+            return;
+        }
+        if (suggests.length> 0) {
+            for (var i in suggests) {
+                var p = '<p>'+suggests[i].suggest+'</p>';
+                $(".remind_box").append(p);
+            }
+        }
+    }
+</script>
+</html>
